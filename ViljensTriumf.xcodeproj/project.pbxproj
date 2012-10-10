@@ -11,8 +11,18 @@
 		DD303C111625FA4400A4764C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DD303C0F1625FA4400A4764C /* InfoPlist.strings */; };
 		DD303C131625FA4400A4764C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DD303C121625FA4400A4764C /* main.m */; };
 		DD303C171625FA4400A4764C /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = DD303C151625FA4400A4764C /* Credits.rtf */; };
-		DD303C1A1625FA4400A4764C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DD303C191625FA4400A4764C /* AppDelegate.m */; };
+		DD303C1A1625FA4400A4764C /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = DD303C191625FA4400A4764C /* AppDelegate.mm */; };
 		DD303C1D1625FA4400A4764C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD303C1B1625FA4400A4764C /* MainMenu.xib */; };
+		DD303C3A1625FB7A00A4764C /* BlackMagicController.mm in Sources */ = {isa = PBXBuildFile; fileRef = DD303C241625FA7300A4764C /* BlackMagicController.mm */; };
+		DD303C3B1625FBA700A4764C /* CoreImageViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = DD303C261625FA7300A4764C /* CoreImageViewer.m */; };
+		DD303C3C1625FBA700A4764C /* DecklinkCallback.mm in Sources */ = {isa = PBXBuildFile; fileRef = DD303C281625FA7300A4764C /* DecklinkCallback.mm */; };
+		DD303C3D1625FBA700A4764C /* DeckLinkAPIDispatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD303C391625FAED00A4764C /* DeckLinkAPIDispatch.cpp */; };
+		DD303C3F1625FCB800A4764C /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD303C3E1625FCB800A4764C /* Quartz.framework */; };
+		DD303C411625FCBF00A4764C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD303C401625FCBF00A4764C /* QuartzCore.framework */; };
+		DD303C43162602C400A4764C /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD303C42162602C400A4764C /* ApplicationServices.framework */; };
+		DD303C54162605FF00A4764C /* ChromaFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = DD303C50162605FE00A4764C /* ChromaFilter.m */; };
+		DD303C55162605FF00A4764C /* deinterlaceFilter.cikernel in Resources */ = {isa = PBXBuildFile; fileRef = DD303C51162605FF00A4764C /* deinterlaceFilter.cikernel */; };
+		DD303C56162605FF00A4764C /* DeinterlaceFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = DD303C53162605FF00A4764C /* DeinterlaceFilter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,8 +37,24 @@
 		DD303C141625FA4400A4764C /* ViljensTriumf-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ViljensTriumf-Prefix.pch"; sourceTree = "<group>"; };
 		DD303C161625FA4400A4764C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		DD303C181625FA4400A4764C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		DD303C191625FA4400A4764C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		DD303C191625FA4400A4764C /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		DD303C1C1625FA4400A4764C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		DD303C231625FA7300A4764C /* BlackMagicController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlackMagicController.h; sourceTree = "<group>"; };
+		DD303C241625FA7300A4764C /* BlackMagicController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = BlackMagicController.mm; sourceTree = "<group>"; };
+		DD303C251625FA7300A4764C /* CoreImageViewer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreImageViewer.h; sourceTree = "<group>"; };
+		DD303C261625FA7300A4764C /* CoreImageViewer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreImageViewer.m; sourceTree = "<group>"; };
+		DD303C271625FA7300A4764C /* DecklinkCallback.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DecklinkCallback.h; sourceTree = "<group>"; };
+		DD303C281625FA7300A4764C /* DecklinkCallback.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = DecklinkCallback.mm; sourceTree = "<group>"; };
+		DD303C381625FAED00A4764C /* DeckLinkAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DeckLinkAPI.h; path = "libs/Blackmagic DeckLink SDK 9.6.4/Mac/include/DeckLinkAPI.h"; sourceTree = SOURCE_ROOT; };
+		DD303C391625FAED00A4764C /* DeckLinkAPIDispatch.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = DeckLinkAPIDispatch.cpp; path = "libs/Blackmagic DeckLink SDK 9.6.4/Mac/include/DeckLinkAPIDispatch.cpp"; sourceTree = SOURCE_ROOT; };
+		DD303C3E1625FCB800A4764C /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
+		DD303C401625FCBF00A4764C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		DD303C42162602C400A4764C /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
+		DD303C4F162605FE00A4764C /* ChromaFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChromaFilter.h; sourceTree = "<group>"; };
+		DD303C50162605FE00A4764C /* ChromaFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChromaFilter.m; sourceTree = "<group>"; };
+		DD303C51162605FF00A4764C /* deinterlaceFilter.cikernel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = deinterlaceFilter.cikernel; sourceTree = "<group>"; };
+		DD303C52162605FF00A4764C /* DeinterlaceFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeinterlaceFilter.h; sourceTree = "<group>"; };
+		DD303C53162605FF00A4764C /* DeinterlaceFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeinterlaceFilter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +62,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD303C43162602C400A4764C /* ApplicationServices.framework in Frameworks */,
+				DD303C411625FCBF00A4764C /* QuartzCore.framework in Frameworks */,
+				DD303C3F1625FCB800A4764C /* Quartz.framework in Frameworks */,
 				DD303C071625FA4400A4764C /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -46,6 +75,9 @@
 		DD303BF71625FA4300A4764C = {
 			isa = PBXGroup;
 			children = (
+				DD303C42162602C400A4764C /* ApplicationServices.framework */,
+				DD303C401625FCBF00A4764C /* QuartzCore.framework */,
+				DD303C3E1625FCB800A4764C /* Quartz.framework */,
 				DD303C0C1625FA4400A4764C /* ViljensTriumf */,
 				DD303C051625FA4400A4764C /* Frameworks */,
 				DD303C031625FA4400A4764C /* Products */,
@@ -82,8 +114,17 @@
 		DD303C0C1625FA4400A4764C /* ViljensTriumf */ = {
 			isa = PBXGroup;
 			children = (
+				DD303C4E162605FE00A4764C /* filters */,
 				DD303C181625FA4400A4764C /* AppDelegate.h */,
-				DD303C191625FA4400A4764C /* AppDelegate.m */,
+				DD303C191625FA4400A4764C /* AppDelegate.mm */,
+				DD303C231625FA7300A4764C /* BlackMagicController.h */,
+				DD303C241625FA7300A4764C /* BlackMagicController.mm */,
+				DD303C251625FA7300A4764C /* CoreImageViewer.h */,
+				DD303C261625FA7300A4764C /* CoreImageViewer.m */,
+				DD303C271625FA7300A4764C /* DecklinkCallback.h */,
+				DD303C281625FA7300A4764C /* DecklinkCallback.mm */,
+				DD303C381625FAED00A4764C /* DeckLinkAPI.h */,
+				DD303C391625FAED00A4764C /* DeckLinkAPIDispatch.cpp */,
 				DD303C1B1625FA4400A4764C /* MainMenu.xib */,
 				DD303C0D1625FA4400A4764C /* Supporting Files */,
 			);
@@ -100,6 +141,18 @@
 				DD303C151625FA4400A4764C /* Credits.rtf */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DD303C4E162605FE00A4764C /* filters */ = {
+			isa = PBXGroup;
+			children = (
+				DD303C4F162605FE00A4764C /* ChromaFilter.h */,
+				DD303C50162605FE00A4764C /* ChromaFilter.m */,
+				DD303C51162605FF00A4764C /* deinterlaceFilter.cikernel */,
+				DD303C52162605FF00A4764C /* DeinterlaceFilter.h */,
+				DD303C53162605FF00A4764C /* DeinterlaceFilter.m */,
+			);
+			path = filters;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,6 +209,7 @@
 				DD303C111625FA4400A4764C /* InfoPlist.strings in Resources */,
 				DD303C171625FA4400A4764C /* Credits.rtf in Resources */,
 				DD303C1D1625FA4400A4764C /* MainMenu.xib in Resources */,
+				DD303C55162605FF00A4764C /* deinterlaceFilter.cikernel in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,8 +220,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD303C3B1625FBA700A4764C /* CoreImageViewer.m in Sources */,
+				DD303C3C1625FBA700A4764C /* DecklinkCallback.mm in Sources */,
+				DD303C3D1625FBA700A4764C /* DeckLinkAPIDispatch.cpp in Sources */,
 				DD303C131625FA4400A4764C /* main.m in Sources */,
-				DD303C1A1625FA4400A4764C /* AppDelegate.m in Sources */,
+				DD303C1A1625FA4400A4764C /* AppDelegate.mm in Sources */,
+				DD303C3A1625FB7A00A4764C /* BlackMagicController.mm in Sources */,
+				DD303C54162605FF00A4764C /* ChromaFilter.m in Sources */,
+				DD303C56162605FF00A4764C /* DeinterlaceFilter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
