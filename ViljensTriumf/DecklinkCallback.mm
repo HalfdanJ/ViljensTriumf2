@@ -246,43 +246,45 @@ HRESULT		DecklinkCallback::VideoInputFormatChanged (/* in */ BMDVideoInputFormat
 HRESULT 	DecklinkCallback::VideoInputFrameArrived (/* in */ IDeckLinkVideoInputFrame* videoFrame, /* in */ IDeckLinkAudioInputPacket* audioPacket)
 {
     @autoreleasepool {
-        
-        [lock lock];
-        //        BMDPixelFormat pixelFormat = videoFrame->GetPixelFormat();
-        BMDTimeValue		frameTime, frameDuration;
-        int					hours, minutes, seconds, frames;
-        HRESULT				theResult;
-        
-        videoFrame->GetStreamTime(&frameTime, &frameDuration, 600);
-        theResult = decklinkOutput->ScheduleVideoFrame(videoFrame, frameTime, frameDuration, 600);
-        //if (theResult != S_OK)
-        //	printf("Scheduling failed with error = %08x\n", (unsigned int)theResult);
-        
-        
-        
-        w = videoFrame->GetWidth();
-        h = videoFrame->GetHeight();
-        size = w * h * 4;
-        
-        
-        /* if(bytes){
-         delete bytes;
-         }*/
-        bytes = YuvToRgb(videoFrame);
-        /*imageRep = [[NSBitmapImageRep alloc] initWithBitmapDataPlanes:&bytes
-         pixelsWide:w pixelsHigh:h
-         bitsPerSample:8 samplesPerPixel:3
-         hasAlpha:NO isPlanar:NO
-         colorSpaceName:NSDeviceRGBColorSpace
-         bitmapFormat:0
-         bytesPerRow:3*w bitsPerPixel:8*3];        // bwFrames(bytes,w*h);
-         
-         */
-        newFrame = true;
-        [lock unlock];
-        
-    
-        [delegate newFrame:this];
+        if(!delegateBusy){
+            [lock lock];
+            //        BMDPixelFormat pixelFormat = videoFrame->GetPixelFormat();
+            BMDTimeValue		frameTime, frameDuration;
+            int					hours, minutes, seconds, frames;
+            HRESULT				theResult;
+            
+            videoFrame->GetStreamTime(&frameTime, &frameDuration, 600);
+            theResult = decklinkOutput->ScheduleVideoFrame(videoFrame, frameTime, frameDuration, 600);
+            //if (theResult != S_OK)
+            //	printf("Scheduling failed with error = %08x\n", (unsigned int)theResult);
+            
+            
+            
+            w = videoFrame->GetWidth();
+            h = videoFrame->GetHeight();
+            size = w * h * 4;
+            
+            
+            /* if(bytes){
+             delete bytes;
+             }*/
+            bytes = YuvToRgb(videoFrame);
+            /*imageRep = [[NSBitmapImageRep alloc] initWithBitmapDataPlanes:&bytes
+             pixelsWide:w pixelsHigh:h
+             bitsPerSample:8 samplesPerPixel:3
+             hasAlpha:NO isPlanar:NO
+             colorSpaceName:NSDeviceRGBColorSpace
+             bitmapFormat:0
+             bytesPerRow:3*w bitsPerPixel:8*3];        // bwFrames(bytes,w*h);
+             
+             */
+            newFrame = true;
+            
+            [delegate newFrame:this];
+            
+            [lock unlock];
+            
+        }
     }
     //  videoFrame->get
     

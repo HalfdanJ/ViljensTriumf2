@@ -50,5 +50,6 @@ public:
     NSRecursiveLock * lock;
     
     id delegate;
+    bool delegateBusy;
 };
 
