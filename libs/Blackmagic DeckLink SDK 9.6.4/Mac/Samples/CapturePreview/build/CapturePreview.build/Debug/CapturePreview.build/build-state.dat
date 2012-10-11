@@ -1,0 +1,290 @@
+TCapturePreview
+v5
+r1
+cCheck dependencies
+cProcessInfoPlistFile "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/Debug/CapturePreview.app/Contents/Info.plist" CapturePreview-Info.plist
+cCompileXIB "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/English.lproj/MainMenu.xib"
+cCopyStringsFile "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/Debug/CapturePreview.app/Contents/Resources/English.lproj/InfoPlist.strings" English.lproj/InfoPlist.strings
+cProcessPCH++ /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/CapturePreview_Prefix-birtdagmiieezoajrvnmflkgpwin/CapturePreview_Prefix.pch.pth CapturePreview_Prefix.pch normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cProcessPCH /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/CapturePreview_Prefix-fdopvjvyetxjntazyohqhtyapjvd/CapturePreview_Prefix.pch.pth CapturePreview_Prefix.pch normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cProcessPCH++ /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/CapturePreview_Prefix-cyrnzuyewghtezcmxvyagvzujgyh/CapturePreview_Prefix.pch.pth CapturePreview_Prefix.pch normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CapturePreview.build/Debug/CapturePreview.build/Objects-normal/x86_64/DeckLinkAPIDispatch.o "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/../../include/DeckLinkAPIDispatch.cpp" normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CapturePreview.build/Debug/CapturePreview.build/Objects-normal/x86_64/main.o "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/main.m" normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CapturePreview.build/Debug/CapturePreview.build/Objects-normal/x86_64/DeckLinkController.o "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/DeckLinkController.mm" normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CapturePreview.build/Debug/CapturePreview.build/Objects-normal/x86_64/CapturePreview.o "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/CapturePreview.mm" normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cLd "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/Debug/CapturePreview.app/Contents/MacOS/CapturePreview" normal x86_64
+cTouch "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/Debug/CapturePreview.app"
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk
+c000000004F90F72900000000000000CC
+t1334900521
+s204
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/Cocoa.framework/Headers/Cocoa.h
+c00000000505F2B0800000000000001E5
+t1348414216
+s485
+
+N/System/Library/Frameworks/Cocoa.framework/Cocoa
+c00000000501426A20000000000006730
+t1343497890
+s26416
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/../../include/DeckLinkAPIDispatch.cpp
+c00000000504DC7BC0000000000001A49
+t1347274684
+s6729
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/CapturePreview.mm
+c00000000504DC7BC0000000000001D32
+t1347274684
+s7474
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/CapturePreview_Prefix.pch
+c00000000504DC7BC000000000000009F
+t1347274684
+s159
+i<Cocoa/Cocoa.h>
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/DeckLinkController.mm
+c00000000504DC7BC0000000000002BDE
+t1347274684
+s11230
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/English.lproj/InfoPlist.strings
+c00000000504DC7BC000000000000002D
+t1347274684
+s45
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/English.lproj/MainMenu.xib
+c00000000504DC7BC000000000003AA88
+t1347274684
+s240264
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/Objects-normal/x86_64/CapturePreview.LinkFileList
+c00000000506B11C900000000000002B3
+t1349194185
+s691
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/Objects-normal/x86_64/CapturePreview.o
+t2
+s0
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/Objects-normal/x86_64/DeckLinkAPIDispatch.o
+t2
+s0
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/Objects-normal/x86_64/DeckLinkController.o
+t2
+s0
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/Objects-normal/x86_64/main.o
+t2
+s0
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/Debug/CapturePreview.app
+t2
+s0
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/Debug/CapturePreview.app/Contents/Info.plist
+t2
+s0
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/Debug/CapturePreview.app/Contents/MacOS/CapturePreview
+t2
+s0
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/Debug/CapturePreview.app/Contents/PkgInfo
+t2
+s0
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/Debug/CapturePreview.app/Contents/Resources/English.lproj/InfoPlist.strings
+t2
+s0
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/Debug/CapturePreview.app/Contents/Resources/English.lproj/MainMenu.nib
+t2
+s0
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/main.m
+c00000000504DC7BC0000000000000625
+t1347274684
+s1573
+
+N/var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/CapturePreview_Prefix-birtdagmiieezoajrvnmflkgpwin/CapturePreview_Prefix.pch.pth
+t2
+s0
+
+N/var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/CapturePreview_Prefix-cyrnzuyewghtezcmxvyagvzujgyh/CapturePreview_Prefix.pch.pth
+t2
+s0
+
+N/var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/CapturePreview_Prefix-fdopvjvyetxjntazyohqhtyapjvd/CapturePreview_Prefix.pch.pth
+t2
+s0
+
+NCapturePreview-Info.plist
+c00000000504DC7BC00000000000003EE
+t1347274684
+s1006
+
+CBuild AST from "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/../../include/DeckLinkAPIDispatch.cpp"
+r0
+
+CBuild AST from "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/CapturePreview.mm"
+r0
+
+CBuild AST from "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/DeckLinkController.mm"
+r0
+
+CBuild AST from "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/main.m"
+r0
+
+CCheck dependencies
+r0
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies9fe37749491bb641^0bd18949491bb641^---0#1#0#--18"Check dependencies36"88A53348-9CB8-40C0-B64E-05E9F7F1B0AF-
+
+CCompileC build/CapturePreview.build/Debug/CapturePreview.build/Objects-normal/x86_64/CapturePreview.o "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/CapturePreview.mm" normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+s370886986.521587
+e370886986.687781
+r1
+xCompileC
+xbuild/CapturePreview.build/Debug/CapturePreview.build/Objects-normal/x86_64/CapturePreview.o
+x/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/CapturePreview.mm
+xnormal
+xx86_64
+xobjective-c++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection105"Compile /Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/CapturePreview.mmcfa4854a491bb641^d311b04a491bb641^---0#0#0#-19%DVTDocumentLocation2@119"file://localhost/Users/jonas/Downloads/Blackmagic%20DeckLink%20SDK%209.6.4/Mac/Samples/CapturePreview/CapturePreview.mm0000000000000000^3926"CompileC build/CapturePreview.build/Debug/CapturePreview.build/Objects-normal/x86_64/CapturePreview.o CapturePreview.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview"    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch x86_64 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-arc-abi -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.6 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -iquote "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/CapturePreview-generated-files.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/CapturePreview-own-target-headers.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/CapturePreview-all-target-headers.hmap" -iquote "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/CapturePreview-project-headers.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/Debug/include" -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/DerivedSources/x86_64" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/DerivedSources" "-F/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/Debug" -include /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/CapturePreview_Prefix-birtdagmiieezoajrvnmflkgpwin/CapturePreview_Prefix.pch -MMD -MT dependencies -MF "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/Objects-normal/x86_64/CapturePreview.d" --serialize-diagnostics "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/Objects-normal/x86_64/CapturePreview.dia" -c "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/CapturePreview.mm" -o "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/Objects-normal/x86_64/CapturePreview.o"36"50B34BE8-0520-4DB7-B22D-944E7D0E12D1-
+
+CCompileC build/CapturePreview.build/Debug/CapturePreview.build/Objects-normal/x86_64/DeckLinkAPIDispatch.o "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/../../include/DeckLinkAPIDispatch.cpp" normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s370886985.680946
+e370886985.787980
+r1
+xCompileC
+xbuild/CapturePreview.build/Debug/CapturePreview.build/Objects-normal/x86_64/DeckLinkAPIDispatch.o
+x/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/../../include/DeckLinkAPIDispatch.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection125"Compile /Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/../../include/DeckLinkAPIDispatch.cpp8979ae49491bb641^13b8c949491bb641^---0#0#0#-19%DVTDocumentLocation2@139"file://localhost/Users/jonas/Downloads/Blackmagic%20DeckLink%20SDK%209.6.4/Mac/Samples/CapturePreview/../../include/DeckLinkAPIDispatch.cpp0000000000000000^3627"CompileC build/CapturePreview.build/Debug/CapturePreview.build/Objects-normal/x86_64/DeckLinkAPIDispatch.o ../../include/DeckLinkAPIDispatch.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview"    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.6 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -iquote "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/CapturePreview-generated-files.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/CapturePreview-own-target-headers.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/CapturePreview-all-target-headers.hmap" -iquote "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/CapturePreview-project-headers.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/Debug/include" -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/DerivedSources/x86_64" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/DerivedSources" "-F/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/Debug" -include /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/CapturePreview_Prefix-cyrnzuyewghtezcmxvyagvzujgyh/CapturePreview_Prefix.pch -MMD -MT dependencies -MF "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/Objects-normal/x86_64/DeckLinkAPIDispatch.d" --serialize-diagnostics "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/Objects-normal/x86_64/DeckLinkAPIDispatch.dia" -c "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/../../include/DeckLinkAPIDispatch.cpp" -o "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/Objects-normal/x86_64/DeckLinkAPIDispatch.o"36"17A05897-E1B5-4AD1-9BDE-FEB48CD0C8F7-
+
+CCompileC build/CapturePreview.build/Debug/CapturePreview.build/Objects-normal/x86_64/DeckLinkController.o "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/DeckLinkController.mm" normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+s370886986.521590
+e370886986.750917
+r1
+xCompileC
+xbuild/CapturePreview.build/Debug/CapturePreview.build/Objects-normal/x86_64/DeckLinkController.o
+x/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/DeckLinkController.mm
+xnormal
+xx86_64
+xobjective-c++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection109"Compile /Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/DeckLinkController.mm7ba4854a491bb641^b43bc04a491bb641^---0#0#0#-19%DVTDocumentLocation2@123"file://localhost/Users/jonas/Downloads/Blackmagic%20DeckLink%20SDK%209.6.4/Mac/Samples/CapturePreview/DeckLinkController.mm0000000000000000^3950"CompileC build/CapturePreview.build/Debug/CapturePreview.build/Objects-normal/x86_64/DeckLinkController.o DeckLinkController.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview"    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch x86_64 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-arc-abi -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.6 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -iquote "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/CapturePreview-generated-files.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/CapturePreview-own-target-headers.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/CapturePreview-all-target-headers.hmap" -iquote "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/CapturePreview-project-headers.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/Debug/include" -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/DerivedSources/x86_64" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/DerivedSources" "-F/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/Debug" -include /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/CapturePreview_Prefix-birtdagmiieezoajrvnmflkgpwin/CapturePreview_Prefix.pch -MMD -MT dependencies -MF "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/Objects-normal/x86_64/DeckLinkController.d" --serialize-diagnostics "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/Objects-normal/x86_64/DeckLinkController.dia" -c "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/DeckLinkController.mm" -o "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/Objects-normal/x86_64/DeckLinkController.o"36"485D8FA1-2E21-46CF-8B11-2C34AA824C24-
+
+CCompileC build/CapturePreview.build/Debug/CapturePreview.build/Objects-normal/x86_64/main.o "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/main.m" normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s370886986.284969
+e370886986.313744
+r1
+xCompileC
+xbuild/CapturePreview.build/Debug/CapturePreview.build/Objects-normal/x86_64/main.o
+x/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/main.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection94"Compile /Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/main.md717494a491bb641^ec51504a491bb641^---0#0#0#-19%DVTDocumentLocation2@108"file://localhost/Users/jonas/Downloads/Blackmagic%20DeckLink%20SDK%209.6.4/Mac/Samples/CapturePreview/main.m0000000000000000^3731"CompileC build/CapturePreview.build/Debug/CapturePreview.build/Objects-normal/x86_64/main.o main.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview"    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch x86_64 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.6 -g -fvisibility=hidden -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -iquote "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/CapturePreview-generated-files.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/CapturePreview-own-target-headers.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/CapturePreview-all-target-headers.hmap" -iquote "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/CapturePreview-project-headers.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/Debug/include" -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/DerivedSources/x86_64" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/DerivedSources" "-F/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/Debug" -include /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/CapturePreview_Prefix-fdopvjvyetxjntazyohqhtyapjvd/CapturePreview_Prefix.pch -MMD -MT dependencies -MF "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/Objects-normal/x86_64/main.d" --serialize-diagnostics "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/Objects-normal/x86_64/main.dia" -c "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/main.m" -o "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/Objects-normal/x86_64/main.o"36"D5DCE81E-B0A5-4EFB-A96A-3B1D0D48BB5A-
+
+CCompileXIB "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/English.lproj/MainMenu.xib"
+s370886985.546866
+e370886985.649107
+r1
+xCompileXIB
+x/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/English.lproj/MainMenu.xib
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection116"Compiling /Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/English.lproj/MainMenu.xib5a0e8c49491bb641^562ca649491bb641^---0#0#0#-19%DVTDocumentLocation2@128"file://localhost/Users/jonas/Downloads/Blackmagic%20DeckLink%20SDK%209.6.4/Mac/Samples/CapturePreview/English.lproj/MainMenu.xib0000000000000000^728"CompileXIB English.lproj/MainMenu.xib    cd "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview"    setenv XCODE_DEVELOPER_USR_PATH /Applications/Xcode.app/Contents/Developer/usr/bin/..    /Applications/Xcode.app/Contents/Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/Debug/CapturePreview.app/Contents/Resources/English.lproj/MainMenu.nib" "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/English.lproj/MainMenu.xib" --sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk36"6F632009-9218-43EA-BE6C-9DD5B4DC6B6E-
+
+CCopyStringsFile "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/Debug/CapturePreview.app/Contents/Resources/English.lproj/InfoPlist.strings" English.lproj/InfoPlist.strings
+s370886985.546869
+e370886985.550505
+r1
+xCopyStringsFile
+x/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/Debug/CapturePreview.app/Contents/Resources/English.lproj/InfoPlist.strings
+xEnglish.lproj/InfoPlist.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection36"Copy English.lproj/InfoPlist.stringsc7108c49491bb641^e5ed8c49491bb641^---0#0#0#-19%DVTDocumentLocation2@133"file://localhost/Users/jonas/Downloads/Blackmagic%20DeckLink%20SDK%209.6.4/Mac/Samples/CapturePreview/English.lproj/InfoPlist.strings0000000000000000^490"CopyStringsFile build/Debug/CapturePreview.app/Contents/Resources/English.lproj/InfoPlist.strings English.lproj/InfoPlist.strings    cd "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding UTF-16 --outdir "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/Debug/CapturePreview.app/Contents/Resources/English.lproj" -- English.lproj/InfoPlist.strings36"CC973F1B-0AAA-4066-B639-4B78B204AF0D-
+
+CLd "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/Debug/CapturePreview.app/Contents/MacOS/CapturePreview" normal x86_64
+s370886986.757731
+e370886986.794732
+r1
+xLd
+x/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/Debug/CapturePreview.app/Contents/MacOS/CapturePreview
+xnormal
+xx86_64
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection145"Link /Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/Debug/CapturePreview.app/Contents/MacOS/CapturePreview800bc24a491bb641^c173cb4a491bb641^---0#0#0#--1026"Ld build/Debug/CapturePreview.app/Contents/MacOS/CapturePreview normal x86_64    cd "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview"    setenv MACOSX_DEPLOYMENT_TARGET 10.6    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk "-L/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/Debug" "-F/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/Debug" -filelist "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/Objects-normal/x86_64/CapturePreview.LinkFileList" -mmacosx-version-min=10.6 -fobjc-link-runtime -framework Cocoa -o "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/Debug/CapturePreview.app/Contents/MacOS/CapturePreview"36"5EA2B5DD-A1B1-4656-A011-0E4338124CF1-
+
+CProcessInfoPlistFile "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/Debug/CapturePreview.app/Contents/Info.plist" CapturePreview-Info.plist
+s370886985.536273
+e370886985.538856
+r1
+xProcessInfoPlistFile
+x/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/Debug/CapturePreview.app/Contents/Info.plist
+xCapturePreview-Info.plist
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection33"Process CapturePreview-Info.plistb4598949491bb641^ff208a49491bb641^---0#0#0#-19%DVTDocumentLocation2@127"file://localhost/Users/jonas/Downloads/Blackmagic%20DeckLink%20SDK%209.6.4/Mac/Samples/CapturePreview/CapturePreview-Info.plist0000000000000000^558"ProcessInfoPlistFile build/Debug/CapturePreview.app/Contents/Info.plist CapturePreview-Info.plist    cd "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview"    builtin-infoPlistUtility CapturePreview-Info.plist -genpkginfo "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/Debug/CapturePreview.app/Contents/PkgInfo" -expandbuildsettings -platform macosx -o "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/Debug/CapturePreview.app/Contents/Info.plist"36"A4DC0ED0-5836-480B-8E6B-6F8224AF0B36-
+
+CProcessPCH /Users/jonas/Library/Developer/Xcode/DerivedData/CapturePreview-dmbrkziazimhesbuxysjdztkwkpm/Index/PrecompiledHeaders/CapturePreview_Prefix-gplqgukhosqtzwhdrfxlqpesnbls_ast/CapturePreview_Prefix.pch.pth CapturePreview_Prefix.pch normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.astbuilder
+r0
+
+CProcessPCH /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/CapturePreview_Prefix-fdopvjvyetxjntazyohqhtyapjvd/CapturePreview_Prefix.pch.pth CapturePreview_Prefix.pch normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s370886985.656646
+e370886986.272228
+r1
+xProcessPCH
+x/var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/CapturePreview_Prefix-fdopvjvyetxjntazyohqhtyapjvd/CapturePreview_Prefix.pch.pth
+xCapturePreview_Prefix.pch
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection36"Precompile CapturePreview_Prefix.pch1539a849491bb641^c4b2454a491bb641^---0#0#0#-19%DVTDocumentLocation2@127"file://localhost/Users/jonas/Downloads/Blackmagic%20DeckLink%20SDK%209.6.4/Mac/Samples/CapturePreview/CapturePreview_Prefix.pch0000000000000000^3716"ProcessPCH /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/CapturePreview_Prefix-fdopvjvyetxjntazyohqhtyapjvd/CapturePreview_Prefix.pch.pth CapturePreview_Prefix.pch normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview"    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c-header -arch x86_64 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.6 -g -fvisibility=hidden -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -iquote "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/CapturePreview-generated-files.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/CapturePreview-own-target-headers.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/CapturePreview-all-target-headers.hmap" -iquote "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/CapturePreview-project-headers.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/Debug/include" -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/DerivedSources/x86_64" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/DerivedSources" "-F/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/Debug" --serialize-diagnostics /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/CapturePreview_Prefix-fdopvjvyetxjntazyohqhtyapjvd/CapturePreview_Prefix.pch.dia -c "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/CapturePreview_Prefix.pch" -o /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/CapturePreview_Prefix-fdopvjvyetxjntazyohqhtyapjvd/CapturePreview_Prefix.pch.pth -MMD -MT dependencies -MF /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/CapturePreview_Prefix-fdopvjvyetxjntazyohqhtyapjvd/CapturePreview_Prefix.pch.d36"FA125959-FB19-4D6B-8AC4-3618F458065D-
+
+CProcessPCH++ /Users/jonas/Library/Developer/Xcode/DerivedData/CapturePreview-dmbrkziazimhesbuxysjdztkwkpm/Index/PrecompiledHeaders/CapturePreview_Prefix-acylxrjhbzxelldtexdbmwxhaedf_ast/CapturePreview_Prefix.pch.pth CapturePreview_Prefix.pch normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.astbuilder
+r0
+
+CProcessPCH++ /Users/jonas/Library/Developer/Xcode/DerivedData/CapturePreview-dmbrkziazimhesbuxysjdztkwkpm/Index/PrecompiledHeaders/CapturePreview_Prefix-bgyvpxogakbmgmbpzlwbutkmnzjy_ast/CapturePreview_Prefix.pch.pth CapturePreview_Prefix.pch normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.astbuilder
+r0
+
+CProcessPCH++ /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/CapturePreview_Prefix-birtdagmiieezoajrvnmflkgpwin/CapturePreview_Prefix.pch.pth CapturePreview_Prefix.pch normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+s370886985.656624
+e370886986.515216
+r1
+xProcessPCH++
+x/var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/CapturePreview_Prefix-birtdagmiieezoajrvnmflkgpwin/CapturePreview_Prefix.pch.pth
+xCapturePreview_Prefix.pch
+xnormal
+xx86_64
+xobjective-c++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection36"Precompile CapturePreview_Prefix.pch0c3ba849491bb641^00e5834a491bb641^---0#0#0#-19%DVTDocumentLocation2@127"file://localhost/Users/jonas/Downloads/Blackmagic%20DeckLink%20SDK%209.6.4/Mac/Samples/CapturePreview/CapturePreview_Prefix.pch0000000000000000^3851"ProcessPCH++ /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/CapturePreview_Prefix-birtdagmiieezoajrvnmflkgpwin/CapturePreview_Prefix.pch.pth CapturePreview_Prefix.pch normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview"    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++-header -arch x86_64 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-arc-abi -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.6 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -iquote "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/CapturePreview-generated-files.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/CapturePreview-own-target-headers.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/CapturePreview-all-target-headers.hmap" -iquote "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/CapturePreview-project-headers.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/Debug/include" -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/DerivedSources/x86_64" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/DerivedSources" "-F/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/Debug" --serialize-diagnostics /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/CapturePreview_Prefix-birtdagmiieezoajrvnmflkgpwin/CapturePreview_Prefix.pch.dia -c "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/CapturePreview_Prefix.pch" -o /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/CapturePreview_Prefix-birtdagmiieezoajrvnmflkgpwin/CapturePreview_Prefix.pch.pth -MMD -MT dependencies -MF /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/CapturePreview_Prefix-birtdagmiieezoajrvnmflkgpwin/CapturePreview_Prefix.pch.d36"A217D164-82D6-4878-B9D7-117B24229971-
+
+CProcessPCH++ /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/CapturePreview_Prefix-cyrnzuyewghtezcmxvyagvzujgyh/CapturePreview_Prefix.pch.pth CapturePreview_Prefix.pch normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s370886985.656652
+e370886985.674516
+r1
+xProcessPCH++
+x/var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/CapturePreview_Prefix-cyrnzuyewghtezcmxvyagvzujgyh/CapturePreview_Prefix.pch.pth
+xCapturePreview_Prefix.pch
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection36"Precompile CapturePreview_Prefix.pch3f3ba849491bb641^15adac49491bb641^---0#0#0#-19%DVTDocumentLocation2@127"file://localhost/Users/jonas/Downloads/Blackmagic%20DeckLink%20SDK%209.6.4/Mac/Samples/CapturePreview/CapturePreview_Prefix.pch0000000000000000^3492"ProcessPCH++ /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/CapturePreview_Prefix-cyrnzuyewghtezcmxvyagvzujgyh/CapturePreview_Prefix.pch.pth CapturePreview_Prefix.pch normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview"    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++-header -arch x86_64 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.6 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -iquote "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/CapturePreview-generated-files.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/CapturePreview-own-target-headers.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/CapturePreview-all-target-headers.hmap" -iquote "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/CapturePreview-project-headers.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/Debug/include" -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/DerivedSources/x86_64" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/CapturePreview.build/Debug/CapturePreview.build/DerivedSources" "-F/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/Debug" --serialize-diagnostics /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/CapturePreview_Prefix-cyrnzuyewghtezcmxvyagvzujgyh/CapturePreview_Prefix.pch.dia -c "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/CapturePreview_Prefix.pch" -o /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/CapturePreview_Prefix-cyrnzuyewghtezcmxvyagvzujgyh/CapturePreview_Prefix.pch.pth -MMD -MT dependencies -MF /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/CapturePreview_Prefix-cyrnzuyewghtezcmxvyagvzujgyh/CapturePreview_Prefix.pch.d36"EA005235-ED9C-4EB1-9C70-C7D1FA33432D-
+
+CTouch "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/Debug/CapturePreview.app"
+s370886986.802738
+e370886986.808024
+r1
+xTouch
+x/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/Debug/CapturePreview.app
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection116"Touch /Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/Debug/CapturePreview.appb98ecd4a491bb641^98dace4a491bb641^---0#0#0#--261"Touch build/Debug/CapturePreview.app    cd "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview"    /usr/bin/touch -c "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/CapturePreview/build/Debug/CapturePreview.app"36"30576AFE-0A94-48F6-A7B6-30B04ADF17B5-
+

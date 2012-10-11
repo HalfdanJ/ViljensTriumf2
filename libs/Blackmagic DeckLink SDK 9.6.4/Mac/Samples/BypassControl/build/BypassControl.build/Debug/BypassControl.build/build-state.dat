@@ -1,0 +1,129 @@
+TBypassControl
+v5
+r1
+cCheck dependencies
+cCompileC build/BypassControl.build/Debug/BypassControl.build/Objects-normal/x86_64/DeckLinkAPIDispatch.o "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/../../include/DeckLinkAPIDispatch.cpp" normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/BypassControl.build/Debug/BypassControl.build/Objects-normal/x86_64/main.o "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/main.cpp" normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/BypassControl.build/Debug/BypassControl.build/Objects-normal/x86_64/PlaybackHelper.o "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/PlaybackHelper.cpp" normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cLd "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/build/Debug/BypassControl" normal x86_64
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk
+c000000004F90F72900000000000000CC
+t1334900521
+s204
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/CoreFoundation.framework/CoreFoundation
+c00000000505F2B08000000000007809C
+t1348414216
+s491676
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/../../include/DeckLinkAPI.h
+c00000000504DC7BC000000000000830B
+t1347274684
+s33547
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/../../include/DeckLinkAPIDispatch.cpp
+c00000000504DC7BC0000000000001A49
+t1347274684
+s6729
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/PlaybackHelper.cpp
+c00000000504DC7BC0000000000002647
+t1347274684
+s9799
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/PlaybackHelper.h
+c00000000504DC7BC0000000000000C3D
+t1347274684
+s3133
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/build/BypassControl.build/Debug/BypassControl.build/Objects-normal/x86_64/BypassControl.LinkFileList
+c00000000506B11FA00000000000001F9
+t1349194234
+s505
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/build/BypassControl.build/Debug/BypassControl.build/Objects-normal/x86_64/DeckLinkAPIDispatch.o
+t2
+s0
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/build/BypassControl.build/Debug/BypassControl.build/Objects-normal/x86_64/PlaybackHelper.o
+t2
+s0
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/build/BypassControl.build/Debug/BypassControl.build/Objects-normal/x86_64/main.o
+t2
+s0
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/build/Debug/BypassControl
+t2
+s0
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/main.cpp
+c00000000504DC7BC000000000000098B
+t1347274684
+s2443
+i"DeckLinkAPI.h"
+i"PlaybackHelper.h"
+
+CBuild AST from "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/../../include/DeckLinkAPIDispatch.cpp"
+r0
+
+CBuild AST from "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/PlaybackHelper.cpp"
+r0
+
+CBuild AST from "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/main.cpp"
+r0
+
+CCheck dependencies
+r0
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependenciesaddfb07a491bb641^13b9b47a491bb641^---0#1#0#--18"Check dependencies36"4F56E7FC-F0B6-41CD-9B5D-9BC8E425A580-
+
+CCompileC build/BypassControl.build/Debug/BypassControl.build/Objects-normal/x86_64/DeckLinkAPIDispatch.o "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/../../include/DeckLinkAPIDispatch.cpp" normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s370887034.709802
+e370887034.805642
+r1
+xCompileC
+xbuild/BypassControl.build/Debug/BypassControl.build/Objects-normal/x86_64/DeckLinkAPIDispatch.o
+x/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/../../include/DeckLinkAPIDispatch.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection124"Compile /Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/../../include/DeckLinkAPIDispatch.cppb56fb67a491bb641^b43dce7a491bb641^---0#0#0#-19%DVTDocumentLocation2@138"file://localhost/Users/jonas/Downloads/Blackmagic%20DeckLink%20SDK%209.6.4/Mac/Samples/BypassControl/../../include/DeckLinkAPIDispatch.cpp0000000000000000^3147"CompileC build/BypassControl.build/Debug/BypassControl.build/Objects-normal/x86_64/DeckLinkAPIDispatch.o ../../include/DeckLinkAPIDispatch.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl"    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.6 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -iquote "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/build/BypassControl.build/Debug/BypassControl.build/BypassControl-generated-files.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/build/BypassControl.build/Debug/BypassControl.build/BypassControl-own-target-headers.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/build/BypassControl.build/Debug/BypassControl.build/BypassControl-all-target-headers.hmap" -iquote "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/build/BypassControl.build/Debug/BypassControl.build/BypassControl-project-headers.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/build/Debug/include" -I../../include "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/build/BypassControl.build/Debug/BypassControl.build/DerivedSources/x86_64" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/build/BypassControl.build/Debug/BypassControl.build/DerivedSources" "-F/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/build/Debug" -MMD -MT dependencies -MF "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/build/BypassControl.build/Debug/BypassControl.build/Objects-normal/x86_64/DeckLinkAPIDispatch.d" --serialize-diagnostics "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/build/BypassControl.build/Debug/BypassControl.build/Objects-normal/x86_64/DeckLinkAPIDispatch.dia" -c "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/../../include/DeckLinkAPIDispatch.cpp" -o "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/build/BypassControl.build/Debug/BypassControl.build/Objects-normal/x86_64/DeckLinkAPIDispatch.o"36"8257998F-CE7D-4ED6-926D-45FE67349501-
+
+CCompileC build/BypassControl.build/Debug/BypassControl.build/Objects-normal/x86_64/PlaybackHelper.o "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/PlaybackHelper.cpp" normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s370887034.709884
+e370887034.827425
+r1
+xCompileC
+xbuild/BypassControl.build/Debug/BypassControl.build/Objects-normal/x86_64/PlaybackHelper.o
+x/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/PlaybackHelper.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection105"Compile /Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/PlaybackHelper.cpp876ab67a491bb641^35d1d37a491bb641^---0#0#0#-19%DVTDocumentLocation2@119"file://localhost/Users/jonas/Downloads/Blackmagic%20DeckLink%20SDK%209.6.4/Mac/Samples/BypassControl/PlaybackHelper.cpp0000000000000000^3089"CompileC build/BypassControl.build/Debug/BypassControl.build/Objects-normal/x86_64/PlaybackHelper.o PlaybackHelper.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl"    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.6 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -iquote "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/build/BypassControl.build/Debug/BypassControl.build/BypassControl-generated-files.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/build/BypassControl.build/Debug/BypassControl.build/BypassControl-own-target-headers.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/build/BypassControl.build/Debug/BypassControl.build/BypassControl-all-target-headers.hmap" -iquote "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/build/BypassControl.build/Debug/BypassControl.build/BypassControl-project-headers.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/build/Debug/include" -I../../include "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/build/BypassControl.build/Debug/BypassControl.build/DerivedSources/x86_64" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/build/BypassControl.build/Debug/BypassControl.build/DerivedSources" "-F/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/build/Debug" -MMD -MT dependencies -MF "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/build/BypassControl.build/Debug/BypassControl.build/Objects-normal/x86_64/PlaybackHelper.d" --serialize-diagnostics "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/build/BypassControl.build/Debug/BypassControl.build/Objects-normal/x86_64/PlaybackHelper.dia" -c "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/PlaybackHelper.cpp" -o "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/build/BypassControl.build/Debug/BypassControl.build/Objects-normal/x86_64/PlaybackHelper.o"36"C75D0852-5712-4611-8347-1DAABE411B21-
+
+CCompileC build/BypassControl.build/Debug/BypassControl.build/Objects-normal/x86_64/main.o "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/main.cpp" normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s370887034.709811
+e370887034.819560
+r1
+xCompileC
+xbuild/BypassControl.build/Debug/BypassControl.build/Objects-normal/x86_64/main.o
+x/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/main.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection95"Compile /Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/main.cpp9f74b67a491bb641^89cfd17a491bb641^---0#0#0#-19%DVTDocumentLocation2@109"file://localhost/Users/jonas/Downloads/Blackmagic%20DeckLink%20SDK%209.6.4/Mac/Samples/BypassControl/main.cpp0000000000000000^3029"CompileC build/BypassControl.build/Debug/BypassControl.build/Objects-normal/x86_64/main.o main.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl"    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.6 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -iquote "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/build/BypassControl.build/Debug/BypassControl.build/BypassControl-generated-files.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/build/BypassControl.build/Debug/BypassControl.build/BypassControl-own-target-headers.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/build/BypassControl.build/Debug/BypassControl.build/BypassControl-all-target-headers.hmap" -iquote "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/build/BypassControl.build/Debug/BypassControl.build/BypassControl-project-headers.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/build/Debug/include" -I../../include "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/build/BypassControl.build/Debug/BypassControl.build/DerivedSources/x86_64" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/build/BypassControl.build/Debug/BypassControl.build/DerivedSources" "-F/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/build/Debug" -MMD -MT dependencies -MF "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/build/BypassControl.build/Debug/BypassControl.build/Objects-normal/x86_64/main.d" --serialize-diagnostics "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/build/BypassControl.build/Debug/BypassControl.build/Objects-normal/x86_64/main.dia" -c "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/main.cpp" -o "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/build/BypassControl.build/Debug/BypassControl.build/Objects-normal/x86_64/main.o"36"B424EE40-529F-4C49-8700-6490103B307B-
+
+CLd "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/build/Debug/BypassControl" normal x86_64
+s370887034.834145
+e370887034.855519
+r1
+xLd
+x/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/build/Debug/BypassControl
+xnormal
+xx86_64
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection109"Link /Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/build/Debug/BypassControl0f9ad57a491bb641^7d03db7a491bb641^---0#0#0#--980"Ld build/Debug/BypassControl normal x86_64    cd "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl"    setenv MACOSX_DEPLOYMENT_TARGET 10.6    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk "-L/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/build/Debug" "-F/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/build/Debug" -filelist "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/build/BypassControl.build/Debug/BypassControl.build/Objects-normal/x86_64/BypassControl.LinkFileList" -mmacosx-version-min=10.6 -sectcreate __TEXT __info_plist Info.plist -framework CoreFoundation -o "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/BypassControl/build/Debug/BypassControl"36"B24E5C9B-D88E-4848-9239-1B27A4901FC4-
+

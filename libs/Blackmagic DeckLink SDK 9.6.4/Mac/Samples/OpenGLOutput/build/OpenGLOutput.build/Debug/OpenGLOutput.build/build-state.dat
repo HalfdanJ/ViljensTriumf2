@@ -1,0 +1,321 @@
+TOpenGLOutput
+v5
+r1
+cCheck dependencies
+cProcessInfoPlistFile "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/Debug/OpenGLOutput.app/Contents/Info.plist" OpenGLOutput-Info.plist
+cCompileXIB "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/English.lproj/MainMenu.xib"
+cCopyStringsFile "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/Debug/OpenGLOutput.app/Contents/Resources/English.lproj/InfoPlist.strings" English.lproj/InfoPlist.strings
+cProcessPCH++ /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OpenGLOutput_Prefix-bnppihigiscaewbvjbhmzigbswcj/OpenGLOutput_Prefix.pch.pth OpenGLOutput_Prefix.pch normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cProcessPCH /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OpenGLOutput_Prefix-dztxvwntquwoxthemapasjolxodd/OpenGLOutput_Prefix.pch.pth OpenGLOutput_Prefix.pch normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cProcessPCH++ /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OpenGLOutput_Prefix-fnwdfdrgpmxogfbrhnvkzeimooac/OpenGLOutput_Prefix.pch.pth OpenGLOutput_Prefix.pch normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/OpenGLOutput.build/Debug/OpenGLOutput.build/Objects-normal/x86_64/DeckLinkAPIDispatch.o "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/../../include/DeckLinkAPIDispatch.cpp" normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/OpenGLOutput.build/Debug/OpenGLOutput.build/Objects-normal/x86_64/main.o "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/main.m" normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/OpenGLOutput.build/Debug/OpenGLOutput.build/Objects-normal/x86_64/GLScene.o "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/GLScene.mm" normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/OpenGLOutput.build/Debug/OpenGLOutput.build/Objects-normal/x86_64/OpenGLOutputAppDelegate.o "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/OpenGLOutputAppDelegate.mm" normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/OpenGLOutput.build/Debug/OpenGLOutput.build/Objects-normal/x86_64/BMDOpenGLOutput.o "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/BMDOpenGLOutput.mm" normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cLd "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/Debug/OpenGLOutput.app/Contents/MacOS/OpenGLOutput" normal x86_64
+cTouch "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/Debug/OpenGLOutput.app"
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk
+c000000004F90F72900000000000000CC
+t1334900521
+s204
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/Cocoa.framework/Headers/Cocoa.h
+c00000000505F2B0800000000000001E5
+t1348414216
+s485
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/OpenGL
+c00000000505F2DEE000000000000A518
+t1348414958
+s42264
+
+N/System/Library/Frameworks/Cocoa.framework/Cocoa
+c00000000501426A20000000000006730
+t1343497890
+s26416
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/../../include/DeckLinkAPIDispatch.cpp
+c00000000504DC7BC0000000000001A49
+t1347274684
+s6729
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/BMDOpenGLOutput.mm
+c00000000504DC7BC00000000000020DA
+t1347274684
+s8410
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/English.lproj/InfoPlist.strings
+c00000000504DC7BC0000000000000065
+t1347274684
+s101
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/English.lproj/MainMenu.xib
+c00000000504DC7BC000000000002D34B
+t1347274684
+s185163
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/GLScene.mm
+c00000000504DC7BC0000000000001A2F
+t1347274684
+s6703
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/OpenGLOutputAppDelegate.mm
+c00000000504DC7BC0000000000000928
+t1347274684
+s2344
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/OpenGLOutput_Prefix.pch
+c00000000504DC7BC000000000000009B
+t1347274684
+s155
+i<Cocoa/Cocoa.h>
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/Debug/OpenGLOutput.app
+t2
+s0
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/Debug/OpenGLOutput.app/Contents/Info.plist
+t2
+s0
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/Debug/OpenGLOutput.app/Contents/MacOS/OpenGLOutput
+t2
+s0
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/Debug/OpenGLOutput.app/Contents/PkgInfo
+t2
+s0
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/Debug/OpenGLOutput.app/Contents/Resources/English.lproj/InfoPlist.strings
+t2
+s0
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/Debug/OpenGLOutput.app/Contents/Resources/English.lproj/MainMenu.nib
+t2
+s0
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/Objects-normal/x86_64/BMDOpenGLOutput.o
+t2
+s0
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/Objects-normal/x86_64/DeckLinkAPIDispatch.o
+t2
+s0
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/Objects-normal/x86_64/GLScene.o
+t2
+s0
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/Objects-normal/x86_64/OpenGLOutput.LinkFileList
+c00000000506B11920000000000000341
+t1349194130
+s833
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/Objects-normal/x86_64/OpenGLOutputAppDelegate.o
+t2
+s0
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/Objects-normal/x86_64/main.o
+t2
+s0
+
+N/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/main.m
+c00000000504DC7BC0000000000000646
+t1347274684
+s1606
+
+N/var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OpenGLOutput_Prefix-bnppihigiscaewbvjbhmzigbswcj/OpenGLOutput_Prefix.pch.pth
+t2
+s0
+
+N/var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OpenGLOutput_Prefix-dztxvwntquwoxthemapasjolxodd/OpenGLOutput_Prefix.pch.pth
+t2
+s0
+
+N/var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OpenGLOutput_Prefix-fnwdfdrgpmxogfbrhnvkzeimooac/OpenGLOutput_Prefix.pch.pth
+t2
+s0
+
+NOpenGLOutput-Info.plist
+c00000000504DC7BC00000000000003EC
+t1347274684
+s1004
+
+CBuild AST from "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/../../include/DeckLinkAPIDispatch.cpp"
+r0
+
+CBuild AST from "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/BMDOpenGLOutput.mm"
+r0
+
+CBuild AST from "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/GLScene.mm"
+r0
+
+CBuild AST from "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/OpenGLOutputAppDelegate.mm"
+r0
+
+CBuild AST from "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/main.m"
+r0
+
+CCheck dependencies
+r0
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies8f1cf111491bb641^eab30712491bb641^---0#1#0#--18"Check dependencies36"D435564B-3614-4546-BF6D-CF91BF0DE36F-
+
+CCompileC build/OpenGLOutput.build/Debug/OpenGLOutput.build/Objects-normal/x86_64/BMDOpenGLOutput.o "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/BMDOpenGLOutput.mm" normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+s370886931.100259
+e370886931.224961
+r1
+xCompileC
+xbuild/OpenGLOutput.build/Debug/OpenGLOutput.build/Objects-normal/x86_64/BMDOpenGLOutput.o
+x/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/BMDOpenGLOutput.mm
+xnormal
+xx86_64
+xobjective-c++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection104"Compile /Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/BMDOpenGLOutput.mm4ed11913491bb641^96963913491bb641^---0#0#0#-19%DVTDocumentLocation2@118"file://localhost/Users/jonas/Downloads/Blackmagic%20DeckLink%20SDK%209.6.4/Mac/Samples/OpenGLOutput/BMDOpenGLOutput.mm0000000000000000^3854"CompileC build/OpenGLOutput.build/Debug/OpenGLOutput.build/Objects-normal/x86_64/BMDOpenGLOutput.o BMDOpenGLOutput.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput"    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch x86_64 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-arc-abi -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.6 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -iquote "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/OpenGLOutput-generated-files.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/OpenGLOutput-own-target-headers.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/OpenGLOutput-all-target-headers.hmap" -iquote "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/OpenGLOutput-project-headers.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/Debug/include" -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/DerivedSources/x86_64" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/DerivedSources" "-F/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/Debug" -include /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OpenGLOutput_Prefix-bnppihigiscaewbvjbhmzigbswcj/OpenGLOutput_Prefix.pch -MMD -MT dependencies -MF "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/Objects-normal/x86_64/BMDOpenGLOutput.d" --serialize-diagnostics "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/Objects-normal/x86_64/BMDOpenGLOutput.dia" -c "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/BMDOpenGLOutput.mm" -o "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/Objects-normal/x86_64/BMDOpenGLOutput.o"36"DFC05A65-B674-4C92-BDA2-CFDFE1869589-
+
+CCompileC build/OpenGLOutput.build/Debug/OpenGLOutput.build/Objects-normal/x86_64/DeckLinkAPIDispatch.o "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/../../include/DeckLinkAPIDispatch.cpp" normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s370886930.218425
+e370886930.384313
+r1
+xCompileC
+xbuild/OpenGLOutput.build/Debug/OpenGLOutput.build/Objects-normal/x86_64/DeckLinkAPIDispatch.o
+x/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/../../include/DeckLinkAPIDispatch.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection123"Compile /Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/../../include/DeckLinkAPIDispatch.cppef1a3812491bb641^d0616212491bb641^---0#0#0#-19%DVTDocumentLocation2@137"file://localhost/Users/jonas/Downloads/Blackmagic%20DeckLink%20SDK%209.6.4/Mac/Samples/OpenGLOutput/../../include/DeckLinkAPIDispatch.cpp0000000000000000^3549"CompileC build/OpenGLOutput.build/Debug/OpenGLOutput.build/Objects-normal/x86_64/DeckLinkAPIDispatch.o ../../include/DeckLinkAPIDispatch.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput"    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.6 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -iquote "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/OpenGLOutput-generated-files.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/OpenGLOutput-own-target-headers.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/OpenGLOutput-all-target-headers.hmap" -iquote "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/OpenGLOutput-project-headers.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/Debug/include" -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/DerivedSources/x86_64" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/DerivedSources" "-F/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/Debug" -include /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OpenGLOutput_Prefix-fnwdfdrgpmxogfbrhnvkzeimooac/OpenGLOutput_Prefix.pch -MMD -MT dependencies -MF "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/Objects-normal/x86_64/DeckLinkAPIDispatch.d" --serialize-diagnostics "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/Objects-normal/x86_64/DeckLinkAPIDispatch.dia" -c "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/../../include/DeckLinkAPIDispatch.cpp" -o "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/Objects-normal/x86_64/DeckLinkAPIDispatch.o"36"45082782-87D6-410B-8845-59B96C8BE788-
+
+CCompileC build/OpenGLOutput.build/Debug/OpenGLOutput.build/Objects-normal/x86_64/GLScene.o "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/GLScene.mm" normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+s370886931.100238
+e370886931.182985
+r1
+xCompileC
+xbuild/OpenGLOutput.build/Debug/OpenGLOutput.build/Objects-normal/x86_64/GLScene.o
+x/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/GLScene.mm
+xnormal
+xx86_64
+xobjective-c++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection96"Compile /Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/GLScene.mmf6d11913491bb641^95d72e13491bb641^---0#0#0#-19%DVTDocumentLocation2@110"file://localhost/Users/jonas/Downloads/Blackmagic%20DeckLink%20SDK%209.6.4/Mac/Samples/OpenGLOutput/GLScene.mm0000000000000000^3806"CompileC build/OpenGLOutput.build/Debug/OpenGLOutput.build/Objects-normal/x86_64/GLScene.o GLScene.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput"    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch x86_64 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-arc-abi -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.6 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -iquote "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/OpenGLOutput-generated-files.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/OpenGLOutput-own-target-headers.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/OpenGLOutput-all-target-headers.hmap" -iquote "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/OpenGLOutput-project-headers.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/Debug/include" -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/DerivedSources/x86_64" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/DerivedSources" "-F/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/Debug" -include /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OpenGLOutput_Prefix-bnppihigiscaewbvjbhmzigbswcj/OpenGLOutput_Prefix.pch -MMD -MT dependencies -MF "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/Objects-normal/x86_64/GLScene.d" --serialize-diagnostics "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/Objects-normal/x86_64/GLScene.dia" -c "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/GLScene.mm" -o "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/Objects-normal/x86_64/GLScene.o"36"B4B6CEDA-D61B-4C72-B1D0-6A9DCDB50847-
+
+CCompileC build/OpenGLOutput.build/Debug/OpenGLOutput.build/Objects-normal/x86_64/OpenGLOutputAppDelegate.o "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/OpenGLOutputAppDelegate.mm" normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+s370886931.100254
+e370886931.220661
+r1
+xCompileC
+xbuild/OpenGLOutput.build/Debug/OpenGLOutput.build/Objects-normal/x86_64/OpenGLOutputAppDelegate.o
+x/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/OpenGLOutputAppDelegate.mm
+xnormal
+xx86_64
+xobjective-c++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection112"Compile /Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/OpenGLOutputAppDelegate.mm04c71913491bb641^1c7d3813491bb641^---0#0#0#-19%DVTDocumentLocation2@126"file://localhost/Users/jonas/Downloads/Blackmagic%20DeckLink%20SDK%209.6.4/Mac/Samples/OpenGLOutput/OpenGLOutputAppDelegate.mm0000000000000000^3902"CompileC build/OpenGLOutput.build/Debug/OpenGLOutput.build/Objects-normal/x86_64/OpenGLOutputAppDelegate.o OpenGLOutputAppDelegate.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput"    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch x86_64 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-arc-abi -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.6 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -iquote "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/OpenGLOutput-generated-files.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/OpenGLOutput-own-target-headers.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/OpenGLOutput-all-target-headers.hmap" -iquote "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/OpenGLOutput-project-headers.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/Debug/include" -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/DerivedSources/x86_64" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/DerivedSources" "-F/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/Debug" -include /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OpenGLOutput_Prefix-bnppihigiscaewbvjbhmzigbswcj/OpenGLOutput_Prefix.pch -MMD -MT dependencies -MF "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/Objects-normal/x86_64/OpenGLOutputAppDelegate.d" --serialize-diagnostics "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/Objects-normal/x86_64/OpenGLOutputAppDelegate.dia" -c "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/OpenGLOutputAppDelegate.mm" -o "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/Objects-normal/x86_64/OpenGLOutputAppDelegate.o"36"EEBBF0C6-513F-4E59-9396-2273621F9C0C-
+
+CCompileC build/OpenGLOutput.build/Debug/OpenGLOutput.build/Objects-normal/x86_64/main.o "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/main.m" normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s370886930.888646
+e370886930.914823
+r1
+xCompileC
+xbuild/OpenGLOutput.build/Debug/OpenGLOutput.build/Objects-normal/x86_64/main.o
+x/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/main.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection92"Compile /Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/main.m7897e312491bb641^7231ea12491bb641^---0#0#0#-19%DVTDocumentLocation2@106"file://localhost/Users/jonas/Downloads/Blackmagic%20DeckLink%20SDK%209.6.4/Mac/Samples/OpenGLOutput/main.m0000000000000000^3653"CompileC build/OpenGLOutput.build/Debug/OpenGLOutput.build/Objects-normal/x86_64/main.o main.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput"    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch x86_64 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.6 -g -fvisibility=hidden -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -iquote "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/OpenGLOutput-generated-files.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/OpenGLOutput-own-target-headers.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/OpenGLOutput-all-target-headers.hmap" -iquote "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/OpenGLOutput-project-headers.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/Debug/include" -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/DerivedSources/x86_64" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/DerivedSources" "-F/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/Debug" -include /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OpenGLOutput_Prefix-dztxvwntquwoxthemapasjolxodd/OpenGLOutput_Prefix.pch -MMD -MT dependencies -MF "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/Objects-normal/x86_64/main.d" --serialize-diagnostics "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/Objects-normal/x86_64/main.dia" -c "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/main.m" -o "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/Objects-normal/x86_64/main.o"36"F36DD857-C8B2-4BB1-9DD7-178AFDD02796-
+
+CCompileXIB "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/English.lproj/MainMenu.xib"
+s370886930.050656
+e370886930.142047
+r1
+xCompileXIB
+x/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/English.lproj/MainMenu.xib
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection114"Compiling /Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/English.lproj/MainMenu.xiba60f0d12491bb641^55682412491bb641^---0#0#0#-19%DVTDocumentLocation2@126"file://localhost/Users/jonas/Downloads/Blackmagic%20DeckLink%20SDK%209.6.4/Mac/Samples/OpenGLOutput/English.lproj/MainMenu.xib0000000000000000^720"CompileXIB English.lproj/MainMenu.xib    cd "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput"    setenv XCODE_DEVELOPER_USR_PATH /Applications/Xcode.app/Contents/Developer/usr/bin/..    /Applications/Xcode.app/Contents/Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/Debug/OpenGLOutput.app/Contents/Resources/English.lproj/MainMenu.nib" "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/English.lproj/MainMenu.xib" --sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk36"3A3875EA-7761-4192-9BDC-910647C8F54A-
+
+CCopyStringsFile "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/Debug/OpenGLOutput.app/Contents/Resources/English.lproj/InfoPlist.strings" English.lproj/InfoPlist.strings
+s370886930.050661
+e370886930.053202
+r1
+xCopyStringsFile
+x/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/Debug/OpenGLOutput.app/Contents/Resources/English.lproj/InfoPlist.strings
+xEnglish.lproj/InfoPlist.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection36"Copy English.lproj/InfoPlist.stringsd9070d12491bb641^959e0d12491bb641^---0#0#0#-19%DVTDocumentLocation2@131"file://localhost/Users/jonas/Downloads/Blackmagic%20DeckLink%20SDK%209.6.4/Mac/Samples/OpenGLOutput/English.lproj/InfoPlist.strings0000000000000000^482"CopyStringsFile build/Debug/OpenGLOutput.app/Contents/Resources/English.lproj/InfoPlist.strings English.lproj/InfoPlist.strings    cd "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding UTF-16 --outdir "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/Debug/OpenGLOutput.app/Contents/Resources/English.lproj" -- English.lproj/InfoPlist.strings36"91F28161-671F-4C76-98E1-04790F841878-
+
+CLd "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/Debug/OpenGLOutput.app/Contents/MacOS/OpenGLOutput" normal x86_64
+s370886931.231195
+e370886931.453251
+r1
+xLd
+x/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/Debug/OpenGLOutput.app/Contents/MacOS/OpenGLOutput
+xnormal
+xx86_64
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection139"Link /Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/Debug/OpenGLOutput.app/Contents/MacOS/OpenGLOutputf4193c13491bb641^a7087413491bb641^---0#0#0#--1020"Ld build/Debug/OpenGLOutput.app/Contents/MacOS/OpenGLOutput normal x86_64    cd "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput"    setenv MACOSX_DEPLOYMENT_TARGET 10.6    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk "-L/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/Debug" "-F/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/Debug" -filelist "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/Objects-normal/x86_64/OpenGLOutput.LinkFileList" -mmacosx-version-min=10.6 -fobjc-link-runtime -framework Cocoa -framework OpenGL -o "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/Debug/OpenGLOutput.app/Contents/MacOS/OpenGLOutput"36"22A064CC-E452-44F2-B446-9BC89B57DF93-
+
+CProcessInfoPlistFile "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/Debug/OpenGLOutput.app/Contents/Info.plist" OpenGLOutput-Info.plist
+s370886930.039930
+e370886930.043011
+r1
+xProcessInfoPlistFile
+x/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/Debug/OpenGLOutput.app/Contents/Info.plist
+xOpenGLOutput-Info.plist
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection31"Process OpenGLOutput-Info.plistd34d0a12491bb641^85280b12491bb641^---0#0#0#-19%DVTDocumentLocation2@123"file://localhost/Users/jonas/Downloads/Blackmagic%20DeckLink%20SDK%209.6.4/Mac/Samples/OpenGLOutput/OpenGLOutput-Info.plist0000000000000000^542"ProcessInfoPlistFile build/Debug/OpenGLOutput.app/Contents/Info.plist OpenGLOutput-Info.plist    cd "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput"    builtin-infoPlistUtility OpenGLOutput-Info.plist -genpkginfo "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/Debug/OpenGLOutput.app/Contents/PkgInfo" -expandbuildsettings -platform macosx -o "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/Debug/OpenGLOutput.app/Contents/Info.plist"36"190DA196-A13B-4F2A-9096-ABCB74D77E7F-
+
+CProcessPCH /Users/jonas/Library/Developer/Xcode/DerivedData/OpenGLOutput-draodgrrkfcdzqghdmlwleecrbrk/Index/PrecompiledHeaders/OpenGLOutput_Prefix-ghfxgucykrymkrgyecddsbcabbsn_ast/OpenGLOutput_Prefix.pch.pth OpenGLOutput_Prefix.pch normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.astbuilder
+r0
+
+CProcessPCH /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OpenGLOutput_Prefix-dztxvwntquwoxthemapasjolxodd/OpenGLOutput_Prefix.pch.pth OpenGLOutput_Prefix.pch normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s370886930.149662
+e370886930.881800
+r1
+xProcessPCH
+x/var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OpenGLOutput_Prefix-dztxvwntquwoxthemapasjolxodd/OpenGLOutput_Prefix.pch.pth
+xOpenGLOutput_Prefix.pch
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection34"Precompile OpenGLOutput_Prefix.pch2a742612491bb641^59bfe112491bb641^---0#0#0#-19%DVTDocumentLocation2@123"file://localhost/Users/jonas/Downloads/Blackmagic%20DeckLink%20SDK%209.6.4/Mac/Samples/OpenGLOutput/OpenGLOutput_Prefix.pch0000000000000000^3644"ProcessPCH /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OpenGLOutput_Prefix-dztxvwntquwoxthemapasjolxodd/OpenGLOutput_Prefix.pch.pth OpenGLOutput_Prefix.pch normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput"    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c-header -arch x86_64 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.6 -g -fvisibility=hidden -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -iquote "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/OpenGLOutput-generated-files.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/OpenGLOutput-own-target-headers.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/OpenGLOutput-all-target-headers.hmap" -iquote "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/OpenGLOutput-project-headers.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/Debug/include" -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/DerivedSources/x86_64" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/DerivedSources" "-F/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/Debug" --serialize-diagnostics /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OpenGLOutput_Prefix-dztxvwntquwoxthemapasjolxodd/OpenGLOutput_Prefix.pch.dia -c "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/OpenGLOutput_Prefix.pch" -o /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OpenGLOutput_Prefix-dztxvwntquwoxthemapasjolxodd/OpenGLOutput_Prefix.pch.pth -MMD -MT dependencies -MF /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OpenGLOutput_Prefix-dztxvwntquwoxthemapasjolxodd/OpenGLOutput_Prefix.pch.d36"32E17153-ACF9-4C0C-A93D-BB5BD65668BB-
+
+CProcessPCH++ /Users/jonas/Library/Developer/Xcode/DerivedData/OpenGLOutput-draodgrrkfcdzqghdmlwleecrbrk/Index/PrecompiledHeaders/OpenGLOutput_Prefix-djvikczwtklxtufajczflxtqvxxj_ast/OpenGLOutput_Prefix.pch.pth OpenGLOutput_Prefix.pch normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.astbuilder
+r0
+
+CProcessPCH++ /Users/jonas/Library/Developer/Xcode/DerivedData/OpenGLOutput-draodgrrkfcdzqghdmlwleecrbrk/Index/PrecompiledHeaders/OpenGLOutput_Prefix-ezgmqvcgnmnywcbdouzigjhrccbl_ast/OpenGLOutput_Prefix.pch.pth OpenGLOutput_Prefix.pch normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.astbuilder
+r0
+
+CProcessPCH++ /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OpenGLOutput_Prefix-bnppihigiscaewbvjbhmzigbswcj/OpenGLOutput_Prefix.pch.pth OpenGLOutput_Prefix.pch normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+s370886930.149632
+e370886931.093540
+r1
+xProcessPCH++
+x/var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OpenGLOutput_Prefix-bnppihigiscaewbvjbhmzigbswcj/OpenGLOutput_Prefix.pch.pth
+xOpenGLOutput_Prefix.pch
+xnormal
+xx86_64
+xobjective-c++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection34"Precompile OpenGLOutput_Prefix.pch54722612491bb641^d4f21713491bb641^---0#0#0#-19%DVTDocumentLocation2@123"file://localhost/Users/jonas/Downloads/Blackmagic%20DeckLink%20SDK%209.6.4/Mac/Samples/OpenGLOutput/OpenGLOutput_Prefix.pch0000000000000000^3779"ProcessPCH++ /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OpenGLOutput_Prefix-bnppihigiscaewbvjbhmzigbswcj/OpenGLOutput_Prefix.pch.pth OpenGLOutput_Prefix.pch normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput"    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++-header -arch x86_64 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-arc-abi -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.6 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -iquote "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/OpenGLOutput-generated-files.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/OpenGLOutput-own-target-headers.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/OpenGLOutput-all-target-headers.hmap" -iquote "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/OpenGLOutput-project-headers.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/Debug/include" -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/DerivedSources/x86_64" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/DerivedSources" "-F/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/Debug" --serialize-diagnostics /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OpenGLOutput_Prefix-bnppihigiscaewbvjbhmzigbswcj/OpenGLOutput_Prefix.pch.dia -c "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/OpenGLOutput_Prefix.pch" -o /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OpenGLOutput_Prefix-bnppihigiscaewbvjbhmzigbswcj/OpenGLOutput_Prefix.pch.pth -MMD -MT dependencies -MF /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OpenGLOutput_Prefix-bnppihigiscaewbvjbhmzigbswcj/OpenGLOutput_Prefix.pch.d36"0413F68A-D14E-48AB-8313-C692478B4913-
+
+CProcessPCH++ /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OpenGLOutput_Prefix-fnwdfdrgpmxogfbrhnvkzeimooac/OpenGLOutput_Prefix.pch.pth OpenGLOutput_Prefix.pch normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s370886930.149849
+e370886930.210761
+r1
+xProcessPCH++
+x/var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OpenGLOutput_Prefix-fnwdfdrgpmxogfbrhnvkzeimooac/OpenGLOutput_Prefix.pch.pth
+xOpenGLOutput_Prefix.pch
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection34"Precompile OpenGLOutput_Prefix.pch3e7b2612491bb641^e9f33512491bb641^---0#0#0#-19%DVTDocumentLocation2@123"file://localhost/Users/jonas/Downloads/Blackmagic%20DeckLink%20SDK%209.6.4/Mac/Samples/OpenGLOutput/OpenGLOutput_Prefix.pch0000000000000000^3420"ProcessPCH++ /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OpenGLOutput_Prefix-fnwdfdrgpmxogfbrhnvkzeimooac/OpenGLOutput_Prefix.pch.pth OpenGLOutput_Prefix.pch normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput"    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++-header -arch x86_64 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.6 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -iquote "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/OpenGLOutput-generated-files.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/OpenGLOutput-own-target-headers.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/OpenGLOutput-all-target-headers.hmap" -iquote "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/OpenGLOutput-project-headers.hmap" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/Debug/include" -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/DerivedSources/x86_64" "-I/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/OpenGLOutput.build/Debug/OpenGLOutput.build/DerivedSources" "-F/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/Debug" --serialize-diagnostics /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OpenGLOutput_Prefix-fnwdfdrgpmxogfbrhnvkzeimooac/OpenGLOutput_Prefix.pch.dia -c "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/OpenGLOutput_Prefix.pch" -o /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OpenGLOutput_Prefix-fnwdfdrgpmxogfbrhnvkzeimooac/OpenGLOutput_Prefix.pch.pth -MMD -MT dependencies -MF /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OpenGLOutput_Prefix-fnwdfdrgpmxogfbrhnvkzeimooac/OpenGLOutput_Prefix.pch.d36"317FA067-41FF-4830-BD70-3B698124D844-
+
+CTouch "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/Debug/OpenGLOutput.app"
+s370886931.461329
+e370886931.468251
+r1
+xTouch
+x/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/Debug/OpenGLOutput.app
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection112"Touch /Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/Debug/OpenGLOutput.app6b277613491bb641^b9e17713491bb641^---0#0#0#--253"Touch build/Debug/OpenGLOutput.app    cd "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput"    /usr/bin/touch -c "/Users/jonas/Downloads/Blackmagic DeckLink SDK 9.6.4/Mac/Samples/OpenGLOutput/build/Debug/OpenGLOutput.app"36"49C90C2C-440D-4473-970C-8ACF953DB7AC-
+
