@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <ApplicationServices/ApplicationServices.h>
+#import "BeamSync.h"
 
 @implementation AppDelegate
 
@@ -27,7 +28,7 @@
         [self.mainOutputWindow setFrame:screenRect display:YES];
     }
     
-    
+    [BeamSync disable];
     
     //
     //Init filters
@@ -53,7 +54,7 @@
     
     self.chromaFilter = [[ChromaFilter alloc] init];
     
-    
+    self.master = 1.0;
     
 //    [NSLayoutConstraint constraintWithItem:self.preview1 attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.preview1 attribute:NSLayoutAttributeHeight multiplier:4.0/3.0 constant:1.0];
 //    self.preview1
@@ -126,6 +127,10 @@
     
 }
 
+-(void)applicationWillTerminate:(NSNotification *)notification{
+    [BeamSync enable];
+}
+
 -(CIImage*) createCIImageFromCallback:(DecklinkCallback*)callback{
     int w = callback->w;
     int h = callback->h;
@@ -177,17 +182,21 @@
     }
     
     image = [self filterCIImage:image];
-    
+
     cameras[num] = image;
     
     preview.ciImage = image;
-    [preview setNeedsDisplay:YES];
     
-    if(num == 0){
-        self.mainOutput.ciImage = [self outputImage];
-        [self.mainOutput setNeedsDisplay:YES];
+    
+    if(!self.mainOutput.needsDisplay){ //Spar på energien
+        [preview setNeedsDisplay:YES];
+        
+        if(num == 0){
+            self.mainOutput.ciImage = [self outputImage];
+            if(![self.mainOutput needsDisplay])
+                [self.mainOutput setNeedsDisplay:YES];
+        }
     }
-    
 }
 
 -(CIImage*) outputImage {

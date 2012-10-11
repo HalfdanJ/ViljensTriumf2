@@ -23,6 +23,8 @@
 		DD303C54162605FF00A4764C /* ChromaFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = DD303C50162605FE00A4764C /* ChromaFilter.m */; };
 		DD303C55162605FF00A4764C /* deinterlaceFilter.cikernel in Resources */ = {isa = PBXBuildFile; fileRef = DD303C51162605FF00A4764C /* deinterlaceFilter.cikernel */; };
 		DD303C56162605FF00A4764C /* DeinterlaceFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = DD303C53162605FF00A4764C /* DeinterlaceFilter.m */; };
+		DDDC241F1626B10400FBC44F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD303C0B1625FA4400A4764C /* Foundation.framework */; };
+		DDDC24201626B11800FBC44F /* BeamSync.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDC241D1626B0C000FBC44F /* BeamSync.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +57,8 @@
 		DD303C51162605FF00A4764C /* deinterlaceFilter.cikernel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = deinterlaceFilter.cikernel; sourceTree = "<group>"; };
 		DD303C52162605FF00A4764C /* DeinterlaceFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeinterlaceFilter.h; sourceTree = "<group>"; };
 		DD303C53162605FF00A4764C /* DeinterlaceFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeinterlaceFilter.m; sourceTree = "<group>"; };
+		DDDC241C1626B0C000FBC44F /* BeamSync.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeamSync.h; sourceTree = "<group>"; };
+		DDDC241D1626B0C000FBC44F /* BeamSync.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeamSync.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDDC241F1626B10400FBC44F /* Foundation.framework in Frameworks */,
 				DD303C43162602C400A4764C /* ApplicationServices.framework in Frameworks */,
 				DD303C411625FCBF00A4764C /* QuartzCore.framework in Frameworks */,
 				DD303C3F1625FCB800A4764C /* Quartz.framework in Frameworks */,
@@ -126,6 +131,8 @@
 				DD303C381625FAED00A4764C /* DeckLinkAPI.h */,
 				DD303C391625FAED00A4764C /* DeckLinkAPIDispatch.cpp */,
 				DD303C1B1625FA4400A4764C /* MainMenu.xib */,
+				DDDC241C1626B0C000FBC44F /* BeamSync.h */,
+				DDDC241D1626B0C000FBC44F /* BeamSync.m */,
 				DD303C0D1625FA4400A4764C /* Supporting Files */,
 			);
 			path = ViljensTriumf;
@@ -228,6 +235,7 @@
 				DD303C3A1625FB7A00A4764C /* BlackMagicController.mm in Sources */,
 				DD303C54162605FF00A4764C /* ChromaFilter.m in Sources */,
 				DD303C56162605FF00A4764C /* DeinterlaceFilter.m in Sources */,
+				DDDC24201626B11800FBC44F /* BeamSync.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,6 +365,7 @@
 				DD303C221625FA4400A4764C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

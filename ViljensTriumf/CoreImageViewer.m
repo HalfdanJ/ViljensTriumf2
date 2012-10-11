@@ -29,7 +29,6 @@
             ciContext = [CIContext contextWithCGContext:
                          [[NSGraphicsContext currentContext] graphicsPort] options: nil];
         }
-        
         [ciContext drawImage:self.ciImage inRect:NSRectToCGRect(dirtyRect) fromRect:NSMakeRect(0, 0, 720, 576)];
     }
     
