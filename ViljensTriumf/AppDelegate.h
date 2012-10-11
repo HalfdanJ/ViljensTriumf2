@@ -7,6 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <QTKit/QTKit.h>
+#import <QuickTime/QuickTime.h>
+
 #import "BlackMagicController.h"
 #import "CoreImageViewer.h"
 
@@ -19,6 +22,12 @@
 {
     CIImage * cameras[3];
     float chromaMinSet, chromaMaxSet;
+    bool _recording;
+    
+    NSImage * recordImage;
+//    CVOpenGLTextureRef  movieCurrentFrame;
+  //  QTVisualContextRef	movieTextureContext;
+
 }
 
 @property (unsafe_unretained) IBOutlet NSWindow *mainOutputWindow;
@@ -41,6 +50,10 @@
 @property (readwrite) int outSelector;
 
 @property (readwrite) float master;
+
+@property (strong) QTMovie * mMovie;
+@property (readwrite) NSTimeInterval lastRecordTime;
+@property (readwrite) bool recording;
 
 -(void) newFrame:(DecklinkCallback*)callback;
 

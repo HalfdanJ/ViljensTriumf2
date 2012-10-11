@@ -25,6 +25,8 @@
 		DD303C56162605FF00A4764C /* DeinterlaceFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = DD303C53162605FF00A4764C /* DeinterlaceFilter.m */; };
 		DDDC241F1626B10400FBC44F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD303C0B1625FA4400A4764C /* Foundation.framework */; };
 		DDDC24201626B11800FBC44F /* BeamSync.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDC241D1626B0C000FBC44F /* BeamSync.m */; };
+		DDDC24221626B40B00FBC44F /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDC24211626B40B00FBC44F /* QTKit.framework */; };
+		DDDC24241626D54500FBC44F /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDC24231626D54500FBC44F /* QuickTime.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +61,8 @@
 		DD303C53162605FF00A4764C /* DeinterlaceFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeinterlaceFilter.m; sourceTree = "<group>"; };
 		DDDC241C1626B0C000FBC44F /* BeamSync.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeamSync.h; sourceTree = "<group>"; };
 		DDDC241D1626B0C000FBC44F /* BeamSync.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeamSync.m; sourceTree = "<group>"; };
+		DDDC24211626B40B00FBC44F /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = System/Library/Frameworks/QTKit.framework; sourceTree = SDKROOT; };
+		DDDC24231626D54500FBC44F /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = System/Library/Frameworks/QuickTime.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDDC24241626D54500FBC44F /* QuickTime.framework in Frameworks */,
+				DDDC24221626B40B00FBC44F /* QTKit.framework in Frameworks */,
 				DDDC241F1626B10400FBC44F /* Foundation.framework in Frameworks */,
 				DD303C43162602C400A4764C /* ApplicationServices.framework in Frameworks */,
 				DD303C411625FCBF00A4764C /* QuartzCore.framework in Frameworks */,
@@ -80,6 +86,8 @@
 		DD303BF71625FA4300A4764C = {
 			isa = PBXGroup;
 			children = (
+				DDDC24231626D54500FBC44F /* QuickTime.framework */,
+				DDDC24211626B40B00FBC44F /* QTKit.framework */,
 				DD303C42162602C400A4764C /* ApplicationServices.framework */,
 				DD303C401625FCBF00A4764C /* QuartzCore.framework */,
 				DD303C3E1625FCB800A4764C /* Quartz.framework */,

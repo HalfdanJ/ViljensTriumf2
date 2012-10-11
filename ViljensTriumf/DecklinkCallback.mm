@@ -94,15 +94,15 @@ void DecklinkCallback::YuvToRgbChunk(unsigned char *yuv, unsigned char * rgb, un
         u = yuv[i];
         v = yuv[i+2];
         
-        rgb[j]   = blue[y][u];
-        rgb[j+1] = green[y][u][v];
-        rgb[j+2] = red[y][v];
+        rgb[j+1]   =red[y][v];
+        rgb[j+2] = green[y][u][v];
+        rgb[j+3] = blue[y][u];
         
         y = yuv[i+3];
         
-        rgb[j+4] = blue[y][u];
-        rgb[j+5] = green[y][u][v];
-        rgb[j+6] = red[y][v];
+        rgb[j+5] =red[y][v];
+        rgb[j+6] = green[y][u][v];
+        rgb[j+7] = blue[y][u];
     }
     
     /*
@@ -280,10 +280,15 @@ HRESULT 	DecklinkCallback::VideoInputFrameArrived (/* in */ IDeckLinkVideoInputF
              */
             newFrame = true;
             
-            [delegate newFrame:this];
+            dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
+            dispatch_async(queue, ^{
+                [delegate newFrame:this];
+            });
             
             [lock unlock];
             
+        } else {
+       //     NSLog(@"busy delegate");
         }
     }
     //  videoFrame->get

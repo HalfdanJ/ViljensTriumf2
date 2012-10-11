@@ -42,36 +42,37 @@
     
     self.toneCurveFilter = [CIFilter filterWithName:@"CIToneCurve"];
     [self.toneCurveFilter setDefaults];
-
+    
     self.dissolveFilter = [CIFilter filterWithName:@"CIDissolveTransition"];
     [self.dissolveFilter setDefaults];
     
     self.constantColorFilter = [CIFilter filterWithName:@"CIConstantColorGenerator"];
     self.sourceOverFilter = [CIFilter filterWithName:@"CISourceOverCompositing"];
-
+    
     self.deinterlaceFilter = [[DeinterlaceFilter alloc] init];
     [self.deinterlaceFilter setDefaults];
     
     self.chromaFilter = [[ChromaFilter alloc] init];
     
     self.master = 1.0;
-    
-//    [NSLayoutConstraint constraintWithItem:self.preview1 attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.preview1 attribute:NSLayoutAttributeHeight multiplier:4.0/3.0 constant:1.0];
-//    self.preview1
+    self.outSelector = 1;
     
     
+    //Movie
+    
+    NSError * error;
+    self.mMovie = [[QTMovie alloc] initToWritableData:[NSMutableData data] error:&error];
+    if (!self.mMovie) {
+        [[NSAlert alertWithError:error] runModal];
+    }
+    
+    
+    //Shortcuts
     
     [NSEvent addLocalMonitorForEventsMatchingMask:(NSKeyDownMask) handler:^(NSEvent *incomingEvent) {
 		NSLog(@"Events: %@",incomingEvent);
 		
         //	if ([NSEvent modifierFlags] & NSAlternateKeyMask) {
-        /*if( == 83){
-         fadeTo = 0;
-         fade = 0;
-         } else {
-         selectedCam = 0;
-         }
-         }*/
         switch ([incomingEvent keyCode]) {
             case 82:
                 self.outSelector = 0;
@@ -106,16 +107,20 @@
                  [self startRecording];
                  }
                  break;*/
-            /*case 86:
-                recordMovie = false;
+            case 86:
+            {
+                self.recording = false;
+                
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    NSLog(@"Play movie, time %lli",[mMovie duration].timeValue);
-                    [mMovie gotoBeginning];
-                    [mMovie play];
+                    NSLog(@"Play movie, time %lli",[self.mMovie duration].timeValue);
+                    [self.mMovie gotoBeginning];
+                    [self.mMovie play];
                 });
-                outSelector = 4;
+                
+                self.outSelector = 4;
                 break;
-                */
+            }
+                
             default:
                 return incomingEvent;
                 
@@ -123,7 +128,7 @@
         }
         return (NSEvent*)nil;
     }];
-
+    
     
 }
 
@@ -131,82 +136,209 @@
     [BeamSync enable];
 }
 
--(CIImage*) createCIImageFromCallback:(DecklinkCallback*)callback{
-    int w = callback->w;
-    int h = callback->h;
-    unsigned char * bytes = callback->bytes;
-    
-    NSDictionary *d = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], kCVPixelBufferCGImageCompatibilityKey, [NSNumber numberWithBool:YES], kCVPixelBufferCGBitmapContextCompatibilityKey, nil];
-    
-    CVPixelBufferRef buffer = NULL;
-    
-    
-    CVPixelBufferCreateWithBytes(kCFAllocatorDefault, w, h, k32BGRAPixelFormat, bytes, 4*w, (CVPixelBufferReleaseBytesCallback )nil, (void*)nil, (__bridge CFDictionaryRef)d, &buffer);
-    
-    return [CIImage imageWithCVImageBuffer:buffer];
-}
 
--(void) newFrame:(DecklinkCallback*)callback{
-    CIImage * image  = [self createCIImageFromCallback:callback];
-
-    
-    int num = -1;
-    if(callback == [self.blackMagicController callbacks:0]){
-        num = 0;
-    }
-    else if(callback == [self.blackMagicController callbacks:1]){
-        num = 1;
-    }
-    else if(callback == [self.blackMagicController callbacks:2]){
-        num = 2;
-    }
-    
-    CoreImageViewer * preview = nil;
-    switch (num) {
-        case 0:
-            preview = self.preview1;
-            break;
-        case 1:
-            preview = self.preview2;
-            break;
-        case 2:
-            preview = self.preview3;
-            break;
-            
-        default:
-            break;
-    }
-    
-    if(num == 0  && [[NSUserDefaults standardUserDefaults] boolForKey:@"chromaKey"]){
-        image = [self chromaKey:image backgroundImage:cameras[1]];
-    }
-    
-    image = [self filterCIImage:image];
-
-    cameras[num] = image;
-    
-    preview.ciImage = image;
-    
-    
-    if(!self.mainOutput.needsDisplay){ //Spar på energien
-        [preview setNeedsDisplay:YES];
+-(void)setRecording:(bool)recording{
+    if(recording != _recording){
+        self.lastRecordTime = -1;
+        _recording = recording;
         
-        if(num == 0){
-            self.mainOutput.ciImage = [self outputImage];
-            if(![self.mainOutput needsDisplay])
-                [self.mainOutput setNeedsDisplay:YES];
+        if(recording){
+            if([self.mMovie duration].timeValue > 0){
+                QTTime qtTime = [self.mMovie duration];
+                qtTime.timeValue --;
+                NSValue * time = [NSValue valueWithQTTime:qtTime];
+                
+                NSDictionary * chapter = @{ QTMovieChapterName:@"Chapter", QTMovieChapterStartTime:time };
+                
+                NSError * error;
+                NSMutableArray * chapters = [NSMutableArray arrayWithArray:self.mMovie.chapters];
+                [chapters addObject:chapter];
+                [self.mMovie addChapters:chapters withAttributes:@{} error:&error];
+                if(error){
+                    NSLog(@"Error %@",error);
+                }
+            }
+        } else {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSError * outError = nil;
+                if(![self.mMovie writeToFile:@"/Users/jonas/Desktop/test.mov" withAttributes:[NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:QTMovieFlatten] error:&outError]){
+                    NSLog(@"Could not write %@",outError);
+                }
+                //    movieView.movie = mMovie;
+            });
         }
     }
 }
 
+-(bool)recording{
+    return _recording;
+}
+
+
+
+static dispatch_once_t onceToken;
+
+-(void) newFrame:(DecklinkCallback*)callback{
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        
+        [callback->lock lock];
+        callback->delegateBusy = YES;
+        CVImageBufferRef buffer = [self createCVImageBufferFromCallback:callback];
+        
+        
+        int num = -1;
+        if(callback == [self.blackMagicController callbacks:0]){
+            num = 0;
+        }
+        else if(callback == [self.blackMagicController callbacks:1]){
+            num = 1;
+        }
+        else if(callback == [self.blackMagicController callbacks:2]){
+            num = 2;
+        }
+        
+        NSTimeInterval time = [NSDate timeIntervalSinceReferenceDate];
+        
+        //      dispatch_sync(dispatch_get_main_queue(), ^{
+        CIImage * image  = [CIImage imageWithCVImageBuffer:buffer];
+        
+        CoreImageViewer * preview = nil;
+        switch (num) {
+            case 0:
+                preview = self.preview1;
+                break;
+            case 1:
+                preview = self.preview2;
+                break;
+            case 2:
+                preview = self.preview3;
+                break;
+                
+            default:
+                break;
+        }
+        
+        
+        if(!self.recording){
+            if(num == 0  && [[NSUserDefaults standardUserDefaults] boolForKey:@"chromaKey"]){
+                image = [self chromaKey:image backgroundImage:cameras[1]];
+            }
+            
+            image = [self filterCIImage:image];
+        }
+        cameras[num] = image;
+        
+        
+        
+        //     if(!self.recording){
+        //  dispatch_async(dispatch_get_main_queue(), ^{
+        if(!preview.needsDisplay){ //Spar på energien
+            preview.ciImage = image;
+            [preview setNeedsDisplay:YES];
+        }
+        if(!self.mainOutput.needsDisplay){
+            if(num == 0){
+                self.mainOutput.ciImage = [self outputImage];
+                if(![self.mainOutput needsDisplay])
+                    [self.mainOutput setNeedsDisplay:YES];
+            }
+        }
+        
+        if(num==0){
+            if(self.outSelector == 4){
+                //[self updateMovie];
+            }
+        }
+        //   });
+        //  }
+        
+        if(self.recording && num == self.outSelector - 1){
+            
+            dispatch_once(&onceToken, ^{
+                recordImage = [[NSImage alloc] initWithSize:NSMakeSize(720, 576)];
+            });
+            
+            NSTimeInterval diff = [NSDate timeIntervalSinceReferenceDate] - self.lastRecordTime;
+            if(self.lastRecordTime == -1){
+                diff = 0;
+            }
+            diff *= 600;
+            
+            self.lastRecordTime = [NSDate timeIntervalSinceReferenceDate];
+            
+            NSBitmapImageRep * bitmap;
+            
+            unsigned char * bytes = callback->bytes;
+            bitmap = [[NSBitmapImageRep alloc] initWithBitmapDataPlanes:&bytes
+                                                             pixelsWide:callback->w pixelsHigh:callback->h
+                                                          bitsPerSample:8 samplesPerPixel:4
+                                                               hasAlpha:YES isPlanar:NO
+                                                         colorSpaceName:NSDeviceRGBColorSpace
+                                                           bitmapFormat:1
+                                                            bytesPerRow:4*callback->w bitsPerPixel:8*4];
+            
+            
+            
+            [recordImage addRepresentation:bitmap];
+            
+            //dispatch_sync(dispatch_get_main_queue(), ^{
+            [self.mMovie addImage:recordImage forDuration:QTMakeTime(diff, 600) withAttributes:[NSDictionary dictionaryWithObjectsAndKeys: @"jpeg", QTAddImageCodecType, nil]];
+            //                [mMovie addImage:recordImage forDuration:QTMakeTime(timeDiff, 1000) withAttributes:nil];
+            // [self.mMovie setCurrentTime:[self.mMovie duration]];
+            [recordImage removeRepresentation:bitmap];
+            //});
+            
+            
+            
+        }
+        
+        callback->delegateBusy = NO;
+        [callback->lock unlock];
+    });
+}
+/*
+ -(void) updateMovie{
+ const CVTimeStamp * outputTime;
+ QTVisualContextTask(movieTextureContext);
+ if (movieTextureContext != NULL && QTVisualContextIsNewImageAvailable(movieTextureContext, outputTime)) {
+ // if we have a previous frame release it
+ if (NULL != movieCurrentFrame) {
+ CVOpenGLTextureRelease(movieCurrentFrame);
+ movieCurrentFrame = NULL;
+ }
+ // get a "frame" (image buffer) from the Visual Context, indexed by the provided time
+ OSStatus status = QTVisualContextCopyImageForTime(movieTextureContext, NULL, outputTime, &movieCurrentFrame);
+ 
+ // the above call may produce a null frame so check for this first
+ // if we have a frame, then draw it
+ if ( ( status != noErr ) && ( movieCurrentFrame != NULL ) ){
+ NSLog(@"Error: OSStatus: %ld",status);
+ CFRelease( movieCurrentFrame );
+ 
+ movieCurrentFrame = NULL;
+ }
+ } else if  (movieTextureContext == NULL){
+ NSLog(@"No textureContext");
+ if (NULL != movieCurrentFrame) {
+ CVOpenGLTextureRelease(movieCurrentFrame);
+ movieCurrentFrame = NULL;
+ }
+ }
+ }*/
+
 -(CIImage*) outputImage {
     CIImage * _outputImage;
     if(self.outSelector == 0){
-        return nil;
+        [self.constantColorFilter setValue:[CIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:1.0] forKey:@"inputColor"];
+        return [self.constantColorFilter valueForKey:@"outputImage"];
     }
     if(self.outSelector > 0 && self.outSelector <= 3){
         _outputImage = cameras[self.outSelector-1];
     }
+    /* if(self.outSelector == 4){
+     _outputImage = [CIImage imageWithCVImageBuffer:movieCurrentFrame];
+     _outputImage = [self filterCIImage:_outputImage];
+     }*/
     
     
     [self.constantColorFilter setValue:[CIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:1-self.master] forKey:@"inputColor"];
@@ -214,7 +346,7 @@
     [self.sourceOverFilter setValue:_outputImage forKey:@"inputBackgroundImage"];
     [self.sourceOverFilter setValue:[self.constantColorFilter valueForKey:@"outputImage"] forKey:@"inputImage"];
     _outputImage = [self.sourceOverFilter valueForKey:@"outputImage"];
-
+    
     return _outputImage;
 }
 
@@ -223,25 +355,26 @@
     CIImage * retImage = image;
     __block float chromaMin;
     __block float chromaMax;
-    dispatch_sync(dispatch_get_main_queue(), ^{
-        NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
-        
-       chromaMin = [defaults floatForKey:@"chromaMin"];
-       chromaMax = [defaults floatForKey:@"chromaMax"];
-        
-      
-    });
+    //dispatch_sync(dispatch_get_main_queue(), ^{
+    NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
+    
+    chromaMin = [defaults floatForKey:@"chromaMin"];
+    chromaMax = [defaults floatForKey:@"chromaMax"];
+    
+    
+    //  });
     if(chromaMin != chromaMinSet || chromaMax != chromaMaxSet){
         chromaMinSet = chromaMin;
         chromaMaxSet = chromaMax;
         [self.chromaFilter setMinHueAngle:chromaMinSet maxHueAngle:chromaMaxSet];
+        
     }
     
     
     self.chromaFilter.backgroundImage = background;
     self.chromaFilter.inputImage = image;
     retImage = [self.chromaFilter outputImage];
-
+    
     return retImage;
 }
 
@@ -249,8 +382,8 @@
     __block CIImage * _outputImage = inputImage;
     
     //    if(PropB(@"deinterlace")){
-        [self.deinterlaceFilter setInputImage:_outputImage];
-        _outputImage = [self.deinterlaceFilter valueForKey:@"outputImage"];
+    [self.deinterlaceFilter setInputImage:_outputImage];
+    _outputImage = [self.deinterlaceFilter valueForKey:@"outputImage"];
     //  }
     
     /* if(PropB(@"chromaKey") && inputImage == [self imageForSelector:1]){
@@ -263,28 +396,28 @@
      [blurFilter setValue:_outputImage forKey:@"inputImage"];
      _outputImage = [blurFilter valueForKey:@"outputImage"];*/
     
-    dispatch_sync(dispatch_get_main_queue(), ^{
-        
-        
-        NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
-        
-        [self.colorControlsFilter setValue:[defaults valueForKey:@"saturation"] forKey:@"inputSaturation"];
-        /*[self.colorControlsFilter setValue:[NSNumber numberWithFloat:PropF(@"contrast")] forKey:@"inputContrast"];
-         [self.colorControlsFilter setValue:[NSNumber numberWithFloat:PropF(@"brightness")] forKey:@"inputBrightness"];*/
-        [self.colorControlsFilter setValue:_outputImage forKey:@"inputImage"];
-        _outputImage = [self.colorControlsFilter valueForKey:@"outputImage"];
-        
-    /*    [self.dissolveFilter setValue:_outputImage forKey:@"inputImage"];
-        [self.dissolveFilter setValue:@(self.master) forKey:@"inputTime"];
-        _outputImage = [self.dissolveFilter valueForKey:@"outputImage"];
-      */  
-        
-        
-    });
+    //  dispatch_sync(dispatch_get_main_queue(), ^{
     
-    //   [self.gammaAdjustFilter setValue:[NSNumber numberWithFloat:PropF(@"gamma")] forKey:@"inputPower"];
-    //  [self.gammaAdjustFilter setValue:_outputImage forKey:@"inputImage"];
-    //  _outputImage = [self.gammaAdjustFilter valueForKey:@"outputImage"];
+    
+    NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
+    
+    [self.colorControlsFilter setValue:[defaults valueForKey:@"saturation"] forKey:@"inputSaturation"];
+    /*[self.colorControlsFilter setValue:[NSNumber numberWithFloat:PropF(@"contrast")] forKey:@"inputContrast"];
+     [self.colorControlsFilter setValue:[NSNumber numberWithFloat:PropF(@"brightness")] forKey:@"inputBrightness"];*/
+    [self.colorControlsFilter setValue:_outputImage forKey:@"inputImage"];
+    _outputImage = [self.colorControlsFilter valueForKey:@"outputImage"];
+    
+    /*    [self.dissolveFilter setValue:_outputImage forKey:@"inputImage"];
+     [self.dissolveFilter setValue:@(self.master) forKey:@"inputTime"];
+     _outputImage = [self.dissolveFilter valueForKey:@"outputImage"];
+     */
+    
+    
+    //});
+    
+    [self.gammaAdjustFilter setValue:[defaults valueForKey:@"gamma"] forKey:@"inputPower"];
+    [self.gammaAdjustFilter setValue:_outputImage forKey:@"inputImage"];
+    _outputImage = [self.gammaAdjustFilter valueForKey:@"outputImage"];
     
     /* [toneCurveFilter setValue:[NSNumber numberWithFloat:PropF(@"curvep1")] forKey:@"inputPoint0"];
      [toneCurveFilter setValue:[NSNumber numberWithFloat:PropF(@"curvep2")] forKey:@"inputPoint1"];
@@ -297,5 +430,20 @@
     
     return _outputImage;
 }
+
+-(CVImageBufferRef) createCVImageBufferFromCallback:(DecklinkCallback*)callback{
+    int w = callback->w;
+    int h = callback->h;
+    unsigned char * bytes = callback->bytes;
+    NSDictionary *d = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], kCVPixelBufferCGImageCompatibilityKey, [NSNumber numberWithBool:YES], kCVPixelBufferCGBitmapContextCompatibilityKey, nil];
+    
+    CVPixelBufferRef buffer = NULL;
+    CVPixelBufferCreateWithBytes(kCFAllocatorDefault, w, h, k32ARGBPixelFormat, bytes, 4*w, (CVPixelBufferReleaseBytesCallback )nil, (void*)nil, (__bridge CFDictionaryRef)d, &buffer);
+    
+    return buffer;
+}
+
+
+
 
 @end
