@@ -7,8 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import <QTKit/QTKit.h>
-#import <QuickTime/QuickTime.h>
+#import <AVFoundation/AVFoundation.h>
 
 #import "BlackMagicController.h"
 #import "CoreImageViewer.h"
@@ -27,6 +26,11 @@
     NSImage * recordImage;
 //    CVOpenGLTextureRef  movieCurrentFrame;
   //  QTVisualContextRef	movieTextureContext;
+    
+    AVAssetWriter *videoWriter;
+    AVAssetWriterInput* videoWriterInput ;
+    AVAssetWriterInputPixelBufferAdaptor *adaptor;
+    
 
 }
 
@@ -51,8 +55,8 @@
 
 @property (readwrite) float master;
 
-@property (strong) QTMovie * mMovie;
-@property (readwrite) NSTimeInterval lastRecordTime;
+//@property (strong) QTMovie * mMovie;
+@property (readwrite) NSTimeInterval startRecordTime;
 @property (readwrite) bool recording;
 
 -(void) newFrame:(DecklinkCallback*)callback;

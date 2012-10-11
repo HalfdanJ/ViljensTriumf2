@@ -60,11 +60,50 @@
     
     //Movie
     
+    NSError *error = nil;
+    
+    NSFileManager * fileManager = [NSFileManager defaultManager];
+    [fileManager removeItemAtPath:@"/Users/jonas/Desktop/test3.mov" error:&error];
+    
+    videoWriter = [[AVAssetWriter alloc] initWithURL:
+                   [NSURL fileURLWithPath:@"/Users/jonas/Desktop/test3.mov"] fileType:AVFileTypeQuickTimeMovie
+                                               error:&error];
+    NSParameterAssert(videoWriter);
+    
+    NSDictionary *videoSettings = [NSDictionary dictionaryWithObjectsAndKeys:
+                                   AVVideoCodecH264, AVVideoCodecKey,
+                                   [NSNumber numberWithInt:720], AVVideoWidthKey,
+                                   [NSNumber numberWithInt:576], AVVideoHeightKey,
+                                   nil];
+    
+    videoWriterInput = [AVAssetWriterInput
+                        assetWriterInputWithMediaType:AVMediaTypeVideo
+                        outputSettings:videoSettings];
+    
+    
+    adaptor = [AVAssetWriterInputPixelBufferAdaptor
+               assetWriterInputPixelBufferAdaptorWithAssetWriterInput:videoWriterInput
+               sourcePixelBufferAttributes:@{(NSString*)kCVPixelBufferPixelFormatTypeKey:[NSNumber numberWithInt:kCVPixelFormatType_32ARGB]}];
+    
+    NSParameterAssert(videoWriterInput);
+    NSParameterAssert([videoWriter canAddInput:videoWriterInput]);
+    videoWriterInput.expectsMediaDataInRealTime = YES;
+    [videoWriter addInput:videoWriterInput];
+    
+    //Start a session:
+    if(![videoWriter startWriting]){
+        NSLog(@"Could not start writing %@",videoWriter.error);
+    }
+    [videoWriter startSessionAtSourceTime:kCMTimeZero];
+    NSLog(@"%@",adaptor.pixelBufferPool);
+
+    
+    /*
     NSError * error;
     self.mMovie = [[QTMovie alloc] initToWritableData:[NSMutableData data] error:&error];
     if (!self.mMovie) {
         [[NSAlert alertWithError:error] runModal];
-    }
+    }*/
     
     
     //Shortcuts
@@ -111,12 +150,12 @@
             {
                 self.recording = false;
                 
-                dispatch_async(dispatch_get_main_queue(), ^{
+                /* dispatch_async(dispatch_get_main_queue(), ^{
                     NSLog(@"Play movie, time %lli",[self.mMovie duration].timeValue);
                     [self.mMovie gotoBeginning];
                     [self.mMovie play];
                 });
-                
+                */
                 self.outSelector = 4;
                 break;
             }
@@ -139,10 +178,21 @@
 
 -(void)setRecording:(bool)recording{
     if(recording != _recording){
-        self.lastRecordTime = -1;
+    //    self.lastRecordTime = -1;
         _recording = recording;
+        self.startRecordTime = [NSDate timeIntervalSinceReferenceDate];
         
-        if(recording){
+        if(!recording){
+     
+            [videoWriterInput markAsFinished];
+            [videoWriter finishWriting];
+            NSLog(@"Write Ended");
+       
+        
+        } else {
+          
+                 }
+       /* if(recording){
             if([self.mMovie duration].timeValue > 0){
                 QTTime qtTime = [self.mMovie duration];
                 qtTime.timeValue --;
@@ -166,7 +216,7 @@
                 }
                 //    movieView.movie = mMovie;
             });
-        }
+        }*/
     }
 }
 
@@ -183,7 +233,7 @@ static dispatch_once_t onceToken;
         
         [callback->lock lock];
         callback->delegateBusy = YES;
-        CVImageBufferRef buffer = [self createCVImageBufferFromCallback:callback];
+        CVPixelBufferRef buffer = [self createCVImageBufferFromCallback:callback];
         
         
         int num = -1;
@@ -225,36 +275,64 @@ static dispatch_once_t onceToken;
             }
             
             image = [self filterCIImage:image];
-        }
-        cameras[num] = image;
+            cameras[num] = image;
         
-        
-        
-        //     if(!self.recording){
-        //  dispatch_async(dispatch_get_main_queue(), ^{
-        if(!preview.needsDisplay){ //Spar på energien
-            preview.ciImage = image;
-            [preview setNeedsDisplay:YES];
-        }
-        if(!self.mainOutput.needsDisplay){
-            if(num == 0){
-                self.mainOutput.ciImage = [self outputImage];
-                if(![self.mainOutput needsDisplay])
-                    [self.mainOutput setNeedsDisplay:YES];
+
+            //  dispatch_async(dispatch_get_main_queue(), ^{
+            if(!preview.needsDisplay){ //Spar på energien
+                preview.ciImage = image;
+                [preview setNeedsDisplay:YES];
             }
-        }
-        
-        if(num==0){
-            if(self.outSelector == 4){
-                //[self updateMovie];
+            if(!self.mainOutput.needsDisplay){
+                if(num == 0){
+                    self.mainOutput.ciImage = [self outputImage];
+                    if(![self.mainOutput needsDisplay])
+                        [self.mainOutput setNeedsDisplay:YES];
+                }
             }
+            
+            if(num==0){
+                if(self.outSelector == 4){
+                    //[self updateMovie];
+                }
+            }
+            //   });
         }
-        //   });
-        //  }
         
         if(self.recording && num == self.outSelector - 1){
+            //  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul), ^{
+            NSTimeInterval diffTime = time - self.startRecordTime;
+            int frameCount = diffTime*25.0;
             
-            dispatch_once(&onceToken, ^{
+            BOOL append_ok = NO;
+            int j = 0;
+            /* while (!append_ok && j < 30)
+                 {*/
+                if (adaptor.assetWriterInput.readyForMoreMediaData)
+                {
+//                    printf("appending %d attemp %d\n", frameCount, j);
+                    
+                    CMTime frameTime = CMTimeMake(frameCount,(int32_t) 25.0);
+                    append_ok = [adaptor appendPixelBuffer:buffer withPresentationTime:frameTime];
+                    
+                    
+                    if(buffer)
+                        CVBufferRelease(buffer);
+                    [NSThread sleepForTimeInterval:0.03];
+                }
+                else
+                {
+                    printf("adaptor not ready %d, %d\n", frameCount, j);
+                    // [NSThread sleepForTimeInterval:0.1];
+                }
+                j++;
+                //}
+                if (!append_ok) {
+                    printf("error appending image %d times %d\n", frameCount, j);
+                }
+
+           // });
+            /*dispatch_once(&onceToken, ^{
                 recordImage = [[NSImage alloc] initWithSize:NSMakeSize(720, 576)];
             });
             
@@ -282,12 +360,12 @@ static dispatch_once_t onceToken;
             [recordImage addRepresentation:bitmap];
             
             //dispatch_sync(dispatch_get_main_queue(), ^{
-            [self.mMovie addImage:recordImage forDuration:QTMakeTime(diff, 600) withAttributes:[NSDictionary dictionaryWithObjectsAndKeys: @"jpeg", QTAddImageCodecType, nil]];
+           // [self.mMovie addImage:recordImage forDuration:QTMakeTime(diff, 600) withAttributes:[NSDictionary dictionaryWithObjectsAndKeys: @"jpeg", QTAddImageCodecType, nil]];
             //                [mMovie addImage:recordImage forDuration:QTMakeTime(timeDiff, 1000) withAttributes:nil];
             // [self.mMovie setCurrentTime:[self.mMovie duration]];
             [recordImage removeRepresentation:bitmap];
             //});
-            
+            */
             
             
         }
@@ -431,7 +509,7 @@ static dispatch_once_t onceToken;
     return _outputImage;
 }
 
--(CVImageBufferRef) createCVImageBufferFromCallback:(DecklinkCallback*)callback{
+-(CVPixelBufferRef) createCVImageBufferFromCallback:(DecklinkCallback*)callback{
     int w = callback->w;
     int h = callback->h;
     unsigned char * bytes = callback->bytes;
