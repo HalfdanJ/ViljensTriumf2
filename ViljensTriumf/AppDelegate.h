@@ -44,7 +44,9 @@
     
     id avPlayerBoundaryPreview;
     id avPlayerBoundary;
-
+    
+    float transitionTime;
+    int transitionImageSourceSelector;
 }
 
 @property (unsafe_unretained) IBOutlet NSWindow *mainOutputWindow;
@@ -65,9 +67,11 @@
 @property (strong) CIFilter * sourceOverFilter;
 @property (strong) CIFilter * constantColorFilter;
 
+
 @property (readwrite) int outSelector;
 
 @property (readwrite) float master;
+@property (readwrite) float fadeTime;
 
 //@property (strong) QTMovie * mMovie;
 @property (readwrite) NSTimeInterval startRecordTime;

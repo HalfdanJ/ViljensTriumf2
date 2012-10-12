@@ -22,9 +22,7 @@
     
     char incommingBytes[100];
     int incommingBytesIndex;
-    
-    NSMutableArray * outputs;
-    
+        
     
     int serialFileDescriptor;
     struct termios gOriginalTTYAttrs; // Hold the original termios attributes so we can reset them on quit ( best practice )
@@ -46,7 +44,12 @@
 - (void) writeString: (NSString *) str;
 - (void) writeByte: (unsigned char) val;
 - (void) writeBuffer;
-- (void) writeBytes: (unsigned char * ) bytes length:(int)length;
+- (void) writeBytes: (char * ) bytes length:(int)length;
 - (void) bufferBytes: (unsigned char * ) bytes length:(int)length;
+
+-(void) patchInput:(int)input toOutput:(int)output;
+-(void) readAllOutputs;
+
+@property (strong) NSArray * outputPatch;
 
 @end

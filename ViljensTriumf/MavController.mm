@@ -59,13 +59,37 @@
             NSLog(@"MAV Serial successfully opened");
             connected = YES;
             
-            //   [self performSelectorInBackground:@selector(serialReadThread:) withObject:[NSThread currentThread]];
-            [self performSelectorInBackground:@selector(serialUpdateThread:) withObject:[NSThread currentThread]];
+            [self performSelectorInBackground:@selector(serialReadThread:) withObject:[NSThread currentThread]];
+            //[self performSelectorInBackground:@selector(serialUpdateThread:) withObject:[NSThread currentThread]];
             
         }
-
+        
+        NSMutableArray * arr =  [NSMutableArray array];
+        for(int i=0;i<16;i++){
+            NSMutableDictionary * dict = [@{@"input":@(1)} mutableCopy];
+            [dict addObserver:self forKeyPath:@"input" options:0 context:(void*)@(i+1)];
+            [arr addObject:dict];
+        }
+        self.outputPatch = arr;
+        
+        
     }
     return self;
+}
+
+
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    int output = [(__bridge NSNumber*)context intValue];
+    int input = [[object valueForKey:@"input"] intValue]+1;
+    
+    if(input != 0){
+        NSLog(@"Change observe %i %i",input, output) ;
+        [self patchInput:input toOutput:output];
+    }
+}
+
+-(void) patchInput:(int)input toOutput:(int)output{
+    [self writeString:[NSString stringWithFormat:@"%i*%i!",input,output]];
 }
 
 /*-(void) update {
@@ -102,7 +126,45 @@
 }*/
 
 -(void) receiveMessage:(NSString*)msg{
-    
+    NSLog(@"Recv %@",msg);
+    if([msg rangeOfString:@"RECONFIG"].location != NSNotFound){
+        [self readAllOutputs];
+    }
+    for(int i=0;i<16;i++){
+        NSString * outStr = [NSString stringWithFormat:@"0%i",i+1];
+        if(i >= 9)
+            outStr = [NSString stringWithFormat:@"%i",i+1];
+        if([msg rangeOfString:[NSString stringWithFormat:@"Out%@ In",outStr]].location != NSNotFound && [msg rangeOfString:@" Vid"].location != NSNotFound){
+            int inVal = [[msg substringWithRange:NSMakeRange(8, 2)] intValue];
+            
+            if([[self.outputPatch[i] valueForKey:@"input"] intValue] != inVal-1){
+                NSLog(@"Found change %@ = %i",outStr, inVal);
+
+                [self.outputPatch[i] setValue:@(inVal-1) forKey:@"input"];
+            }
+            
+        }
+    }
+
+}
+
+
+-(void) readAllOutputs{
+    dispatch_async(dispatch_queue_create("com.mycompany.myqueue", 0), ^{
+        for(int i=0;i<16;i++){
+            [self writeString:[NSString stringWithFormat:@"v%i%%", i+1]];
+            [NSThread sleepForTimeInterval:0.01];
+        }
+    });
+ }
+
+-(void) writeString:(NSString *)str{
+    [self writeBytes:(char*)[str cStringUsingEncoding:NSUTF8StringEncoding] length:int([str length])];
+}
+-(void)writeBytes:(char *)bytes length:(int)length{
+    if(serialFileDescriptor != -1){
+        write(serialFileDescriptor, bytes, length);
+    }
 }
 
 // This selector will be called as another thread
@@ -129,7 +191,6 @@
                     for(int i=0;i<numBytes;i++){
                         unsigned char c = byte_buffer[i];
                         if(c == '\n'){
-                            NSLog(@"Recv %@",incommingString);
                             [self receiveMessage:incommingString];
                             [incommingString setString:@""];
                         } else {

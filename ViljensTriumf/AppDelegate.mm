@@ -34,6 +34,8 @@ static void *SelectionContext = &SelectionContext;
     
     [BeamSync disable];
     
+    self.mavController = [[MavController alloc] init];
+    
     self.recordings = [NSMutableArray array];
     
     //
@@ -68,6 +70,7 @@ static void *SelectionContext = &SelectionContext;
     
     self.readyToRecord = YES;
     
+    transitionTime = -1;
     
     /*
      NSError * error;
@@ -86,11 +89,13 @@ static void *SelectionContext = &SelectionContext;
         switch ([incomingEvent keyCode]) {
             case 82:
                 self.outSelector = 0;
+                transitionTime = 0;
                 
                 break;
                 
             case 83:
                 self.outSelector  = 1;
+                transitionTime = 0;
                 /*   serial.writeByte('1');
                  serial.writeByte('*');
                  serial.writeByte('4');
@@ -98,6 +103,7 @@ static void *SelectionContext = &SelectionContext;
                 break;
             case 84:
                 self.outSelector  = 2;
+                transitionTime = 0;
                 /*            serial.writeByte('2');
                  serial.writeByte('*');
                  serial.writeByte('4');
@@ -105,6 +111,7 @@ static void *SelectionContext = &SelectionContext;
                 break;
             case 85:
                 self.outSelector  = 3;
+                transitionTime = 0;
                 /*            serial.writeByte('3');
                  serial.writeByte('*');
                  serial.writeByte('4');
@@ -117,19 +124,13 @@ static void *SelectionContext = &SelectionContext;
                  [self startRecording];
                  }
                  break;*/
-            case 86:
-            {
-                self.recording = false;
-                
-                /* dispatch_async(dispatch_get_main_queue(), ^{
-                 NSLog(@"Play movie, time %lli",[self.mMovie duration].timeValue);
-                 [self.mMovie gotoBeginning];
-                 [self.mMovie play];
-                 });
-                 */
-                self.outSelector = 4;
-                break;
-            }
+                /*    case 86:
+                 {
+                 self.recording = false;
+                 
+                 self.outSelector = 4;
+                 break;
+                 }*/
                 
             default:
                 return incomingEvent;
@@ -144,14 +145,31 @@ static void *SelectionContext = &SelectionContext;
     
     
     NSMutableArray * inputs = [NSMutableArray array];
-    [inputs addObject:@{@"name":@"Main A", @"number":@(1)}];
-    [inputs addObject:@{@"name":@"Main B", @"number":@(2)}];
+    [inputs addObject:@{@"name":@"1 Main A"}];
+    [inputs addObject:@{@"name":@"2 Main B"}];
+    [inputs addObject:@{@"name":@"3 Main C"}];
+    [inputs addObject:@{@"name":@"4 Dolly"}];
+    [inputs addObject:@{@"name":@"5 PTZ"}];
+    [inputs addObject:@{@"name":@"6 Jonas"}];
+    [inputs addObject:@{@"name":@"7 Top"}];
+    [inputs addObject:@{@"name":@"8 Bagscene"}];
+    [inputs addObject:@{@"name":@"9 Ude"}];
     
     self.cameraInputs = inputs;
     
-    [self addObserver:self forKeyPath:@"decklink1input" options:0 context:nil];
-    [self addObserver:self forKeyPath:@"decklink2input" options:0 context:nil];
-    [self addObserver:self forKeyPath:@"decklink3input" options:0 context:nil];
+    self.decklink1input = -1;
+    self.decklink2input = -1;
+    self.decklink3input = -1;
+    [self.mavController.outputPatch[0] bind:@"input" toObject:self withKeyPath:@"decklink1input" options:nil];
+    [self.mavController.outputPatch[1] bind:@"input" toObject:self withKeyPath:@"decklink2input" options:nil];
+    [self.mavController.outputPatch[2] bind:@"input" toObject:self withKeyPath:@"decklink3input" options:nil];
+    
+    //    [self addObserver:self forKeyPath:@"decklink1input" options:0 context:nil];
+    for(int i=0;i<3;i++){
+        [self.mavController.outputPatch[i] addObserver:self forKeyPath:@"input" options:0 context:(void*)@(i)];
+    }
+    
+    [self.mavController readAllOutputs];
 }
 
 -(void)applicationWillTerminate:(NSNotification *)notification{
@@ -163,8 +181,23 @@ static void *SelectionContext = &SelectionContext;
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
     
-    if([keyPath isEqualToString:@"decklink1input"]){
-        [self.mavController setKey:<#(NSString *)#>]
+    if([keyPath isEqualToString:@"input"]){
+        NSNumber * output = (__bridge NSNumber*) context;
+        //        NSLog(@"Change %@-> %@",[object valueForKey:@"input"], output);
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            if([output intValue] == 0){
+                self.decklink1input = [[object valueForKey:@"input"] intValue];
+            }
+            if([output intValue] == 1){
+                self.decklink2input = [[object valueForKey:@"input"] intValue];
+            }
+            if([output intValue] == 2){
+                self.decklink3input = [[object valueForKey:@"input"] intValue];
+            }
+        });
+        
     }
     if(context == &ItemStatusContext){
         if(avPlayer.error){
@@ -184,7 +217,7 @@ static void *SelectionContext = &SelectionContext;
     if(context == &SelectionContext){
         NSLog(@"Selection");
         avPlayerBoundaryPreview = nil;
-
+        
         if([self.recordingsArrayController.selectedObjects count]==0){
             [avPlayerLayerPreview removeFromSuperlayer];
             [avPlayerPreview pause];
@@ -195,11 +228,11 @@ static void *SelectionContext = &SelectionContext;
             AVPlayerItem * item = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"file://%@",[selection valueForKey:@"path"]]]];
             
             NSNumber * inTime = [selection valueForKey:@"inTime"];
-          /*  if(inTime){
-                [item seekToTime:CMTimeMake([inTime floatValue], 25)];
-            }
-            */
-
+            /*  if(inTime){
+             [item seekToTime:CMTimeMake([inTime floatValue], 25)];
+             }
+             */
+            
             
             if(item.error){
                 NSLog(@"Error loading %@",item.error);
@@ -224,15 +257,15 @@ static void *SelectionContext = &SelectionContext;
             
             
             [self updateInOutTime:self];
-
-       /*
-            CATextLayer *textLayer=[CATextLayer layer];
-            [textLayer setForegroundColor:[[NSColor blackColor] CGColor]];
-        //    [textLayer setContentsScale:[[NSScreen mainScreen] conte]];
-            [textLayer setFrame:CGRectMake(50, 170, 250, 20)];
-            [textLayer setString:(id)@"asdfasd"];
-        
-            [[self.videoView layer] addSublayer:textLayer];*/
+            
+            /*
+             CATextLayer *textLayer=[CATextLayer layer];
+             [textLayer setForegroundColor:[[NSColor blackColor] CGColor]];
+             //    [textLayer setContentsScale:[[NSScreen mainScreen] conte]];
+             [textLayer setFrame:CGRectMake(50, 170, 250, 20)];
+             [textLayer setString:(id)@"asdfasd"];
+             
+             [[self.videoView layer] addSublayer:textLayer];*/
         }
         
     }
@@ -270,10 +303,10 @@ static void *SelectionContext = &SelectionContext;
         if([outTime floatValue] >= avPlayerPreview.currentItem.duration.value){
             outTime = @(avPlayerPreview.currentItem.duration.value);
         }
-
+        
         [avPlayerPreview.currentItem seekToTime:CMTimeMake([inTime floatValue], 600) toleranceBefore: kCMTimeZero toleranceAfter: kCMTimeZero];
-
-       // [avPlayerPreview.currentItem a]
+        
+        // [avPlayerPreview.currentItem a]
         
         if(avPlayerBoundaryPreview){
             [avPlayerPreview removeTimeObserver:avPlayerBoundaryPreview];
@@ -307,7 +340,7 @@ static void *SelectionContext = &SelectionContext;
             
             for(NSDictionary * recording in self.recordings){
                 AVPlayerItem * item = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"file://%@",[recording valueForKey:@"path"]]]];
-
+                
                 NSNumber * inTime = [recording valueForKey:@"inTime"];
                 NSNumber * outTime = [recording valueForKey:@"outTime"];
                 if([inTime floatValue] == 0){
@@ -316,7 +349,7 @@ static void *SelectionContext = &SelectionContext;
                 if([inTime floatValue] >= avPlayerPreview.currentItem.duration.value){
                     inTime = @(avPlayerPreview.currentItem.duration.value);
                 }
-               
+                
                 
                 if([outTime floatValue] >= avPlayerPreview.currentItem.duration.value){
                     outTime = @(avPlayerPreview.currentItem.duration.value);
@@ -338,20 +371,20 @@ static void *SelectionContext = &SelectionContext;
             }
             
             avPlayer = [[AVQueuePlayer alloc] initWithItems:items];
-           // [avPlayer play];
+            // [avPlayer play];
             avPlayerLayer = [AVPlayerLayer playerLayerWithPlayer:avPlayer];
-/*
-            __block AppDelegate *dp = self;
-            void (^block)(void)  = ^(void){
-                [dp->avPlayer removeTimeObserver:dp->avPlayerBoundaryPreview];
-                [dp->avPlayer advanceToNextItem];
-                NSLog(@"Ping");
-            };
-            
-
+            /*
+             __block AppDelegate *dp = self;
+             void (^block)(void)  = ^(void){
+             [dp->avPlayer removeTimeObserver:dp->avPlayerBoundaryPreview];
+             [dp->avPlayer advanceToNextItem];
+             NSLog(@"Ping");
+             };
+             
+             
              avPlayerBoundaryPreview = [avPlayer addBoundaryTimeObserverForTimes:@[outTimes[0]] queue:NULL usingBlock:block];
-            
-            */
+             
+             */
             avPlayerLayer.filters = @[self.colorControlsFilter, self.gammaAdjustFilter];
         } else {
             [avPlayerLayer removeFromSuperlayer];
@@ -380,10 +413,10 @@ static void *SelectionContext = &SelectionContext;
             [videoWriterInput markAsFinished];
             [videoWriter finishWriting];
             
-//            [self.recordings addObject:@{@"path":path, @"name":[NSString stringWithFormat:@"Rec %i", self.recordingIndex-1]}];
+            //            [self.recordings addObject:@{@"path":path, @"name":[NSString stringWithFormat:@"Rec %i", self.recordingIndex-1]}];
             NSMutableDictionary * dict = [@{@"path":path, @"name":[NSString stringWithFormat:@"Old Rec %i", self.recordingIndex-1], @"inTime":@(0), @"outTime":@(0)} mutableCopy];
             [self.recordings addObject:dict];
-
+            
             
             NSLog(@"Write Ended");
             
@@ -434,37 +467,11 @@ static void *SelectionContext = &SelectionContext;
                 NSLog(@"Could not start writing %@",videoWriter.error);
             }
             [videoWriter startSessionAtSourceTime:kCMTimeZero];
-            NSLog(@"%@",adaptor.pixelBufferPool);
             
             [NSThread sleepForTimeInterval:0.1];
             
         }
-        /* if(recording){
-         if([self.mMovie duration].timeValue > 0){
-         QTTime qtTime = [self.mMovie duration];
-         qtTime.timeValue --;
-         NSValue * time = [NSValue valueWithQTTime:qtTime];
-         
-         NSDictionary * chapter = @{ QTMovieChapterName:@"Chapter", QTMovieChapterStartTime:time };
-         
-         NSError * error;
-         NSMutableArray * chapters = [NSMutableArray arrayWithArray:self.mMovie.chapters];
-         [chapters addObject:chapter];
-         [self.mMovie addChapters:chapters withAttributes:@{} error:&error];
-         if(error){
-         NSLog(@"Error %@",error);
          }
-         }
-         } else {
-         dispatch_async(dispatch_get_main_queue(), ^{
-         NSError * outError = nil;
-         if(![self.mMovie writeToFile:@"/Users/jonas/Desktop/test.mov" withAttributes:[NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:QTMovieFlatten] error:&outError]){
-         NSLog(@"Could not write %@",outError);
-         }
-         //    movieView.movie = mMovie;
-         });
-         }*/
-    }
 }
 
 -(bool)recording{
@@ -653,20 +660,51 @@ static dispatch_once_t onceToken;
  }
  }*/
 
--(CIImage*) outputImage {
-    CIImage * _outputImage;
-    if(self.outSelector == 0){
+-(CIImage*) imageForSelector:(int)selector{
+    if(selector == 0){
         [self.constantColorFilter setValue:[CIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:1.0] forKey:@"inputColor"];
         return [self.constantColorFilter valueForKey:@"outputImage"];
     }
-    if(self.outSelector > 0 && self.outSelector <= 3){
-        _outputImage = cameras[self.outSelector-1];
+    if(selector > 0 && selector <= 3){
+        return cameras[selector-1];
     }
-    /* if(self.outSelector == 4){
-     _outputImage = [CIImage imageWithCVImageBuffer:movieCurrentFrame];
-     _outputImage = [self filterCIImage:_outputImage];
-     }*/
-    
+    return nil;
+}
+-(void)updateTransitionTime {
+    transitionTime += 0.51-self.fadeTime*0.5;
+    if(transitionTime < 1)
+        [self performSelector:@selector(updateTransitionTime) withObject:nil afterDelay:0.01];
+
+}
+
+-(CIImage*) outputImage {
+    CIImage * _outputImage;
+    if(transitionTime >= 1){
+        transitionImageSourceSelector = self.outSelector;
+        transitionTime = -1;
+    }
+    if(self.fadeTime > 0 && transitionTime != -1){
+        if(transitionTime == 0){
+            [self updateTransitionTime];
+//            [self performSelector:@selector(updateTransitionTime) withObject:nil afterDelay:0.1];
+        }
+        [self.dissolveFilter setValue:[self imageForSelector:transitionImageSourceSelector] forKey:@"inputImage"];
+        [self.dissolveFilter setValue:[self imageForSelector:self.outSelector] forKey:@"inputTargetImage"];
+
+        [self.dissolveFilter setValue:@(transitionTime) forKey:@"inputTime"];
+        _outputImage = [self.dissolveFilter valueForKey:@"outputImage"];
+
+    } else {
+        if(self.outSelector == 0){
+            [self.constantColorFilter setValue:[CIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:1.0] forKey:@"inputColor"];
+            return [self.constantColorFilter valueForKey:@"outputImage"];
+        }
+        
+        _outputImage = [self imageForSelector:self.outSelector];
+/*        if(self.outSelector > 0 && self.outSelector <= 3){
+            _outputImage = cameras[self.outSelector-1];
+        }*/
+    }
     
     [self.constantColorFilter setValue:[CIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:1-self.master] forKey:@"inputColor"];
     
