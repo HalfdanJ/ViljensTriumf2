@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <ApplicationServices/ApplicationServices.h>
+#import <CoreMIDI/CoreMIDI.h>
 #import "BeamSync.h"
 
 @implementation AppDelegate
@@ -170,6 +171,23 @@ static void *SelectionContext = &SelectionContext;
     }
     
     [self.mavController readAllOutputs];
+    
+    
+    MIDIClientRef client = 0;
+    MIDIClientCreate(CFSTR("ViljensTriumf"), MyMIDINotifyProc, (__bridge void*)(self), &client);
+    
+    MIDIPortRef inPort = 0;
+    MIDIInputPortCreate(client, CFSTR("Input Port"), MyMIDIReadProc, (__bridge void*)(self), &inPort);
+    
+    ItemCount sourceCount = MIDIGetNumberOfSources();
+    for(ItemCount i=0; i<sourceCount; i++){
+        MIDIEndpointRef source = MIDIGetSource(i);
+        if(source != 0){
+            MIDIPortConnectSource(inPort, source, NULL);
+        }
+    }
+    
+    
 }
 
 -(void)applicationWillTerminate:(NSNotification *)notification{
@@ -800,6 +818,34 @@ static dispatch_once_t onceToken;
     CVPixelBufferCreateWithBytes(kCFAllocatorDefault, w, h, k32ARGBPixelFormat, bytes, 4*w, (CVPixelBufferReleaseBytesCallback )nil, (void*)nil, (__bridge CFDictionaryRef)d, &buffer);
     
     return buffer;
+}
+
+static void MyMIDIReadProc(const MIDIPacketList *pklist, void *refCon, void *connRefCon){
+    AppDelegate * ad = (__bridge AppDelegate*)refCon;
+    
+    MIDIPacket * packet = (MIDIPacket*)pklist->packet;
+    Byte midiCommand = packet->data[0] >> 4;
+    
+    if(midiCommand==11){//CC
+        int channel = (packet->data[0] & 0xF) + 1;
+        int number = packet->data[1] & 0x7F;
+        int value = packet->data[2] & 0x7F;
+  //      NSLog(@"%i %i %i",channel, number, value);
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if(channel == 1 && number == 0){
+                ad.fadeTime = value / 128.0;
+            }
+            if(channel == 1 && number == 7){
+                ad.master = value / 128.0;
+            }
+        });
+//        if()
+    }
+}
+
+void MyMIDINotifyProc( const MIDINotification *message, void*refCon){
+    
 }
 
 
