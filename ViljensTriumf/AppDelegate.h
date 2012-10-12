@@ -66,6 +66,8 @@
 @property (strong) CIFilter * dissolveFilter;
 @property (strong) CIFilter * sourceOverFilter;
 @property (strong) CIFilter * constantColorFilter;
+@property (strong) CIFilter * widescreenFilter;
+@property (strong) CIFilter * dslrFilter;
 
 
 @property (readwrite) int outSelector;

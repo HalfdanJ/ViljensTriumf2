@@ -61,6 +61,22 @@ static void *SelectionContext = &SelectionContext;
     self.deinterlaceFilter = [[DeinterlaceFilter alloc] init];
     [self.deinterlaceFilter setDefaults];
     
+    
+    self.widescreenFilter = [CIFilter filterWithName:@"CIAffineTransform"];
+    [self.widescreenFilter setDefaults];
+    NSAffineTransform * transform = [NSAffineTransform transform];
+    [transform scaleXBy:1.333 yBy:1.0];
+    [transform translateXBy:-120 yBy:0];
+    [self.widescreenFilter setValue:transform forKey:@"inputTransform"];
+    
+    self.dslrFilter = [CIFilter filterWithName:@"CIAffineTransform"];
+    [self.dslrFilter setDefaults];
+    transform = [NSAffineTransform transform];
+    //[transform scaleXBy:1.333 yBy:1.0];
+    [transform translateXBy:-100 yBy:-100];
+    [transform scaleBy:1.28];
+    [self.dslrFilter setValue:transform forKey:@"inputTransform"];
+
     self.chromaFilter = [[ChromaFilter alloc] init];
     
     self.master = 1.0;
@@ -155,6 +171,7 @@ static void *SelectionContext = &SelectionContext;
     [inputs addObject:@{@"name":@"7 Top"}];
     [inputs addObject:@{@"name":@"8 Bagscene"}];
     [inputs addObject:@{@"name":@"9 Ude"}];
+    [inputs addObject:@{@"name":@"10 DSLR"}];
     
     self.cameraInputs = inputs;
     
@@ -554,7 +571,8 @@ static dispatch_once_t onceToken;
             
             //  dispatch_async(dispatch_get_main_queue(), ^{
             if(!preview.needsDisplay){ //Spar på energien
-                preview.ciImage = image;
+                preview.ciImage = [self imageForSelector:num+1];
+              //    preview.ciImage = image;
                 [preview setNeedsDisplay:YES];
             }
             if(!self.mainOutput.needsDisplay){
@@ -684,7 +702,24 @@ static dispatch_once_t onceToken;
         return [self.constantColorFilter valueForKey:@"outputImage"];
     }
     if(selector > 0 && selector <= 3){
-        return cameras[selector-1];
+        CIImage * img = cameras[selector-1];
+        
+        int inputSelector = self.decklink1input;
+        if(selector == 2)
+            inputSelector = self.decklink2input;
+        if(selector == 3)
+            inputSelector = self.decklink3input;
+
+        if(inputSelector == 5){ //6 Jonas
+            [self.widescreenFilter setValue:img forKey:@"inputImage"];
+            img = [self.widescreenFilter valueForKey:@"outputImage"];
+        }
+        if(inputSelector == 9){ //10 DSLR
+            [self.dslrFilter setValue:img forKey:@"inputImage"];
+            img = [self.dslrFilter valueForKey:@"outputImage"];
+        }
+        
+        return img;
     }
     return nil;
 }
