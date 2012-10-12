@@ -1,0 +1,540 @@
+TViljensTriumf
+v5
+r1
+cCheck dependencies
+cProcessInfoPlistFile /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug/ViljensTriumf.app/Contents/Info.plist ViljensTriumf/ViljensTriumf-Info.plist
+cProcessPCH++ /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ViljensTriumf-Prefix-fluhwjmcwapbenbdpbtgkiqurfgb/ViljensTriumf-Prefix.pch.pth ViljensTriumf/ViljensTriumf-Prefix.pch normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cProcessPCH /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ViljensTriumf-Prefix-bdlwzulxlwkugycwbcoqmuimacnt/ViljensTriumf-Prefix.pch.pth ViljensTriumf/ViljensTriumf-Prefix.pch normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cProcessPCH++ /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ViljensTriumf-Prefix-gewkisvgskhubpdvwecykxoekvbu/ViljensTriumf-Prefix.pch.pth ViljensTriumf/ViljensTriumf-Prefix.pch normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/DeckLinkAPIDispatch.o "/Users/jonas/Development/Forestillinger/ViljensTriumf2/libs/Blackmagic DeckLink SDK 9.6.4/Mac/include/DeckLinkAPIDispatch.cpp" normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/DeinterlaceFilter.o /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/filters/DeinterlaceFilter.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/main.o /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/main.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/ChromaFilter.o /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/filters/ChromaFilter.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/CoreImageViewer.o /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/CoreImageViewer.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/BeamSync.o /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/BeamSync.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/DecklinkCallback.o /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/AppDelegate.o /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/AppDelegate.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/BlackMagicController.o /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/BlackMagicController.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cLd /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug/ViljensTriumf.app/Contents/MacOS/ViljensTriumf normal x86_64
+cCopyStringsFile /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug/ViljensTriumf.app/Contents/Resources/en.lproj/InfoPlist.strings ViljensTriumf/en.lproj/InfoPlist.strings
+cCompileXIB /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/en.lproj/MainMenu.xib
+cCpResource ViljensTriumf/en.lproj/Credits.rtf build/Debug/ViljensTriumf.app/Contents/Resources/en.lproj/Credits.rtf
+cCpResource ViljensTriumf/filters/deinterlaceFilter.cikernel build/Debug/ViljensTriumf.app/Contents/Resources/deinterlaceFilter.cikernel
+cTouch /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug/ViljensTriumf.app
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk
+c00000000503F1B7700000000000000AA
+t1346313079
+s170
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/AVFoundation.framework/AVFoundation
+c00000000505F2DF1000000000007F1A4
+t1348414961
+s520612
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/ApplicationServices.framework/ApplicationServices
+c00000000505F2DF00000000000007C70
+t1348414960
+s31856
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Cocoa.framework/Cocoa
+c00000000505F2DF100000000000025C8
+t1348414961
+s9672
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Cocoa.framework/Headers/Cocoa.h
+c00000000505F2DF100000000000001E5
+t1348414961
+s485
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CoreMedia.framework/CoreMedia
+c00000000505F2DF1000000000002F164
+t1348414961
+s192868
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c00000000505F2DF100000000000C39B8
+t1348414961
+s801208
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Quartz.framework/Quartz
+c00000000505F2DF200000000000028D0
+t1348414962
+s10448
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/QuartzCore.framework/QuartzCore
+c00000000505F2DF2000000000004DE20
+t1348414962
+s319008
+
+N/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/AppDelegate.mm
+c000000005077CB8800000000000070AB
+t1350028168
+s28843
+
+N/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/BeamSync.m
+c000000005077CB880000000000000242
+t1350028168
+s578
+
+N/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/BlackMagicController.mm
+c000000005077CB880000000000001384
+t1350028168
+s4996
+
+N/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/CoreImageViewer.m
+c000000005077CB88000000000000033C
+t1350028168
+s828
+
+N/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm
+c000000005077CB880000000000002718
+t1350028168
+s10008
+
+N/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/ViljensTriumf-Prefix.pch
+c000000005077CB88000000000000009D
+t1350028168
+s157
+i<Cocoa/Cocoa.h>
+
+N/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/en.lproj/Credits.rtf
+c000000005077CB8800000000000001B4
+t1350028168
+s436
+
+N/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/en.lproj/InfoPlist.strings
+c000000005077CB88000000000000002D
+t1350028168
+s45
+
+N/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/en.lproj/MainMenu.xib
+c000000005077CB880000000000044D29
+t1350028168
+s281897
+
+N/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/filters/ChromaFilter.m
+c000000005077CB880000000000000FD8
+t1350028168
+s4056
+
+N/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/filters/DeinterlaceFilter.m
+c000000005077CB8800000000000003F6
+t1350028168
+s1014
+
+N/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/filters/deinterlaceFilter.cikernel
+c000000005077CB88000000000000043E
+t1350028168
+s1086
+
+N/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/main.m
+c000000005077CB8800000000000000F3
+t1350028168
+s243
+
+N/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug/ViljensTriumf.app
+t2
+s0
+
+N/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug/ViljensTriumf.app/Contents/Info.plist
+t2
+s0
+
+N/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug/ViljensTriumf.app/Contents/MacOS/ViljensTriumf
+t2
+s0
+
+N/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug/ViljensTriumf.app/Contents/PkgInfo
+t2
+s0
+
+N/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug/ViljensTriumf.app/Contents/Resources/deinterlaceFilter.cikernel
+t2
+s0
+
+N/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug/ViljensTriumf.app/Contents/Resources/en.lproj/Credits.rtf
+t2
+s0
+
+N/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug/ViljensTriumf.app/Contents/Resources/en.lproj/InfoPlist.strings
+t2
+s0
+
+N/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug/ViljensTriumf.app/Contents/Resources/en.lproj/MainMenu.nib
+t2
+s0
+
+N/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/AppDelegate.o
+t2
+s0
+
+N/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/BeamSync.o
+t2
+s0
+
+N/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/BlackMagicController.o
+t2
+s0
+
+N/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/ChromaFilter.o
+t2
+s0
+
+N/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/CoreImageViewer.o
+t2
+s0
+
+N/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/DeckLinkAPIDispatch.o
+t2
+s0
+
+N/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/DecklinkCallback.o
+t2
+s0
+
+N/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/DeinterlaceFilter.o
+t2
+s0
+
+N/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/ViljensTriumf.LinkFileList
+c000000005077CD49000000000000051E
+t1350028617
+s1310
+
+N/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/main.o
+t2
+s0
+
+N/Users/jonas/Development/Forestillinger/ViljensTriumf2/libs/Blackmagic DeckLink SDK 9.6.4/Mac/include/DeckLinkAPIDispatch.cpp
+c000000005077CB890000000000001A49
+t1350028169
+s6729
+
+N/var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ViljensTriumf-Prefix-bdlwzulxlwkugycwbcoqmuimacnt/ViljensTriumf-Prefix.pch.pth
+t2
+s0
+
+N/var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ViljensTriumf-Prefix-fluhwjmcwapbenbdpbtgkiqurfgb/ViljensTriumf-Prefix.pch.pth
+t2
+s0
+
+N/var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ViljensTriumf-Prefix-gewkisvgskhubpdvwecykxoekvbu/ViljensTriumf-Prefix.pch.pth
+t2
+s0
+
+NViljensTriumf/ViljensTriumf-Info.plist
+c000000005077CB880000000000000447
+t1350028168
+s1095
+
+CBuild AST from "/Users/jonas/Development/Forestillinger/ViljensTriumf2/libs/Blackmagic DeckLink SDK 9.6.4/Mac/include/DeckLinkAPIDispatch.cpp"
+r0
+
+CBuild AST from /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/AppDelegate.mm
+r0
+
+CBuild AST from /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/BeamSync.m
+r0
+
+CBuild AST from /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/BlackMagicController.mm
+r0
+
+CBuild AST from /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/CoreImageViewer.m
+r0
+
+CBuild AST from /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm
+r0
+
+CBuild AST from /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/filters/ChromaFilter.m
+r0
+
+CBuild AST from /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/filters/DeinterlaceFilter.m
+r0
+
+CBuild AST from /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/main.m
+r0
+
+CCheck dependencies
+r0
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependenciesfc8d96c90428b641^2715b1c90428b641^---0#1#0#--18"Check dependencies36"32DD07A8-BC33-4F77-A367-2B1235DEE81E-
+
+CCompileC build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/AppDelegate.o /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/AppDelegate.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+s371721418.594159
+e371721419.121518
+r1
+xCompileC
+xbuild/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/AppDelegate.o
+x/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/AppDelegate.mm
+xnormal
+xx86_64
+xobjective-c++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+o/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/AppDelegate.mm:183:24: warning: unused variable 'inTime' [-Wunused-variable]
+o            NSNumber * inTime = [selection valueForKey:@"inTime"];
+o                       ^
+o/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/AppDelegate.mm:462:24: warning: unused variable 'onceToken' [-Wunused-variable]
+ostatic dispatch_once_t onceToken;
+o                       ^
+o2 warnings generated.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection91"Compile /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/AppDelegate.mm4c3898ca0428b641^481b1fcb0428b641^-468"/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/AppDelegate.mm:183:24: warning: unused variable 'inTime' [-Wunused-variable]            NSNumber * inTime = [selection valueForKey:@"inTime"];                       ^/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/AppDelegate.mm:462:24: warning: unused variable 'onceToken' [-Wunused-variable]static dispatch_once_t onceToken;                       ^2 warnings generated.2(36%IDEClangDiagnosticActivityLogMessage2@24"Unused variable 'inTime'-371721419#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@99"file://localhost/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/AppDelegate.mm0000000000000000^182#23#182#23#6050#0#19"Unused Entity Issue--2@27"Unused variable 'onceToken'-371721419#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@99"file://localhost/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/AppDelegate.mm0000000000000000^461#23#461#23#17588#0#19"Unused Entity Issue--0#0#0#-19%DVTDocumentLocation4@99"file://localhost/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/AppDelegate.mm0000000000000000^3604"CompileC build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/AppDelegate.o ViljensTriumf/AppDelegate.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/jonas/Development/Forestillinger/ViljensTriumf2    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch x86_64 -fmessage-length=0 -std=gnu++11 -stdlib=libc++ -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-arc-abi -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.8 -g -fvisibility-inlines-hidden -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -iquote /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-generated-files.hmap -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-own-target-headers.hmap -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-all-target-headers.hmap -iquote /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-project-headers.hmap -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/DerivedSources/x86_64 -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/DerivedSources -F/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug -include /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ViljensTriumf-Prefix-gewkisvgskhubpdvwecykxoekvbu/ViljensTriumf-Prefix.pch -MMD -MT dependencies -MF /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/AppDelegate.d --serialize-diagnostics /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/AppDelegate.dia -c /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/AppDelegate.mm -o /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/AppDelegate.o36"7106D67B-329D-4C1E-9B02-60B94052A030-
+
+CCompileC build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/BeamSync.o /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/BeamSync.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s371721418.408315
+e371721418.445710
+r1
+xCompileC
+xbuild/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/BeamSync.o
+x/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/BeamSync.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection87"Compile /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/BeamSync.m87a668ca0428b641^3b1b72ca0428b641^---0#0#0#-19%DVTDocumentLocation2@95"file://localhost/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/BeamSync.m0000000000000000^3423"CompileC build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/BeamSync.o ViljensTriumf/BeamSync.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/jonas/Development/Forestillinger/ViljensTriumf2    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch x86_64 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.8 -g -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -iquote /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-generated-files.hmap -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-own-target-headers.hmap -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-all-target-headers.hmap -iquote /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-project-headers.hmap -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/DerivedSources/x86_64 -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/DerivedSources -F/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug -include /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ViljensTriumf-Prefix-bdlwzulxlwkugycwbcoqmuimacnt/ViljensTriumf-Prefix.pch -MMD -MT dependencies -MF /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/BeamSync.d --serialize-diagnostics /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/BeamSync.dia -c /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/BeamSync.m -o /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/BeamSync.o36"32FB7845-940B-4F70-BDCA-210B41EE4CBF-
+
+CCompileC build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/BlackMagicController.o /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/BlackMagicController.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+s371721418.594171
+e371721419.054813
+r1
+xCompileC
+xbuild/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/BlackMagicController.o
+x/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/BlackMagicController.mm
+xnormal
+xx86_64
+xobjective-c++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+o/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/BlackMagicController.mm:19:10: warning: unused variable 'result' [-Wunused-variable]
+o        bool                            result = false;
+o                                        ^
+o1 warning generated.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection100"Compile /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/BlackMagicController.mm723798ca0428b641^5f070ecb0428b641^-273"/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/BlackMagicController.mm:19:10: warning: unused variable 'result' [-Wunused-variable]        bool                            result = false;                                        ^1 warning generated.1(36%IDEClangDiagnosticActivityLogMessage2@24"Unused variable 'result'-371721419#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@108"file://localhost/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/BlackMagicController.mm0000000000000000^18#9#18#9#399#0#19"Unused Entity Issue--0#0#0#-19%DVTDocumentLocation4@108"file://localhost/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/BlackMagicController.mm0000000000000000^3658"CompileC build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/BlackMagicController.o ViljensTriumf/BlackMagicController.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/jonas/Development/Forestillinger/ViljensTriumf2    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch x86_64 -fmessage-length=0 -std=gnu++11 -stdlib=libc++ -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-arc-abi -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.8 -g -fvisibility-inlines-hidden -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -iquote /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-generated-files.hmap -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-own-target-headers.hmap -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-all-target-headers.hmap -iquote /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-project-headers.hmap -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/DerivedSources/x86_64 -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/DerivedSources -F/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug -include /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ViljensTriumf-Prefix-gewkisvgskhubpdvwecykxoekvbu/ViljensTriumf-Prefix.pch -MMD -MT dependencies -MF /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/BlackMagicController.d --serialize-diagnostics /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/BlackMagicController.dia -c /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/BlackMagicController.mm -o /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/BlackMagicController.o36"6FC96589-6639-42E5-9A45-BDB1A35E63D9-
+
+CCompileC build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/ChromaFilter.o /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/filters/ChromaFilter.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s371721418.408296
+e371721418.499576
+r1
+xCompileC
+xbuild/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/ChromaFilter.o
+x/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/filters/ChromaFilter.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection99"Compile /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/filters/ChromaFilter.me9ba68ca0428b641^cde47fca0428b641^---0#0#0#-19%DVTDocumentLocation2@107"file://localhost/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/filters/ChromaFilter.m0000000000000000^3463"CompileC build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/ChromaFilter.o ViljensTriumf/filters/ChromaFilter.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/jonas/Development/Forestillinger/ViljensTriumf2    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch x86_64 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.8 -g -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -iquote /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-generated-files.hmap -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-own-target-headers.hmap -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-all-target-headers.hmap -iquote /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-project-headers.hmap -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/DerivedSources/x86_64 -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/DerivedSources -F/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug -include /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ViljensTriumf-Prefix-bdlwzulxlwkugycwbcoqmuimacnt/ViljensTriumf-Prefix.pch -MMD -MT dependencies -MF /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/ChromaFilter.d --serialize-diagnostics /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/ChromaFilter.dia -c /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/filters/ChromaFilter.m -o /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/ChromaFilter.o36"B845B1DB-1F02-4529-93AA-48281B27DB96-
+
+CCompileC build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/CoreImageViewer.o /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/CoreImageViewer.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s371721418.408305
+e371721418.496433
+r1
+xCompileC
+xbuild/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/CoreImageViewer.o
+x/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/CoreImageViewer.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection94"Compile /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/CoreImageViewer.m39b468ca0428b641^c2167fca0428b641^---0#0#0#-19%DVTDocumentLocation2@102"file://localhost/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/CoreImageViewer.m0000000000000000^3465"CompileC build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/CoreImageViewer.o ViljensTriumf/CoreImageViewer.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/jonas/Development/Forestillinger/ViljensTriumf2    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch x86_64 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.8 -g -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -iquote /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-generated-files.hmap -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-own-target-headers.hmap -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-all-target-headers.hmap -iquote /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-project-headers.hmap -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/DerivedSources/x86_64 -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/DerivedSources -F/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug -include /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ViljensTriumf-Prefix-bdlwzulxlwkugycwbcoqmuimacnt/ViljensTriumf-Prefix.pch -MMD -MT dependencies -MF /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/CoreImageViewer.d --serialize-diagnostics /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/CoreImageViewer.dia -c /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/CoreImageViewer.m -o /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/CoreImageViewer.o36"0A44E397-80EA-4252-BBE9-91D92CB5D8E4-
+
+CCompileC build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/DeckLinkAPIDispatch.o "/Users/jonas/Development/Forestillinger/ViljensTriumf2/libs/Blackmagic DeckLink SDK 9.6.4/Mac/include/DeckLinkAPIDispatch.cpp" normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s371721417.770759
+e371721417.917245
+r1
+xCompileC
+xbuild/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/DeckLinkAPIDispatch.o
+x/Users/jonas/Development/Forestillinger/ViljensTriumf2/libs/Blackmagic DeckLink SDK 9.6.4/Mac/include/DeckLinkAPIDispatch.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection133"Compile /Users/jonas/Development/Forestillinger/ViljensTriumf2/libs/Blackmagic DeckLink SDK 9.6.4/Mac/include/DeckLinkAPIDispatch.cpp006fc5c90428b641^56d2eac90428b641^---0#0#0#-19%DVTDocumentLocation2@147"file://localhost/Users/jonas/Development/Forestillinger/ViljensTriumf2/libs/Blackmagic%20DeckLink%20SDK%209.6.4/Mac/include/DeckLinkAPIDispatch.cpp0000000000000000^3329"CompileC build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/DeckLinkAPIDispatch.o "libs/Blackmagic DeckLink SDK 9.6.4/Mac/include/DeckLinkAPIDispatch.cpp" normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/jonas/Development/Forestillinger/ViljensTriumf2    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -std=gnu++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.8 -g -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-generated-files.hmap -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-own-target-headers.hmap -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-all-target-headers.hmap -iquote /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-project-headers.hmap -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/DerivedSources/x86_64 -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/DerivedSources -F/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug -include /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ViljensTriumf-Prefix-fluhwjmcwapbenbdpbtgkiqurfgb/ViljensTriumf-Prefix.pch -MMD -MT dependencies -MF /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/DeckLinkAPIDispatch.d --serialize-diagnostics /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/DeckLinkAPIDispatch.dia -c "/Users/jonas/Development/Forestillinger/ViljensTriumf2/libs/Blackmagic DeckLink SDK 9.6.4/Mac/include/DeckLinkAPIDispatch.cpp" -o /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/DeckLinkAPIDispatch.o36"366CCC11-D949-4D89-BC4C-FE87A283EDFD-
+
+CCompileC build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/DecklinkCallback.o /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+s371721418.594130
+e371721419.028717
+r1
+xCompileC
+xbuild/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/DecklinkCallback.o
+x/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm
+xnormal
+xx86_64
+xobjective-c++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+o/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm:154:9: warning: unused variable 'a' [-Wunused-variable]
+o    int a;
+o        ^
+o/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm:146:76: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+o        int size = pArrivedFrame->GetWidth() * pArrivedFrame->GetHeight()*4*sizeof(unsigned char);
+o            ~~~~   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+o/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm:155:17: warning: implicit conversion loses integer precision: 'clock_t' (aka 'unsigned long') to 'unsigned int' [-Wshorten-64-to-32]
+o    unsigned t0=clock(),t1;
+o             ~~ ^~~~~~~
+o/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm:159:65: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
+o    int     mConversionChunkSize = pArrivedFrame->GetRowBytes() * (long)ceil(pArrivedFrame->GetHeight() /(float) num_workers);
+o            ~~~~~~~~~~~~~~~~~~~~   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+o/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm:172:15: warning: implicit conversion loses integer precision: 'unsigned long' to 'unsigned int' [-Wshorten-64-to-32]
+o    t1=clock()-t0;
+o      ~~~~~~~~^~~
+o/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm:244:1: warning: control reaches end of non-void function [-Wreturn-type]
+o}
+o^
+o/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm:253:46: warning: unused variable 'frames' [-Wunused-variable]
+o            int                                 hours, minutes, seconds, frames;
+o                                                                         ^
+o/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm:253:21: warning: unused variable 'hours' [-Wunused-variable]
+o            int                                 hours, minutes, seconds, frames;
+o                                                ^
+o/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm:253:28: warning: unused variable 'minutes' [-Wunused-variable]
+o            int                                 hours, minutes, seconds, frames;
+o                                                       ^
+o/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm:253:37: warning: unused variable 'seconds' [-Wunused-variable]
+o            int                                 hours, minutes, seconds, frames;
+o                                                                ^
+o/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm:263:17: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
+o            w = videoFrame->GetWidth();
+o              ~ ^~~~~~~~~~~~~~~~~~~~~~
+o/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm:264:17: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
+o            h = videoFrame->GetHeight();
+o              ~ ^~~~~~~~~~~~~~~~~~~~~~~
+o12 warnings generated.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection96"Compile /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mmb93698ca0428b641^255907cb0428b641^-3420"/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm:154:9: warning: unused variable 'a' [-Wunused-variable]    int a;        ^/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm:146:76: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]        int size = pArrivedFrame->GetWidth() * pArrivedFrame->GetHeight()*4*sizeof(unsigned char);            ~~~~   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm:155:17: warning: implicit conversion loses integer precision: 'clock_t' (aka 'unsigned long') to 'unsigned int' [-Wshorten-64-to-32]    unsigned t0=clock(),t1;             ~~ ^~~~~~~/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm:159:65: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]    int     mConversionChunkSize = pArrivedFrame->GetRowBytes() * (long)ceil(pArrivedFrame->GetHeight() /(float) num_workers);            ~~~~~~~~~~~~~~~~~~~~   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm:172:15: warning: implicit conversion loses integer precision: 'unsigned long' to 'unsigned int' [-Wshorten-64-to-32]    t1=clock()-t0;      ~~~~~~~~^~~/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm:244:1: warning: control reaches end of non-void function [-Wreturn-type]}^/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm:253:46: warning: unused variable 'frames' [-Wunused-variable]            int                                 hours, minutes, seconds, frames;                                                                         ^/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm:253:21: warning: unused variable 'hours' [-Wunused-variable]            int                                 hours, minutes, seconds, frames;                                                ^/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm:253:28: warning: unused variable 'minutes' [-Wunused-variable]            int                                 hours, minutes, seconds, frames;                                                       ^/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm:253:37: warning: unused variable 'seconds' [-Wunused-variable]            int                                 hours, minutes, seconds, frames;                                                                ^/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm:263:17: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]            w = videoFrame->GetWidth();              ~ ^~~~~~~~~~~~~~~~~~~~~~/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm:264:17: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]            h = videoFrame->GetHeight();              ~ ^~~~~~~~~~~~~~~~~~~~~~~12 warnings generated.12(36%IDEClangDiagnosticActivityLogMessage2@19"Unused variable 'a'-371721419#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@104"file://localhost/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm0000000000000000^153#8#153#8#4328#0#19"Unused Entity Issue--2@69"Implicit conversion loses integer precision: 'unsigned long' to 'int'-371721419#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file://localhost/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm0000000000000000^145#75#145#75#4069#0#14"Semantic Issue2(3@104"file://localhost/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm0000000000000000^145#19#145#97#4013#77#3@104"file://localhost/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm0000000000000000^145#12#145#16#4006#0#-2@94"Implicit conversion loses integer precision: 'clock_t' (aka 'unsigned long') to 'unsigned int'-371721419#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file://localhost/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm0000000000000000^154#16#154#16#4347#0#14"Semantic Issue2(3@104"file://localhost/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm0000000000000000^154#16#154#23#4347#6#3@104"file://localhost/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm0000000000000000^154#13#154#15#4344#0#-2@60"Implicit conversion loses integer precision: 'long' to 'int'-371721419#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file://localhost/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm0000000000000000^158#64#158#64#4528#0#14"Semantic Issue2(3@104"file://localhost/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm0000000000000000^158#35#158#125#4499#89#3@104"file://localhost/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm0000000000000000^158#12#158#32#4476#0#-2@78"Implicit conversion loses integer precision: 'unsigned long' to 'unsigned int'-371721419#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file://localhost/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm0000000000000000^171#14#171#14#4975#0#14"Semantic Issue2(3@104"file://localhost/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm0000000000000000^171#7#171#17#4968#8#3@104"file://localhost/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm0000000000000000^171#6#171#7#4967#0#-2@40"Control reaches end of non-void function-371721419#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file://localhost/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm0000000000000000^243#0#243#0#7042#0#14"Semantic Issue--2@24"Unused variable 'frames'-371721419#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file://localhost/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm0000000000000000^252#45#252#45#7447#0#19"Unused Entity Issue--2@23"Unused variable 'hours'-371721419#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file://localhost/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm0000000000000000^252#20#252#20#7422#0#19"Unused Entity Issue--2@25"Unused variable 'minutes'-371721419#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file://localhost/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm0000000000000000^252#27#252#27#7429#0#19"Unused Entity Issue--2@25"Unused variable 'seconds'-371721419#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file://localhost/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm0000000000000000^252#36#252#36#7438#0#19"Unused Entity Issue--2@60"Implicit conversion loses integer precision: 'long' to 'int'-371721419#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file://localhost/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm0000000000000000^262#16#262#16#7858#0#14"Semantic Issue2(3@104"file://localhost/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm0000000000000000^262#16#262#38#7858#21#3@104"file://localhost/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm0000000000000000^262#14#262#15#7856#0#-2@60"Implicit conversion loses integer precision: 'long' to 'int'-371721419#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file://localhost/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm0000000000000000^263#16#263#16#7898#0#14"Semantic Issue2(3@104"file://localhost/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm0000000000000000^263#16#263#39#7898#22#3@104"file://localhost/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm0000000000000000^263#14#263#15#7896#0#-0#0#0#-19%DVTDocumentLocation4@104"file://localhost/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm0000000000000000^3634"CompileC build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/DecklinkCallback.o ViljensTriumf/DecklinkCallback.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/jonas/Development/Forestillinger/ViljensTriumf2    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch x86_64 -fmessage-length=0 -std=gnu++11 -stdlib=libc++ -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-arc-abi -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.8 -g -fvisibility-inlines-hidden -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -iquote /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-generated-files.hmap -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-own-target-headers.hmap -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-all-target-headers.hmap -iquote /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-project-headers.hmap -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/DerivedSources/x86_64 -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/DerivedSources -F/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug -include /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ViljensTriumf-Prefix-gewkisvgskhubpdvwecykxoekvbu/ViljensTriumf-Prefix.pch -MMD -MT dependencies -MF /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/DecklinkCallback.d --serialize-diagnostics /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/DecklinkCallback.dia -c /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/DecklinkCallback.mm -o /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/DecklinkCallback.o36"CA999DB2-E3B9-4833-B5A3-8A5AF0A4FEB7-
+
+CCompileC build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/DeinterlaceFilter.o /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/filters/DeinterlaceFilter.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s371721418.408270
+e371721418.489077
+r1
+xCompileC
+xbuild/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/DeinterlaceFilter.o
+x/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/filters/DeinterlaceFilter.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+o/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/filters/DeinterlaceFilter.m:21:30: warning: 'stringWithContentsOfFile:' is deprecated [-Wdeprecated-declarations]
+o        NSString    *code = [NSString stringWithContentsOfFile: [bundle// 3
+o                             ^
+o1 warning generated.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection104"Compile /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/filters/DeinterlaceFilter.m07b468ca0428b641^37347dca0428b641^-311"/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/filters/DeinterlaceFilter.m:21:30: warning: 'stringWithContentsOfFile:' is deprecated [-Wdeprecated-declarations]        NSString    *code = [NSString stringWithContentsOfFile: [bundle// 3                             ^1 warning generated.1(36%IDEClangDiagnosticActivityLogMessage2@41"'stringWithContentsOfFile:' is deprecated-371721418#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@112"file://localhost/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/filters/DeinterlaceFilter.m0000000000000000^20#29#20#29#405#0#12"Deprecations--0#0#0#-19%DVTDocumentLocation4@112"file://localhost/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/filters/DeinterlaceFilter.m0000000000000000^3493"CompileC build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/DeinterlaceFilter.o ViljensTriumf/filters/DeinterlaceFilter.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/jonas/Development/Forestillinger/ViljensTriumf2    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch x86_64 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.8 -g -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -iquote /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-generated-files.hmap -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-own-target-headers.hmap -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-all-target-headers.hmap -iquote /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-project-headers.hmap -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/DerivedSources/x86_64 -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/DerivedSources -F/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug -include /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ViljensTriumf-Prefix-bdlwzulxlwkugycwbcoqmuimacnt/ViljensTriumf-Prefix.pch -MMD -MT dependencies -MF /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/DeinterlaceFilter.d --serialize-diagnostics /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/DeinterlaceFilter.dia -c /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/filters/DeinterlaceFilter.m -o /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/DeinterlaceFilter.o36"E6F869FD-F9F7-44A5-90C0-CCF335B04FEA-
+
+CCompileC build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/main.o /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/main.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s371721418.408290
+e371721418.437921
+r1
+xCompileC
+xbuild/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/main.o
+x/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/main.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection83"Compile /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/main.m67b568ca0428b641^711c70ca0428b641^---0#0#0#-19%DVTDocumentLocation2@91"file://localhost/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/main.m0000000000000000^3399"CompileC build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/main.o ViljensTriumf/main.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/jonas/Development/Forestillinger/ViljensTriumf2    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch x86_64 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.8 -g -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -iquote /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-generated-files.hmap -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-own-target-headers.hmap -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-all-target-headers.hmap -iquote /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-project-headers.hmap -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/DerivedSources/x86_64 -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/DerivedSources -F/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug -include /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ViljensTriumf-Prefix-bdlwzulxlwkugycwbcoqmuimacnt/ViljensTriumf-Prefix.pch -MMD -MT dependencies -MF /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/main.d --serialize-diagnostics /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/main.dia -c /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/main.m -o /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/main.o36"DB3AA2D9-2CFF-439D-A579-22A6C7E82F2A-
+
+CCompileXIB /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/en.lproj/MainMenu.xib
+s371721419.454438
+e371721420.175113
+r1
+xCompileXIB
+x/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/en.lproj/MainMenu.xib
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection100"Compiling /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/en.lproj/MainMenu.xibcb6874cb0428b641^78d42ccc0428b641^---0#0#0#-19%DVTDocumentLocation2@106"file://localhost/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/en.lproj/MainMenu.xib0000000000000000^659"CompileXIB ViljensTriumf/en.lproj/MainMenu.xib    cd /Users/jonas/Development/Forestillinger/ViljensTriumf2    setenv XCODE_DEVELOPER_USR_PATH /Applications/Xcode.app/Contents/Developer/usr/bin/..    /Applications/Xcode.app/Contents/Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug/ViljensTriumf.app/Contents/Resources/en.lproj/MainMenu.nib /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/en.lproj/MainMenu.xib --sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk36"F07116FC-6442-4D4A-88B1-A7D894647F17-
+
+CCopyStringsFile /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug/ViljensTriumf.app/Contents/Resources/en.lproj/InfoPlist.strings ViljensTriumf/en.lproj/InfoPlist.strings
+s371721419.454410
+e371721419.459145
+r1
+xCopyStringsFile
+x/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug/ViljensTriumf.app/Contents/Resources/en.lproj/InfoPlist.strings
+xViljensTriumf/en.lproj/InfoPlist.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection45"Copy ViljensTriumf/en.lproj/InfoPlist.strings946d74cb0428b641^508b75cb0428b641^---0#0#0#-19%DVTDocumentLocation2@111"file://localhost/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/en.lproj/InfoPlist.strings0000000000000000^442"CopyStringsFile build/Debug/ViljensTriumf.app/Contents/Resources/en.lproj/InfoPlist.strings ViljensTriumf/en.lproj/InfoPlist.strings    cd /Users/jonas/Development/Forestillinger/ViljensTriumf2    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding UTF-16 --outdir /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug/ViljensTriumf.app/Contents/Resources/en.lproj -- ViljensTriumf/en.lproj/InfoPlist.strings36"34745CDD-B56B-406F-B241-F574CD693A0D-
+
+CCpResource ViljensTriumf/en.lproj/Credits.rtf build/Debug/ViljensTriumf.app/Contents/Resources/en.lproj/Credits.rtf
+s371721419.454444
+e371721419.460132
+r1
+xCpResource
+xViljensTriumf/en.lproj/Credits.rtf
+xbuild/Debug/ViljensTriumf.app/Contents/Resources/en.lproj/Credits.rtf
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection74"Copy build/Debug/ViljensTriumf.app/Contents/Resources/en.lproj/Credits.rtff86d74cb0428b641^21cc75cb0428b641^---0#0#0#-19%DVTDocumentLocation2@140"file://localhost/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug/ViljensTriumf.app/Contents/Resources/en.lproj/Credits.rtf000000000080d041^493"CpResource ViljensTriumf/en.lproj/Credits.rtf build/Debug/ViljensTriumf.app/Contents/Resources/en.lproj/Credits.rtf    cd /Users/jonas/Development/Forestillinger/ViljensTriumf2    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/en.lproj/Credits.rtf /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug/ViljensTriumf.app/Contents/Resources/en.lproj36"B294722C-26C0-4A20-A95F-EE38F015C1B3-
+
+CCpResource ViljensTriumf/filters/deinterlaceFilter.cikernel build/Debug/ViljensTriumf.app/Contents/Resources/deinterlaceFilter.cikernel
+s371721419.454450
+e371721419.458006
+r1
+xCpResource
+xViljensTriumf/filters/deinterlaceFilter.cikernel
+xbuild/Debug/ViljensTriumf.app/Contents/Resources/deinterlaceFilter.cikernel
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection80"Copy build/Debug/ViljensTriumf.app/Contents/Resources/deinterlaceFilter.cikernelf06b74cb0428b641^894075cb0428b641^---0#0#0#-19%DVTDocumentLocation2@146"file://localhost/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug/ViljensTriumf.app/Contents/Resources/deinterlaceFilter.cikernel000000000080d041^518"CpResource ViljensTriumf/filters/deinterlaceFilter.cikernel build/Debug/ViljensTriumf.app/Contents/Resources/deinterlaceFilter.cikernel    cd /Users/jonas/Development/Forestillinger/ViljensTriumf2    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/filters/deinterlaceFilter.cikernel /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug/ViljensTriumf.app/Contents/Resources36"7FB84ABF-7AF1-4961-BD54-9CA098D19FEF-
+
+CLd /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug/ViljensTriumf.app/Contents/MacOS/ViljensTriumf normal x86_64
+s371721419.127692
+e371721419.446096
+r1
+xLd
+x/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug/ViljensTriumf.app/Contents/MacOS/ViljensTriumf
+xnormal
+xx86_64
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection118"Link /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug/ViljensTriumf.app/Contents/MacOS/ViljensTriumfa62a21cb0428b641^653472cb0428b641^---0#0#0#--1048"Ld build/Debug/ViljensTriumf.app/Contents/MacOS/ViljensTriumf normal x86_64    cd /Users/jonas/Development/Forestillinger/ViljensTriumf2    setenv MACOSX_DEPLOYMENT_TARGET 10.8    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -L/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug -F/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug -filelist /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/Objects-normal/x86_64/ViljensTriumf.LinkFileList -mmacosx-version-min=10.8 -fobjc-arc -fobjc-link-runtime -stdlib=libc++ -framework CoreMedia -framework AVFoundation -framework Foundation -framework ApplicationServices -framework QuartzCore -framework Quartz -framework Cocoa -o /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug/ViljensTriumf.app/Contents/MacOS/ViljensTriumf36"0F183EE5-E9FE-47B0-B54C-9EA787C35704-
+
+CProcessInfoPlistFile /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug/ViljensTriumf.app/Contents/Info.plist ViljensTriumf/ViljensTriumf-Info.plist
+s371721417.706021
+e371721417.709372
+r1
+xProcessInfoPlistFile
+x/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug/ViljensTriumf.app/Contents/Info.plist
+xViljensTriumf/ViljensTriumf-Info.plist
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection46"Process ViljensTriumf/ViljensTriumf-Info.plist56d8b4c90428b641^42ccb5c90428b641^---0#0#0#-19%DVTDocumentLocation2@109"file://localhost/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/ViljensTriumf-Info.plist0000000000000000^500"ProcessInfoPlistFile build/Debug/ViljensTriumf.app/Contents/Info.plist ViljensTriumf/ViljensTriumf-Info.plist    cd /Users/jonas/Development/Forestillinger/ViljensTriumf2    builtin-infoPlistUtility ViljensTriumf/ViljensTriumf-Info.plist -genpkginfo /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug/ViljensTriumf.app/Contents/PkgInfo -expandbuildsettings -platform macosx -o /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug/ViljensTriumf.app/Contents/Info.plist36"5E2BF58B-D945-41FA-83C7-A302792D8DE4-
+
+CProcessPCH /Users/jonas/Library/Developer/Xcode/DerivedData/ViljensTriumf-bshlccyudoascrecocmmvsyovjbm/Index/PrecompiledHeaders/ViljensTriumf-Prefix-beaxskiwiikmilgqeeieavmejgby_ast/ViljensTriumf-Prefix.pch.pth ViljensTriumf/ViljensTriumf-Prefix.pch normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.astbuilder
+r0
+
+CProcessPCH /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ViljensTriumf-Prefix-bdlwzulxlwkugycwbcoqmuimacnt/ViljensTriumf-Prefix.pch.pth ViljensTriumf/ViljensTriumf-Prefix.pch normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s371721417.717698
+e371721418.401744
+r1
+xProcessPCH
+x/var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ViljensTriumf-Prefix-bdlwzulxlwkugycwbcoqmuimacnt/ViljensTriumf-Prefix.pch.pth
+xViljensTriumf/ViljensTriumf-Prefix.pch
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection49"Precompile ViljensTriumf/ViljensTriumf-Prefix.pch28efb7c90428b641^a9da66ca0428b641^---0#0#0#-19%DVTDocumentLocation2@109"file://localhost/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/ViljensTriumf-Prefix.pch0000000000000000^3465"ProcessPCH /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ViljensTriumf-Prefix-bdlwzulxlwkugycwbcoqmuimacnt/ViljensTriumf-Prefix.pch.pth ViljensTriumf/ViljensTriumf-Prefix.pch normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/jonas/Development/Forestillinger/ViljensTriumf2    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c-header -arch x86_64 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.8 -g -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -iquote /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-generated-files.hmap -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-own-target-headers.hmap -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-all-target-headers.hmap -iquote /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-project-headers.hmap -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/DerivedSources/x86_64 -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/DerivedSources -F/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug --serialize-diagnostics /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ViljensTriumf-Prefix-bdlwzulxlwkugycwbcoqmuimacnt/ViljensTriumf-Prefix.pch.dia -c /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/ViljensTriumf-Prefix.pch -o /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ViljensTriumf-Prefix-bdlwzulxlwkugycwbcoqmuimacnt/ViljensTriumf-Prefix.pch.pth -MMD -MT dependencies -MF /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ViljensTriumf-Prefix-bdlwzulxlwkugycwbcoqmuimacnt/ViljensTriumf-Prefix.pch.d36"92F2605C-A0B0-44F7-A348-2D573E26D121-
+
+CProcessPCH++ /Users/jonas/Library/Developer/Xcode/DerivedData/ViljensTriumf-bshlccyudoascrecocmmvsyovjbm/Index/PrecompiledHeaders/ViljensTriumf-Prefix-cnirjujvbcfvdoaafewimyhkdchg_ast/ViljensTriumf-Prefix.pch.pth ViljensTriumf/ViljensTriumf-Prefix.pch normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.astbuilder
+r0
+
+CProcessPCH++ /Users/jonas/Library/Developer/Xcode/DerivedData/ViljensTriumf-bshlccyudoascrecocmmvsyovjbm/Index/PrecompiledHeaders/ViljensTriumf-Prefix-dirhftnrpetcbegxhejdvdevgriq_ast/ViljensTriumf-Prefix.pch.pth ViljensTriumf/ViljensTriumf-Prefix.pch normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.astbuilder
+r0
+
+CProcessPCH++ /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ViljensTriumf-Prefix-fluhwjmcwapbenbdpbtgkiqurfgb/ViljensTriumf-Prefix.pch.pth ViljensTriumf/ViljensTriumf-Prefix.pch normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s371721417.717698
+e371721417.763908
+r1
+xProcessPCH++
+x/var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ViljensTriumf-Prefix-fluhwjmcwapbenbdpbtgkiqurfgb/ViljensTriumf-Prefix.pch.pth
+xViljensTriumf/ViljensTriumf-Prefix.pch
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection49"Precompile ViljensTriumf/ViljensTriumf-Prefix.pch74edb7c90428b641^ac8fc3c90428b641^---0#0#0#-19%DVTDocumentLocation2@109"file://localhost/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/ViljensTriumf-Prefix.pch0000000000000000^3233"ProcessPCH++ /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ViljensTriumf-Prefix-fluhwjmcwapbenbdpbtgkiqurfgb/ViljensTriumf-Prefix.pch.pth ViljensTriumf/ViljensTriumf-Prefix.pch normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/jonas/Development/Forestillinger/ViljensTriumf2    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++-header -arch x86_64 -fmessage-length=0 -std=gnu++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.8 -g -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-generated-files.hmap -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-own-target-headers.hmap -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-all-target-headers.hmap -iquote /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-project-headers.hmap -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/DerivedSources/x86_64 -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/DerivedSources -F/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug --serialize-diagnostics /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ViljensTriumf-Prefix-fluhwjmcwapbenbdpbtgkiqurfgb/ViljensTriumf-Prefix.pch.dia -c /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/ViljensTriumf-Prefix.pch -o /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ViljensTriumf-Prefix-fluhwjmcwapbenbdpbtgkiqurfgb/ViljensTriumf-Prefix.pch.pth -MMD -MT dependencies -MF /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ViljensTriumf-Prefix-fluhwjmcwapbenbdpbtgkiqurfgb/ViljensTriumf-Prefix.pch.d36"BBC7CC33-AC8A-4A69-ABCB-994ABFDF9079-
+
+CProcessPCH++ /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ViljensTriumf-Prefix-gewkisvgskhubpdvwecykxoekvbu/ViljensTriumf-Prefix.pch.pth ViljensTriumf/ViljensTriumf-Prefix.pch normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+s371721417.717710
+e371721418.587300
+r1
+xProcessPCH++
+x/var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ViljensTriumf-Prefix-gewkisvgskhubpdvwecykxoekvbu/ViljensTriumf-Prefix.pch.pth
+xViljensTriumf/ViljensTriumf-Prefix.pch
+xnormal
+xx86_64
+xobjective-c++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection49"Precompile ViljensTriumf/ViljensTriumf-Prefix.pch6ff2b7c90428b641^425b96ca0428b641^---0#0#0#-19%DVTDocumentLocation2@109"file://localhost/Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/ViljensTriumf-Prefix.pch0000000000000000^3628"ProcessPCH++ /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ViljensTriumf-Prefix-gewkisvgskhubpdvwecykxoekvbu/ViljensTriumf-Prefix.pch.pth ViljensTriumf/ViljensTriumf-Prefix.pch normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/jonas/Development/Forestillinger/ViljensTriumf2    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++-header -arch x86_64 -fmessage-length=0 -std=gnu++11 -stdlib=libc++ -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-arc-abi -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.8 -g -fvisibility-inlines-hidden -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -iquote /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-generated-files.hmap -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-own-target-headers.hmap -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-all-target-headers.hmap -iquote /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/ViljensTriumf-project-headers.hmap -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/DerivedSources/x86_64 -I/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/ViljensTriumf.build/Debug/ViljensTriumf.build/DerivedSources -F/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug --serialize-diagnostics /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ViljensTriumf-Prefix-gewkisvgskhubpdvwecykxoekvbu/ViljensTriumf-Prefix.pch.dia -c /Users/jonas/Development/Forestillinger/ViljensTriumf2/ViljensTriumf/ViljensTriumf-Prefix.pch -o /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ViljensTriumf-Prefix-gewkisvgskhubpdvwecykxoekvbu/ViljensTriumf-Prefix.pch.pth -MMD -MT dependencies -MF /var/folders/c_/5w70lnj93x7dfwv27lr6bzrr0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ViljensTriumf-Prefix-gewkisvgskhubpdvwecykxoekvbu/ViljensTriumf-Prefix.pch.d36"C8A97598-AFDF-4859-AFD3-30C0BA39F3B3-
+
+CTouch /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug/ViljensTriumf.app
+s371721420.183351
+e371721420.191703
+r1
+xTouch
+x/Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug/ViljensTriumf.app
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection90"Touch /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug/ViljensTriumf.appac002fcc0428b641^0a1431cc0428b641^---0#0#0#--205"Touch build/Debug/ViljensTriumf.app    cd /Users/jonas/Development/Forestillinger/ViljensTriumf2    /usr/bin/touch -c /Users/jonas/Development/Forestillinger/ViljensTriumf2/build/Debug/ViljensTriumf.app36"DCDA4725-95B9-414A-B1C7-3C55013AF4B2-
+

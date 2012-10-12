@@ -16,6 +16,7 @@
 
 #import "ChromaFilter.h"
 #import "DeinterlaceFilter.h"
+#import "MavController.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 {
@@ -76,6 +77,12 @@
 @property (readwrite) bool playVideo;
 @property (strong) NSMutableArray * recordings;
 @property (readwrite) bool readyToRecord;
+
+@property (strong) MavController * mavController;
+@property (strong) NSMutableArray * cameraInputs;
+@property (readwrite) int decklink1input;
+@property (readwrite) int decklink2input;
+@property (readwrite) int decklink3input;
 
 -(void) newFrame:(DecklinkCallback*)callback;
 

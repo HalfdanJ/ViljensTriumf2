@@ -142,6 +142,16 @@ static void *SelectionContext = &SelectionContext;
     
     [self.recordingsArrayController addObserver:self forKeyPath:@"selection" options:0 context:&SelectionContext];
     
+    
+    NSMutableArray * inputs = [NSMutableArray array];
+    [inputs addObject:@{@"name":@"Main A", @"number":@(1)}];
+    [inputs addObject:@{@"name":@"Main B", @"number":@(2)}];
+    
+    self.cameraInputs = inputs;
+    
+    [self addObserver:self forKeyPath:@"decklink1input" options:0 context:nil];
+    [self addObserver:self forKeyPath:@"decklink2input" options:0 context:nil];
+    [self addObserver:self forKeyPath:@"decklink3input" options:0 context:nil];
 }
 
 -(void)applicationWillTerminate:(NSNotification *)notification{
@@ -152,6 +162,10 @@ static void *SelectionContext = &SelectionContext;
 
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    
+    if([keyPath isEqualToString:@"decklink1input"]){
+        [self.mavController setKey:<#(NSString *)#>]
+    }
     if(context == &ItemStatusContext){
         if(avPlayer.error){
             NSLog(@"Error loading %@",avPlayer.error);
