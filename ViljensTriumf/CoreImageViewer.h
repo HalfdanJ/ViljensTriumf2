@@ -13,4 +13,5 @@
     CIContext *ciContext;
 }
 @property (strong) CIImage * ciImage;
+@property CALayer * activeLayer;
 @end

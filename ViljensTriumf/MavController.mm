@@ -21,7 +21,7 @@
         waitingForData = NO;
         readThreadRunning = FALSE;
         incommingString = [NSMutableString string];
-        NSString * serialPort = @"/dev/tty.usbserial-FT5CHURVA";
+        NSString * serialPort = @"/dev/tty.usbserial-FT5CHUS4B";
 
         
     /*    NSDirectoryEnumerator *enumerator = [[NSFileManager defaultManager] enumeratorAtPath:@"/dev/"];

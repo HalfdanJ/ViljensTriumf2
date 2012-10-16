@@ -68,7 +68,7 @@
 @property (strong) CIFilter * constantColorFilter;
 @property (strong) CIFilter * widescreenFilter;
 @property (strong) CIFilter * dslrFilter;
-
+@property (strong) CIFilter * perspectiveFilter;
 
 @property (readwrite) int outSelector;
 
@@ -89,6 +89,14 @@
 @property (readwrite) int decklink1input;
 @property (readwrite) int decklink2input;
 @property (readwrite) int decklink3input;
+
+@property (readonly) bool out1selected;
+@property (readonly) bool out2selected;
+@property (readonly) bool out3selected;
+
+@property (readonly) NSString * out1name;
+@property (readonly) NSString * out2name;
+@property (readonly) NSString * out3name;
 
 -(void) newFrame:(DecklinkCallback*)callback;
 

@@ -15,6 +15,15 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code here.
+//        self.activeLayer = [CALayer layer];
+//        self.activeLayer.backgroundColor = [[NSColor redColor] CGColor];
+//        
+//        NSRect rect = frame;
+//        rect.size.height = 30;
+//        self.activeLayer.bounds = rect;
+//        
+//       // [self setWantsLayer:YES];
+//       // [self.layer addSublayer:self.activeLayer];
     }
     
     return self;

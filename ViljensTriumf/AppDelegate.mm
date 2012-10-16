@@ -55,10 +55,22 @@ static void *SelectionContext = &SelectionContext;
     self.dissolveFilter = [CIFilter filterWithName:@"CIDissolveTransition"];
     [self.dissolveFilter setDefaults];
     
+    self.perspectiveFilter = [CIFilter filterWithName:@"CIPerspectiveTransform"];
+    [self.perspectiveFilter setDefaults];
+
+    [self.perspectiveFilter setValue:[[CIVector alloc] initWithX:180 Y:540] forKey:@"inputTopLeft"];
+    [self.perspectiveFilter setValue:[[CIVector alloc] initWithX:700 Y:540] forKey:@"inputTopRight"];
+    [self.perspectiveFilter setValue:[[CIVector alloc] initWithX:720 Y:125] forKey:@"inputBottomRight"];
+    [self.perspectiveFilter setValue:[[CIVector alloc] initWithX:180 Y:125] forKey:@"inputBottomLeft"];
+
     self.constantColorFilter = [CIFilter filterWithName:@"CIConstantColorGenerator"];
+    [self.constantColorFilter setValue:[CIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0] forKey:@"inputColor"];
+
+    
     self.sourceOverFilter = [CIFilter filterWithName:@"CISourceOverCompositing"];
     
     self.deinterlaceFilter = [[DeinterlaceFilter alloc] init];
+    
     [self.deinterlaceFilter setDefaults];
     
     
@@ -101,7 +113,9 @@ static void *SelectionContext = &SelectionContext;
     
     [NSEvent addLocalMonitorForEventsMatchingMask:(NSKeyDownMask) handler:^(NSEvent *incomingEvent) {
 		NSLog(@"Events: %@",incomingEvent);
-		
+		[self willChangeValueForKey:@"out1selected"];
+		[self willChangeValueForKey:@"out2selected"];
+        [self willChangeValueForKey:@"out3selected"];
         //	if ([NSEvent modifierFlags] & NSAlternateKeyMask) {
         switch ([incomingEvent keyCode]) {
             case 82:
@@ -154,6 +168,12 @@ static void *SelectionContext = &SelectionContext;
                 
                 break;
         }
+        
+        [self didChangeValueForKey:@"out1selected"];
+		[self didChangeValueForKey:@"out2selected"];
+        [self didChangeValueForKey:@"out3selected"];
+
+
         return (NSEvent*)nil;
     }];
     
@@ -169,9 +189,10 @@ static void *SelectionContext = &SelectionContext;
     [inputs addObject:@{@"name":@"5 PTZ"}];
     [inputs addObject:@{@"name":@"6 Jonas"}];
     [inputs addObject:@{@"name":@"7 Top"}];
-    [inputs addObject:@{@"name":@"8 Bagscene"}];
-    [inputs addObject:@{@"name":@"9 Ude"}];
+    [inputs addObject:@{@"name":@"8 Ude"}];
+    [inputs addObject:@{@"name":@"9 Mercedes"}];
     [inputs addObject:@{@"name":@"10 DSLR"}];
+    [inputs addObject:@{@"name":@"11 Cam 5 kort"}];
     
     self.cameraInputs = inputs;
     
@@ -223,16 +244,24 @@ static void *SelectionContext = &SelectionContext;
         dispatch_async(dispatch_get_main_queue(), ^{
             
             if([output intValue] == 0){
+                [self willChangeValueForKey:@"out1name"];
                 self.decklink1input = [[object valueForKey:@"input"] intValue];
+                [self didChangeValueForKey:@"out1name"];
+
             }
             if([output intValue] == 1){
+                [self willChangeValueForKey:@"out2name"];
                 self.decklink2input = [[object valueForKey:@"input"] intValue];
+                [self didChangeValueForKey:@"out2name"];
+
             }
             if([output intValue] == 2){
+                [self willChangeValueForKey:@"out3name"];
                 self.decklink3input = [[object valueForKey:@"input"] intValue];
+                [self didChangeValueForKey:@"out3name"];
+
             }
         });
-        
     }
     if(context == &ItemStatusContext){
         if(avPlayer.error){
@@ -560,35 +589,24 @@ static dispatch_once_t onceToken;
         }
         
         
-        if(!self.recording){
-            if(num == 0  && [[NSUserDefaults standardUserDefaults] boolForKey:@"chromaKey"]){
-                image = [self chromaKey:image backgroundImage:cameras[1]];
-            }
-            
-            image = [self filterCIImage:image];
-            cameras[num] = image;
-            
-            
-            //  dispatch_async(dispatch_get_main_queue(), ^{
-            if(!preview.needsDisplay){ //Spar på energien
-                preview.ciImage = [self imageForSelector:num+1];
-              //    preview.ciImage = image;
-                [preview setNeedsDisplay:YES];
-            }
-            if(!self.mainOutput.needsDisplay){
-                if(num == 0){
-                    self.mainOutput.ciImage = [self outputImage];
-                    if(![self.mainOutput needsDisplay])
-                        [self.mainOutput setNeedsDisplay:YES];
-                }
-            }
-            
-            if(num==0){
-                if(self.outSelector == 4){
-                    //[self updateMovie];
-                }
-            }
-            //   });
+        //    if(!self.recording){
+        if(num == 0  && [[NSUserDefaults standardUserDefaults] boolForKey:@"chromaKey"]){
+            image = [self chromaKey:image backgroundImage:cameras[1]];
+        }
+        
+        image = [self filterCIImage:image];
+        cameras[num] = image;
+        
+        
+        //  dispatch_async(dispatch_get_main_queue(), ^{
+        if(!preview.needsDisplay){ //Spar på energien
+            preview.ciImage = [self imageForSelector:num+1];
+            [preview setNeedsDisplay:YES];
+        }
+        if(num == self.outSelector-1 || self.outSelector == 0 || self.outSelector > 3){
+            self.mainOutput.ciImage = [self outputImage];
+            if(![self.mainOutput needsDisplay])
+                [self.mainOutput setNeedsDisplay:YES];
         }
         
         if(self.recording && num == self.outSelector - 1){
@@ -730,6 +748,32 @@ static dispatch_once_t onceToken;
 
 }
 
+-(bool)out1selected{
+    return self.outSelector == 1;
+}
+-(bool)out2selected{
+    return self.outSelector == 2;
+}
+-(bool)out3selected{
+    return self.outSelector == 3;
+}
+
+-(NSString *)out1name{
+    if(self.decklink1input < [self.cameraInputs count])
+        return [self.cameraInputs[self.decklink1input] valueForKey:@"name"];
+    return @"";
+}
+-(NSString *)out2name{
+    if(self.decklink2input < [self.cameraInputs count])
+        return [self.cameraInputs[self.decklink2input] valueForKey:@"name"];
+    return @"";
+}
+-(NSString *)out3name{
+    if(self.decklink3input < [self.cameraInputs count])
+        return [self.cameraInputs[self.decklink3input] valueForKey:@"name"];
+    return @"";
+}
+
 -(CIImage*) outputImage {
     CIImage * _outputImage;
     if(transitionTime >= 1){
@@ -754,16 +798,41 @@ static dispatch_once_t onceToken;
         }
         
         _outputImage = [self imageForSelector:self.outSelector];
+        
+        transitionImageSourceSelector = self.outSelector;
+
 /*        if(self.outSelector > 0 && self.outSelector <= 3){
             _outputImage = cameras[self.outSelector-1];
         }*/
     }
+    
+
+    
+    
+    [self.perspectiveFilter setValue:_outputImage forKey:@"inputImage"];
+    _outputImage = [self.perspectiveFilter valueForKey:@"outputImage"];
+    
+    //----
+    
+    
+    [self.constantColorFilter setValue:[CIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:1.0] forKey:@"inputColor"];
+    [self.sourceOverFilter setValue: _outputImage forKey:@"inputImage"];
+    [self.sourceOverFilter setValue:[self.constantColorFilter valueForKey:@"outputImage"] forKey:@"inputBackgroundImage"];
+    _outputImage = [self.sourceOverFilter valueForKey:@"outputImage"];
+
+    
+    
+    //----
     
     [self.constantColorFilter setValue:[CIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:1-self.master] forKey:@"inputColor"];
     
     [self.sourceOverFilter setValue:_outputImage forKey:@"inputBackgroundImage"];
     [self.sourceOverFilter setValue:[self.constantColorFilter valueForKey:@"outputImage"] forKey:@"inputImage"];
     _outputImage = [self.sourceOverFilter valueForKey:@"outputImage"];
+    
+    
+    
+
     
     return _outputImage;
 }
@@ -838,8 +907,7 @@ static dispatch_once_t onceToken;
      [toneCurveFilter setValue:[CIVector numberWithFloat:PropF(@"curvep5")] forKey:@"inputPoint4"];
      [toneCurveFilter setValue:_outputImage forKey:@"inputImage"];
      _outputImage = [toneCurveFilter valueForKey:@"outputImage"];*/
-    
-    
+
     return _outputImage;
 }
 
@@ -868,10 +936,10 @@ static void MyMIDIReadProc(const MIDIPacketList *pklist, void *refCon, void *con
   //      NSLog(@"%i %i %i",channel, number, value);
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            if(channel == 1 && number == 0){
+            if(channel == 1 && number == 1){
                 ad.fadeTime = value / 128.0;
             }
-            if(channel == 1 && number == 7){
+            if(channel == 1 && number == 0){
                 ad.master = value / 128.0;
             }
         });
