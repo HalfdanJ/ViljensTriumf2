@@ -71,7 +71,7 @@ void rgb2hsv(float * rgb, float * hsv)
     return self;
 }
 
--(void) setMinHueAngle:(float)minHueAngle maxHueAngle:(float)maxHueAngle{
+-(void) setMinHueAngle:(float)minHueAngle maxHueAngle:(float)maxHueAngle minValue:(float)minValue minSaturation:(float)minSaturation{
     
     
     // Allocate memory
@@ -90,12 +90,25 @@ void rgb2hsv(float * rgb, float * hsv)
                 // Convert RGB to HSV
                 // You can find publicly available rgbToHSV functions on the Internet
                 rgb2hsv(rgb,hsv);
+                
                 // Use the hue value to determine which to make transparent
                 // The minimum and maximum hue angle depends on
                 // the color you want to remove
                
              //   printf("%f %f %f = %f\n",rgb[0], rgb[1], rgb[2], hsv[0]);
-                float alpha = (hsv[0] > minHueAngle && hsv[0] < maxHueAngle) ? 0.0f: 1.0f;
+                float alpha = 1.0;
+                if(hsv[0] > minHueAngle && hsv[0] < maxHueAngle && hsv[1] > minSaturation && hsv[2] > minValue)
+                    alpha = 0;
+                
+/*                float hueWidth = 10;
+                if(hsv[0] > minHueAngle - hueWidth && hsv[0] < minHueAngle + 10){
+                    float i = (hsv[0]-minHueAngle-hueWidth)/(hueWidth*2.0);
+                    alpha *= 1-i;
+                } else if(hsv[0] > minHueAngle && hsv[0] < maxHueAngle){
+                    alpha *= 0;
+                }
+*/
+                
                 // Calculate premultiplied alpha values for the cube
                 c[0] = rgb[0] * alpha;
                 c[1] = rgb[1] * alpha;

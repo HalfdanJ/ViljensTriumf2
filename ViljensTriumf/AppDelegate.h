@@ -22,7 +22,7 @@
 {
 @public
     CIImage * cameras[3];
-    float chromaMinSet, chromaMaxSet;
+    float chromaMinSet, chromaMaxSet, chromaValSet, chromaSatSet;
     bool _recording;
     bool _playVideo;
     
@@ -47,6 +47,8 @@
     
     float transitionTime;
     int transitionImageSourceSelector;
+    
+    int _outSelector;
 }
 
 @property (unsafe_unretained) IBOutlet NSWindow *mainOutputWindow;
@@ -59,6 +61,7 @@
 @property (weak) IBOutlet NSView *videoView;
 
 @property (strong) DeinterlaceFilter * deinterlaceFilter;
+@property (strong) CIFilter * noiseReductionFilter;
 @property (strong) CIFilter * colorControlsFilter;
 @property (strong) CIFilter * gammaAdjustFilter;
 @property (strong) CIFilter * toneCurveFilter;
@@ -69,6 +72,9 @@
 @property (strong) CIFilter * widescreenFilter;
 @property (strong) CIFilter * dslrFilter;
 @property (strong) CIFilter * perspectiveFilter;
+@property (strong) CIFilter * perspectiveFilterMovie;
+@property (strong) CIFilter * chromaTransform;
+@property (strong) CIFilter * chromaCrop;
 
 @property (readwrite) int outSelector;
 
@@ -98,6 +104,8 @@
 @property (readonly) NSString * out2name;
 @property (readonly) NSString * out3name;
 
+
 -(void) newFrame:(DecklinkCallback*)callback;
+- (IBAction)updateKeystone:(id)sender;
 
 @end

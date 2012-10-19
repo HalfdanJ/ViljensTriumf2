@@ -42,6 +42,8 @@ static void *SelectionContext = &SelectionContext;
     //
     //Init filters
     //
+    self.noiseReductionFilter = [CIFilter filterWithName:@"CINoiseReduction"] ;
+    [self.noiseReductionFilter setDefaults];
     
     self.colorControlsFilter = [CIFilter filterWithName:@"CIColorControls"] ;
     [self.colorControlsFilter setDefaults];
@@ -57,21 +59,22 @@ static void *SelectionContext = &SelectionContext;
     
     self.perspectiveFilter = [CIFilter filterWithName:@"CIPerspectiveTransform"];
     [self.perspectiveFilter setDefaults];
+    
+    self.perspectiveFilterMovie= [CIFilter filterWithName:@"CIPerspectiveTransform"];
+    [self.perspectiveFilterMovie setDefaults];
+    [self updateKeystone:self];
+    
 
-    [self.perspectiveFilter setValue:[[CIVector alloc] initWithX:180 Y:540] forKey:@"inputTopLeft"];
-    [self.perspectiveFilter setValue:[[CIVector alloc] initWithX:700 Y:540] forKey:@"inputTopRight"];
-    [self.perspectiveFilter setValue:[[CIVector alloc] initWithX:720 Y:125] forKey:@"inputBottomRight"];
-    [self.perspectiveFilter setValue:[[CIVector alloc] initWithX:180 Y:125] forKey:@"inputBottomLeft"];
-
+    
     self.constantColorFilter = [CIFilter filterWithName:@"CIConstantColorGenerator"];
     [self.constantColorFilter setValue:[CIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0] forKey:@"inputColor"];
-
+    
     
     self.sourceOverFilter = [CIFilter filterWithName:@"CISourceOverCompositing"];
     
     self.deinterlaceFilter = [[DeinterlaceFilter alloc] init];
     
-    [self.deinterlaceFilter setDefaults];
+   // [self.deinterlaceFilter setDefaults];
     
     
     self.widescreenFilter = [CIFilter filterWithName:@"CIAffineTransform"];
@@ -81,6 +84,16 @@ static void *SelectionContext = &SelectionContext;
     [transform translateXBy:-120 yBy:0];
     [self.widescreenFilter setValue:transform forKey:@"inputTransform"];
     
+    
+    self.chromaTransform = [CIFilter filterWithName:@"CIAffineTransform"];
+    [self.chromaTransform setDefaults];
+    
+    self.chromaCrop = [CIFilter filterWithName:@"CICrop"];
+    [self.chromaCrop setDefaults];
+    
+    [self updateChromaTransform];
+
+    
     self.dslrFilter = [CIFilter filterWithName:@"CIAffineTransform"];
     [self.dslrFilter setDefaults];
     transform = [NSAffineTransform transform];
@@ -88,7 +101,7 @@ static void *SelectionContext = &SelectionContext;
     [transform translateXBy:-100 yBy:-100];
     [transform scaleBy:1.28];
     [self.dslrFilter setValue:transform forKey:@"inputTransform"];
-
+    
     self.chromaFilter = [[ChromaFilter alloc] init];
     
     self.master = 1.0;
@@ -101,79 +114,40 @@ static void *SelectionContext = &SelectionContext;
     
     transitionTime = -1;
     
-    /*
-     NSError * error;
-     self.mMovie = [[QTMovie alloc] initToWritableData:[NSMutableData data] error:&error];
-     if (!self.mMovie) {
-     [[NSAlert alertWithError:error] runModal];
-     }*/
-    
     
     //Shortcuts
-    
     [NSEvent addLocalMonitorForEventsMatchingMask:(NSKeyDownMask) handler:^(NSEvent *incomingEvent) {
 		NSLog(@"Events: %@",incomingEvent);
-		[self willChangeValueForKey:@"out1selected"];
-		[self willChangeValueForKey:@"out2selected"];
-        [self willChangeValueForKey:@"out3selected"];
-        //	if ([NSEvent modifierFlags] & NSAlternateKeyMask) {
         switch ([incomingEvent keyCode]) {
             case 82:
                 self.outSelector = 0;
                 transitionTime = 0;
-                
                 break;
                 
             case 83:
                 self.outSelector  = 1;
                 transitionTime = 0;
-                /*   serial.writeByte('1');
-                 serial.writeByte('*');
-                 serial.writeByte('4');
-                 serial.writeByte('!');*/
                 break;
             case 84:
                 self.outSelector  = 2;
                 transitionTime = 0;
-                /*            serial.writeByte('2');
-                 serial.writeByte('*');
-                 serial.writeByte('4');
-                 serial.writeByte('!');*/
                 break;
             case 85:
                 self.outSelector  = 3;
                 transitionTime = 0;
-                /*            serial.writeByte('3');
-                 serial.writeByte('*');
-                 serial.writeByte('4');
-                 serial.writeByte('!');*/
                 break;
-                /*  case 86:
-                 if(recordMovie){
-                 [self stopRecording];
-                 } else {
-                 [self startRecording];
-                 }
-                 break;*/
-                /*    case 86:
-                 {
-                 self.recording = false;
-                 
-                 self.outSelector = 4;
-                 break;
-                 }*/
                 
+            case 76:
+                [avPlayer advanceToNextItem];
+                break;
             default:
                 return incomingEvent;
                 
                 break;
         }
         
-        [self didChangeValueForKey:@"out1selected"];
-		[self didChangeValueForKey:@"out2selected"];
-        [self didChangeValueForKey:@"out3selected"];
-
-
+        
+        
         return (NSEvent*)nil;
     }];
     
@@ -186,14 +160,18 @@ static void *SelectionContext = &SelectionContext;
     [inputs addObject:@{@"name":@"2 Main B"}];
     [inputs addObject:@{@"name":@"3 Main C"}];
     [inputs addObject:@{@"name":@"4 Dolly"}];
-    [inputs addObject:@{@"name":@"5 PTZ"}];
-    [inputs addObject:@{@"name":@"6 Jonas"}];
-    [inputs addObject:@{@"name":@"7 Top"}];
+    [inputs addObject:@{@"name":@"5"}];
+    [inputs addObject:@{@"name":@"6"}];
+    [inputs addObject:@{@"name":@"7 Lærred"}];
     [inputs addObject:@{@"name":@"8 Ude"}];
-    [inputs addObject:@{@"name":@"9 Mercedes"}];
-    [inputs addObject:@{@"name":@"10 DSLR"}];
-    [inputs addObject:@{@"name":@"11 Cam 5 kort"}];
-    
+    [inputs addObject:@{@"name":@"9 Greenscreen"}];
+    [inputs addObject:@{@"name":@"10"}];
+    [inputs addObject:@{@"name":@"11  ---- "}];
+    [inputs addObject:@{@"name":@"12 PTZ"}];    
+    [inputs addObject:@{@"name":@"13 Cam 5 kort "}];
+    [inputs addObject:@{@"name":@"14"}];
+    [inputs addObject:@{@"name":@"15 Model (quad)"}];
+    [inputs addObject:@{@"name":@"16"}];
     self.cameraInputs = inputs;
     
     self.decklink1input = -1;
@@ -224,8 +202,58 @@ static void *SelectionContext = &SelectionContext;
             MIDIPortConnectSource(inPort, source, NULL);
         }
     }
+}
+
+-(void)setOutSelector:(int)outSelector{
+    [self willChangeValueForKey:@"out1selected"];
+    [self willChangeValueForKey:@"out2selected"];
+    [self willChangeValueForKey:@"out3selected"];
     
+    _outSelector = outSelector;
     
+    [self didChangeValueForKey:@"out1selected"];
+    [self didChangeValueForKey:@"out2selected"];
+    [self didChangeValueForKey:@"out3selected"];
+    
+}
+
+-(void)updateChromaTransform{
+    NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
+
+/*    NSAffineTransform * transform = [NSAffineTransform transform];
+    [transform translateXBy:[defaults floatForKey:@"chromaX"] yBy:[defaults floatForKey:@"chromaY"]];
+    [transform scaleXBy:[defaults floatForKey:@"chromaScale"] yBy:[defaults floatForKey:@"chromaScale"]];
+    [self.chromaTransform setValue:transform forKey:@"inputTransform"];
+  */  
+    
+    CIVector * vec = [CIVector vectorWithX:[defaults floatForKey:@"chromaX"] Y:[defaults floatForKey:@"chromaY"] Z:720*[defaults floatForKey:@"chromaScale"] W:576*[defaults floatForKey:@"chromaScale"]];
+    [self.chromaCrop setValue:vec forKey:@"inputRectangle"];
+
+
+}
+- (IBAction)updateKeystone:(id)sender {
+    NSUserDefaults * settings = [NSUserDefaults standardUserDefaults];
+    [self.perspectiveFilter setValue:[[CIVector alloc] initWithX:[settings floatForKey:@"c1x"]*720.0 Y:[settings floatForKey:@"c1y"]*576.0] forKey:@"inputTopLeft"];
+    
+    [self.perspectiveFilter setValue:[[CIVector alloc] initWithX:[settings floatForKey:@"c2x"]*720.0 Y:[settings floatForKey:@"c2y"]*576.0] forKey:@"inputTopRight"];
+    
+    [self.perspectiveFilter setValue:[[CIVector alloc] initWithX:[settings floatForKey:@"c3x"]*720.0 Y:[settings floatForKey:@"c3y"]*576.0] forKey:@"inputBottomRight"];
+    
+    [self.perspectiveFilter setValue:[[CIVector alloc] initWithX:[settings floatForKey:@"c4x"]*720.0 Y:[settings floatForKey:@"c4y"]*576.0] forKey:@"inputBottomLeft"];
+
+    [self.perspectiveFilterMovie setValue:[[CIVector alloc] initWithX:[settings floatForKey:@"c1x"]*1024 Y:[settings floatForKey:@"c1y"]*768] forKey:@"inputTopLeft"];
+    
+    [self.perspectiveFilterMovie setValue:[[CIVector alloc] initWithX:[settings floatForKey:@"c2x"]*1024 Y:[settings floatForKey:@"c2y"]*768] forKey:@"inputTopRight"];
+    
+    [self.perspectiveFilterMovie setValue:[[CIVector alloc] initWithX:[settings floatForKey:@"c3x"]*1024 Y:[settings floatForKey:@"c3y"]*768] forKey:@"inputBottomRight"];
+    
+    [self.perspectiveFilterMovie setValue:[[CIVector alloc] initWithX:[settings floatForKey:@"c4x"]*1024 Y:[settings floatForKey:@"c4y"]*768] forKey:@"inputBottomLeft"];
+
+   
+}
+
+-(int)outSelector{
+    return _outSelector;
 }
 
 -(void)applicationWillTerminate:(NSNotification *)notification{
@@ -247,19 +275,19 @@ static void *SelectionContext = &SelectionContext;
                 [self willChangeValueForKey:@"out1name"];
                 self.decklink1input = [[object valueForKey:@"input"] intValue];
                 [self didChangeValueForKey:@"out1name"];
-
+                
             }
             if([output intValue] == 1){
                 [self willChangeValueForKey:@"out2name"];
                 self.decklink2input = [[object valueForKey:@"input"] intValue];
                 [self didChangeValueForKey:@"out2name"];
-
+                
             }
             if([output intValue] == 2){
                 [self willChangeValueForKey:@"out3name"];
                 self.decklink3input = [[object valueForKey:@"input"] intValue];
                 [self didChangeValueForKey:@"out3name"];
-
+                
             }
         });
     }
@@ -272,7 +300,15 @@ static void *SelectionContext = &SelectionContext;
         [self.mainOutput setWantsLayer:YES];
         avPlayerLayer.backgroundColor = [[NSColor colorWithCalibratedWhite:0.0 alpha:1.0] CGColor];
         avPlayerLayer.videoGravity =  AVLayerVideoGravityResize;
-        [avPlayerLayer setFrame:[[self.mainOutput layer] bounds]];
+   //     [avPlayerLayer setFrame:[[self.mainOutput layer] bounds]];
+        NSRect frame = [[self.mainOutput layer] bounds];
+        NSRect bounds = [[self.mainOutput layer] bounds];
+//        bounds.size.width *= 0.5;
+  //      bounds.size.height *= 0.5;
+             [avPlayerLayer setFrame:frame];
+        [avPlayerLayer setBounds:bounds];
+        //xavPlayerLayer.transform
+   //     avPlayerLayer.contentsScale = 2.0;
         [avPlayerLayer setAutoresizingMask:kCALayerWidthSizable | kCALayerHeightSizable];
         [[self.mainOutput layer] addSublayer:avPlayerLayer];
         [avPlayer play];
@@ -320,7 +356,9 @@ static void *SelectionContext = &SelectionContext;
             [[self.videoView layer] addSublayer:avPlayerLayerPreview];
             
             
-            [self updateInOutTime:self];
+            
+            [self performSelector:@selector(updateInOutTime:) withObject:self afterDelay:0];
+            // [self updateInOutTime:self];
             
             /*
              CATextLayer *textLayer=[CATextLayer layer];
@@ -358,6 +396,7 @@ static void *SelectionContext = &SelectionContext;
     NSNumber * inTime = [selection valueForKey:@"inTime"];
     NSNumber * outTime = [selection valueForKey:@"outTime"];
     if(inTime && outTime){
+        NSLog(@"Update inout %@ %@",inTime, outTime);
         if([inTime floatValue] == 0){
             inTime = @(1);
         }
@@ -372,20 +411,28 @@ static void *SelectionContext = &SelectionContext;
         
         // [avPlayerPreview.currentItem a]
         
-        if(avPlayerBoundaryPreview){
-            [avPlayerPreview removeTimeObserver:avPlayerBoundaryPreview];
-            avPlayerBoundaryPreview = nil;
-        }
-        
-        long long time = avPlayerPreview.currentItem.duration.value - [outTime floatValue];
-        if(time > 0){
-            NSValue * val = [NSValue valueWithCMTime:CMTimeMake(time, 600)];
-            
-            __block AppDelegate *dp = self;
-            avPlayerBoundaryPreview= [avPlayerPreview addBoundaryTimeObserverForTimes:@[val] queue: NULL usingBlock:^{
-                [dp->avPlayerPreview pause];
-            }];
-        }
+        /*  if(avPlayerBoundaryPreview){
+         [avPlayerPreview removeTimeObserver:avPlayerBoundaryPreview];
+         avPlayerBoundaryPreview = nil;
+         }
+         
+         long long time = avPlayerPreview.currentItem.duration.value - [outTime floatValue];
+         if(time < 0){
+         time = 1;
+         }
+         if(time > 0){
+         NSValue * val = [NSValue valueWithCMTime:CMTimeMake(time, 600)];
+         NSLog(@"Block %@",val);
+         __block AppDelegate *dp = self;
+         avPlayerBoundaryPreview= [avPlayerPreview addBoundaryTimeObserverForTimes:@[val] queue: NULL usingBlock:^{
+         [dp->avPlayerPreview pause];
+         
+         [dp->avPlayerPreview removeTimeObserver:dp->avPlayerBoundaryPreview];
+         dp->avPlayerBoundaryPreview = nil;
+         
+         NSLog(@"Block ping");
+         }];
+         }*/
         [avPlayerPreview play];
     }
     
@@ -405,24 +452,25 @@ static void *SelectionContext = &SelectionContext;
             for(NSDictionary * recording in self.recordings){
                 AVPlayerItem * item = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"file://%@",[recording valueForKey:@"path"]]]];
                 
-                NSNumber * inTime = [recording valueForKey:@"inTime"];
-                NSNumber * outTime = [recording valueForKey:@"outTime"];
-                if([inTime floatValue] == 0){
-                    inTime = @(100);
+                double inTime = [[recording valueForKey:@"inTime"] doubleValue];
+                double outTime = item.duration.value - [[recording valueForKey:@"outTime"] doubleValue];
+                
+                if(inTime == 0){
+                    inTime = 100;
                 }
-                if([inTime floatValue] >= avPlayerPreview.currentItem.duration.value){
-                    inTime = @(avPlayerPreview.currentItem.duration.value);
+                if(inTime >= avPlayerPreview.currentItem.duration.value){
+                    inTime = avPlayerPreview.currentItem.duration.value;
                 }
                 
                 
-                if([outTime floatValue] >= avPlayerPreview.currentItem.duration.value){
-                    outTime = @(avPlayerPreview.currentItem.duration.value);
+                if(outTime >= avPlayerPreview.currentItem.duration.value){
+                    outTime = avPlayerPreview.currentItem.duration.value;
                 }
-                if([outTime floatValue] == 0){
-                    outTime = @(200);
+                if(outTime == 0){
+                    outTime = 200;
                 }
-                [item seekToTime:CMTimeMake([inTime floatValue], 600)  toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero];
-                [outTimes addObject:[NSValue valueWithCMTime:CMTimeMake([outTime floatValue], 600) ]];
+                [item seekToTime:CMTimeMake(inTime, 600)  toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero];
+                [outTimes addObject:[NSValue valueWithCMTime:CMTimeMake(outTime, 600) ]];
                 
                 if(item.error){
                     NSLog(@"Error loading %@",item.error);
@@ -437,19 +485,37 @@ static void *SelectionContext = &SelectionContext;
             avPlayer = [[AVQueuePlayer alloc] initWithItems:items];
             // [avPlayer play];
             avPlayerLayer = [AVPlayerLayer playerLayerWithPlayer:avPlayer];
-            /*
-             __block AppDelegate *dp = self;
+            
+            /* __block AppDelegate *dp = self;
+             
+             void (^blockPointer)(void);
+             
              void (^block)(void)  = ^(void){
              [dp->avPlayer removeTimeObserver:dp->avPlayerBoundaryPreview];
              [dp->avPlayer advanceToNextItem];
+             
+             [outTimes removeObjectAtIndex:0];
+             if([outTimes count] > 0){
+             NSLog(@"New time boundary");
+             avPlayerBoundaryPreview = [avPlayer addBoundaryTimeObserverForTimes:@[outTimes[0]] queue:NULL usingBlock:blockPointer];
+             }
              NSLog(@"Ping");
              };
              
+             blockPointer = block;
              
-             avPlayerBoundaryPreview = [avPlayer addBoundaryTimeObserverForTimes:@[outTimes[0]] queue:NULL usingBlock:block];
+             
+             avPlayerBoundaryPreview = [avPlayer addBoundaryTimeObserverForTimes:@[outTimes[0]] queue:NULL usingBlock:blockPointer];
              
              */
-            avPlayerLayer.filters = @[self.colorControlsFilter, self.gammaAdjustFilter];
+            
+            
+            //            avPlayerLayer.filters = @[self.deinterlaceFilter, self.colorControlsFilter, self.gammaAdjustFilter, self.perspectiveFilter];
+            
+            [self.constantColorFilter setValue:[CIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:1.0] forKey:@"inputColor"];
+            [self.sourceOverFilter setValue:[self.constantColorFilter valueForKey:@"outputImage"] forKey:@"inputBackgroundImage"];
+            
+            avPlayerLayer.filters = @[self.deinterlaceFilter, self.colorControlsFilter, self.gammaAdjustFilter];//, self.perspectiveFilterMovie, self.sourceOverFilter];
         } else {
             [avPlayerLayer removeFromSuperlayer];
             [self.mainOutput setWantsLayer:NO];
@@ -535,7 +601,7 @@ static void *SelectionContext = &SelectionContext;
             [NSThread sleepForTimeInterval:0.1];
             
         }
-         }
+    }
 }
 
 -(bool)recording{
@@ -589,24 +655,33 @@ static dispatch_once_t onceToken;
         }
         
         
-        //    if(!self.recording){
-        if(num == 0  && [[NSUserDefaults standardUserDefaults] boolForKey:@"chromaKey"]){
-            image = [self chromaKey:image backgroundImage:cameras[1]];
-        }
-        
-        image = [self filterCIImage:image];
-        cameras[num] = image;
-        
-        
-        //  dispatch_async(dispatch_get_main_queue(), ^{
-        if(!preview.needsDisplay){ //Spar på energien
-            preview.ciImage = [self imageForSelector:num+1];
-            [preview setNeedsDisplay:YES];
-        }
-        if(num == self.outSelector-1 || self.outSelector == 0 || self.outSelector > 3){
-            self.mainOutput.ciImage = [self outputImage];
-            if(![self.mainOutput needsDisplay])
-                [self.mainOutput setNeedsDisplay:YES];
+        if(!self.recording){
+  
+            if(num == 0 && [[NSUserDefaults standardUserDefaults] floatForKey:@"chromaScale"] != 1 && self.decklink1input == 8){
+                [self updateChromaTransform];
+                [self.chromaCrop setValue:image forKey:@"inputImage"];
+                image = [self.chromaCrop valueForKey:@"outputImage"];
+            }
+             
+            if(num == 0  && [[NSUserDefaults standardUserDefaults] boolForKey:@"chromaKey"] && self.decklink1input == 8){
+                image = [self chromaKey:image backgroundImage:cameras[1]];
+            }
+            image = [self filterCIImage:image];
+            
+   
+            cameras[num] = image;
+            
+            
+            //  dispatch_async(dispatch_get_main_queue(), ^{
+            if(!preview.needsDisplay){ //Spar på energien
+                preview.ciImage = [self imageForSelector:num+1];
+                [preview setNeedsDisplay:YES];
+            }
+            if(num == self.outSelector-1 || self.outSelector == 0 || self.outSelector > 3){
+                self.mainOutput.ciImage = [self outputImage];
+                if(![self.mainOutput needsDisplay])
+                    [self.mainOutput setNeedsDisplay:YES];
+            }
         }
         
         if(self.recording && num == self.outSelector - 1){
@@ -727,35 +802,36 @@ static dispatch_once_t onceToken;
             inputSelector = self.decklink2input;
         if(selector == 3)
             inputSelector = self.decklink3input;
-
+        
         if(inputSelector == 5){ //6 Jonas
             [self.widescreenFilter setValue:img forKey:@"inputImage"];
             img = [self.widescreenFilter valueForKey:@"outputImage"];
         }
-        if(inputSelector == 9){ //10 DSLR
+/*        if(inputSelector == 9){ //10 DSLR
             [self.dslrFilter setValue:img forKey:@"inputImage"];
             img = [self.dslrFilter valueForKey:@"outputImage"];
-        }
+        }*/
         
         return img;
     }
     return nil;
 }
 -(void)updateTransitionTime {
+    
     transitionTime += 0.51-self.fadeTime*0.5;
     if(transitionTime < 1)
         [self performSelector:@selector(updateTransitionTime) withObject:nil afterDelay:0.01];
-
+    
 }
 
 -(bool)out1selected{
-    return self.outSelector == 1;
+    return self.outSelector == 1 || transitionImageSourceSelector == 1;
 }
 -(bool)out2selected{
-    return self.outSelector == 2;
+    return self.outSelector == 2 || transitionImageSourceSelector == 2;;
 }
 -(bool)out3selected{
-    return self.outSelector == 3;
+    return self.outSelector == 3 || transitionImageSourceSelector == 3;
 }
 
 -(NSString *)out1name{
@@ -777,40 +853,61 @@ static dispatch_once_t onceToken;
 -(CIImage*) outputImage {
     CIImage * _outputImage;
     if(transitionTime >= 1){
+        [self willChangeValueForKey:@"out1selected"];
+		[self willChangeValueForKey:@"out2selected"];
+        [self willChangeValueForKey:@"out3selected"];
+        
         transitionImageSourceSelector = self.outSelector;
         transitionTime = -1;
+        
+        [self didChangeValueForKey:@"out1selected"];
+		[self didChangeValueForKey:@"out2selected"];
+        [self didChangeValueForKey:@"out3selected"];
+        
     }
     if(self.fadeTime > 0 && transitionTime != -1){
         if(transitionTime == 0){
             [self updateTransitionTime];
-//            [self performSelector:@selector(updateTransitionTime) withObject:nil afterDelay:0.1];
+            //            [self performSelector:@selector(updateTransitionTime) withObject:nil afterDelay:0.1];
         }
         [self.dissolveFilter setValue:[self imageForSelector:transitionImageSourceSelector] forKey:@"inputImage"];
         [self.dissolveFilter setValue:[self imageForSelector:self.outSelector] forKey:@"inputTargetImage"];
-
+        
         [self.dissolveFilter setValue:@(transitionTime) forKey:@"inputTime"];
         _outputImage = [self.dissolveFilter valueForKey:@"outputImage"];
-
+        
     } else {
-        if(self.outSelector == 0){
-            [self.constantColorFilter setValue:[CIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:1.0] forKey:@"inputColor"];
-            return [self.constantColorFilter valueForKey:@"outputImage"];
-        }
+        /* if(self.outSelector == 0){
+         [self.constantColorFilter setValue:[CIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:1.0] forKey:@"inputColor"];
+         return [self.constantColorFilter valueForKey:@"outputImage"];
+         }*/
         
         _outputImage = [self imageForSelector:self.outSelector];
         
+        [self willChangeValueForKey:@"out1selected"];
+		[self willChangeValueForKey:@"out2selected"];
+        [self willChangeValueForKey:@"out3selected"];
         transitionImageSourceSelector = self.outSelector;
-
-/*        if(self.outSelector > 0 && self.outSelector <= 3){
-            _outputImage = cameras[self.outSelector-1];
-        }*/
+        [self didChangeValueForKey:@"out1selected"];
+		[self didChangeValueForKey:@"out2selected"];
+        [self didChangeValueForKey:@"out3selected"];
+        
+        
+        if(self.outSelector == 0){
+            return  _outputImage;
+        }
+        /*        if(self.outSelector > 0 && self.outSelector <= 3){
+         _outputImage = cameras[self.outSelector-1];
+         }*/
     }
     
 
     
-    
     [self.perspectiveFilter setValue:_outputImage forKey:@"inputImage"];
     _outputImage = [self.perspectiveFilter valueForKey:@"outputImage"];
+    
+
+    
     
     //----
     
@@ -819,7 +916,7 @@ static dispatch_once_t onceToken;
     [self.sourceOverFilter setValue: _outputImage forKey:@"inputImage"];
     [self.sourceOverFilter setValue:[self.constantColorFilter valueForKey:@"outputImage"] forKey:@"inputBackgroundImage"];
     _outputImage = [self.sourceOverFilter valueForKey:@"outputImage"];
-
+    
     
     
     //----
@@ -831,8 +928,8 @@ static dispatch_once_t onceToken;
     _outputImage = [self.sourceOverFilter valueForKey:@"outputImage"];
     
     
-    
 
+    
     
     return _outputImage;
 }
@@ -845,11 +942,15 @@ static dispatch_once_t onceToken;
     
     float chromaMin = [defaults floatForKey:@"chromaMin"];
     float chromaMax = [defaults floatForKey:@"chromaMax"];
+    float chromaVal = [defaults floatForKey:@"chromaVal"];
+    float chromaSat = [defaults floatForKey:@"chromaSat"];
     
-    if(chromaMin != chromaMinSet || chromaMax != chromaMaxSet){
+    if(chromaMin != chromaMinSet || chromaMax != chromaMaxSet || chromaSat != chromaSatSet || chromaVal != chromaValSet){
         chromaMinSet = chromaMin;
         chromaMaxSet = chromaMax;
-        [self.chromaFilter setMinHueAngle:chromaMinSet maxHueAngle:chromaMaxSet];
+        chromaSatSet = chromaSat;
+        chromaValSet = chromaVal;
+        [self.chromaFilter setMinHueAngle:chromaMinSet maxHueAngle:chromaMaxSet minValue:chromaVal minSaturation:chromaSat];
     }
     
     self.chromaFilter.backgroundImage = background;
@@ -862,39 +963,23 @@ static dispatch_once_t onceToken;
 -(CIImage*) filterCIImage:(CIImage*)inputImage{
     __block CIImage * _outputImage = inputImage;
     
-    //    if(PropB(@"deinterlace")){
     [self.deinterlaceFilter setInputImage:_outputImage];
     _outputImage = [self.deinterlaceFilter valueForKey:@"outputImage"];
-    //  }
-    
-    /* if(PropB(@"chromaKey") && inputImage == [self imageForSelector:1]){
-     [chromaFilter setInputImage:_outputImage];
-     [chromaFilter setBackgroundImage:[self imageForSelector:2]];
-     _outputImage = [chromaFilter outputImage];
-     }*/
-    
-    /* [blurFilter setValue:[NSNumber numberWithFloat:PropF(@"blur")] forKey:@"inputRadius"];
-     [blurFilter setValue:_outputImage forKey:@"inputImage"];
-     _outputImage = [blurFilter valueForKey:@"outputImage"];*/
-    
-    //  dispatch_sync(dispatch_get_main_queue(), ^{
     
     
     NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
+    
+    [self.noiseReductionFilter setValue:[defaults valueForKey:@"noiseReduction"] forKey:@"inputNoiseLevel"];
+    [self.noiseReductionFilter setValue:[defaults valueForKey:@"sharpness"] forKey:@"inputSharpness"];
+    [self.noiseReductionFilter setValue:_outputImage forKey:@"inputImage"];
+    _outputImage = [self.noiseReductionFilter valueForKey:@"outputImage"];
+    
     
     [self.colorControlsFilter setValue:[defaults valueForKey:@"saturation"] forKey:@"inputSaturation"];
     /*[self.colorControlsFilter setValue:[NSNumber numberWithFloat:PropF(@"contrast")] forKey:@"inputContrast"];
      [self.colorControlsFilter setValue:[NSNumber numberWithFloat:PropF(@"brightness")] forKey:@"inputBrightness"];*/
     [self.colorControlsFilter setValue:_outputImage forKey:@"inputImage"];
     _outputImage = [self.colorControlsFilter valueForKey:@"outputImage"];
-    
-    /*    [self.dissolveFilter setValue:_outputImage forKey:@"inputImage"];
-     [self.dissolveFilter setValue:@(self.master) forKey:@"inputTime"];
-     _outputImage = [self.dissolveFilter valueForKey:@"outputImage"];
-     */
-    
-    
-    //});
     
     [self.gammaAdjustFilter setValue:[defaults valueForKey:@"gamma"] forKey:@"inputPower"];
     [self.gammaAdjustFilter setValue:_outputImage forKey:@"inputImage"];
@@ -907,7 +992,7 @@ static dispatch_once_t onceToken;
      [toneCurveFilter setValue:[CIVector numberWithFloat:PropF(@"curvep5")] forKey:@"inputPoint4"];
      [toneCurveFilter setValue:_outputImage forKey:@"inputImage"];
      _outputImage = [toneCurveFilter valueForKey:@"outputImage"];*/
-
+    
     return _outputImage;
 }
 
@@ -927,23 +1012,55 @@ static void MyMIDIReadProc(const MIDIPacketList *pklist, void *refCon, void *con
     AppDelegate * ad = (__bridge AppDelegate*)refCon;
     
     MIDIPacket * packet = (MIDIPacket*)pklist->packet;
-    Byte midiCommand = packet->data[0] >> 4;
     
-    if(midiCommand==11){//CC
-        int channel = (packet->data[0] & 0xF) + 1;
-        int number = packet->data[1] & 0x7F;
-        int value = packet->data[2] & 0x7F;
-  //      NSLog(@"%i %i %i",channel, number, value);
+    for (int i = 0; i < pklist->numPackets; ++i) {
+        for (int j = 0; j < packet->length; j+=3) {
+            
+            
+            Byte midiCommand = packet->data[0+j] >> 4;
+            
+            if(midiCommand==11){//CC
+                int channel = (packet->data[0+j] & 0xF) + 1;
+                int number = packet->data[1+j] & 0x7F;
+                int value = packet->data[2+j] & 0x7F;
+                //      NSLog(@"%i %i %i",channel, number, value);
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if(channel == 1 && number == 1){
+                        ad.fadeTime = value / 128.0;
+                    }
+                    if(channel == 1 && number == 0){
+                        ad.master = value / 128.0;
+                    }
+                    
+                    
+                    if(channel == 2){
+                        if(number == 0){
+                            ad.outSelector = value;
+                        }
+                        
+                        if(number == 1){
+                            ad.decklink1input = value-1;
+                        }
+                        if(number == 2){
+                            ad.decklink2input = value-1;
+                        }
+                        if(number == 3){
+                            ad.decklink3input = value-1;
+                        }
+                    }
+                    
+                    if (channel == 3) {
+                        if(number == 0){
+                            [[NSUserDefaults standardUserDefaults] setBool:value forKey:@"chromaKey"];
+                        }
+                    }
+                });
+                //        if()
+            }
+        }
         
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if(channel == 1 && number == 1){
-                ad.fadeTime = value / 128.0;
-            }
-            if(channel == 1 && number == 0){
-                ad.master = value / 128.0;
-            }
-        });
-//        if()
+        packet = MIDIPacketNext(packet);
     }
 }
 

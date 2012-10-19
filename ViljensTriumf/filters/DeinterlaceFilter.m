@@ -30,9 +30,12 @@ static CIKernel *deinterlaceKernel = nil;
 - (CIImage *)outputImage
 {
     CISampler *src = [CISampler samplerWithImage: self.inputImage];
-    
+   // NSAssert(src, @" Nor Src");
     return [self apply: deinterlaceKernel, src, kCIApplyOptionDefinition, [src definition], nil];
 }
 
+-(NSArray *)inputKeys{
+    return @[@"inputImage"];
+}
 
 @end
