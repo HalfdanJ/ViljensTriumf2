@@ -161,7 +161,7 @@ static void *SelectionContext = &SelectionContext;
     [inputs addObject:@{@"name":@"3 Main C"}];
     [inputs addObject:@{@"name":@"4 Dolly"}];
     [inputs addObject:@{@"name":@"5"}];
-    [inputs addObject:@{@"name":@"6"}];
+    [inputs addObject:@{@"name":@"6 Cam 5 Model"}];
     [inputs addObject:@{@"name":@"7 Lærred"}];
     [inputs addObject:@{@"name":@"8 Ude"}];
     [inputs addObject:@{@"name":@"9 Greenscreen"}];
@@ -169,9 +169,9 @@ static void *SelectionContext = &SelectionContext;
     [inputs addObject:@{@"name":@"11  ---- "}];
     [inputs addObject:@{@"name":@"12 PTZ"}];    
     [inputs addObject:@{@"name":@"13 Cam 5 kort "}];
-    [inputs addObject:@{@"name":@"14"}];
+    [inputs addObject:@{@"name":@"14 Mercedes front"}];
     [inputs addObject:@{@"name":@"15 Model (quad)"}];
-    [inputs addObject:@{@"name":@"16"}];
+    [inputs addObject:@{@"name":@"16 Mercedes overshoulder"}];
     self.cameraInputs = inputs;
     
     self.decklink1input = -1;
@@ -220,11 +220,11 @@ static void *SelectionContext = &SelectionContext;
 -(void)updateChromaTransform{
     NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
 
-/*    NSAffineTransform * transform = [NSAffineTransform transform];
+    /*NSAffineTransform * transform = [NSAffineTransform transform];
     [transform translateXBy:[defaults floatForKey:@"chromaX"] yBy:[defaults floatForKey:@"chromaY"]];
     [transform scaleXBy:[defaults floatForKey:@"chromaScale"] yBy:[defaults floatForKey:@"chromaScale"]];
     [self.chromaTransform setValue:transform forKey:@"inputTransform"];
-  */  
+  */
     
     CIVector * vec = [CIVector vectorWithX:[defaults floatForKey:@"chromaX"] Y:[defaults floatForKey:@"chromaY"] Z:720*[defaults floatForKey:@"chromaScale"] W:576*[defaults floatForKey:@"chromaScale"]];
     [self.chromaCrop setValue:vec forKey:@"inputRectangle"];
@@ -327,7 +327,7 @@ static void *SelectionContext = &SelectionContext;
             //NSLog(@"%@",selection);
             AVPlayerItem * item = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"file://%@",[selection valueForKey:@"path"]]]];
             
-            NSNumber * inTime = [selection valueForKey:@"inTime"];
+         //   NSNumber * inTime = [selection valueForKey:@"inTime"];
             /*  if(inTime){
              [item seekToTime:CMTimeMake([inTime floatValue], 25)];
              }
@@ -515,7 +515,8 @@ static void *SelectionContext = &SelectionContext;
             [self.constantColorFilter setValue:[CIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:1.0] forKey:@"inputColor"];
             [self.sourceOverFilter setValue:[self.constantColorFilter valueForKey:@"outputImage"] forKey:@"inputBackgroundImage"];
             
-            avPlayerLayer.filters = @[self.deinterlaceFilter, self.colorControlsFilter, self.gammaAdjustFilter];//, self.perspectiveFilterMovie, self.sourceOverFilter];
+            [self.chromaFilter setInputBackgroundImage:[self imageForSelector:2]];
+            avPlayerLayer.filters = @[ self.deinterlaceFilter, self.colorControlsFilter, self.gammaAdjustFilter];//, self.perspectiveFilterMovie, self.sourceOverFilter];
         } else {
             [avPlayerLayer removeFromSuperlayer];
             [self.mainOutput setWantsLayer:NO];
@@ -613,10 +614,11 @@ static void *SelectionContext = &SelectionContext;
 static dispatch_once_t onceToken;
 
 -(void) newFrame:(DecklinkCallback*)callback{
-    dispatch_sync(dispatch_get_main_queue(), ^{
+    dispatch_async(dispatch_get_main_queue(), ^{
         //NSLog(@"%lld",[avPlayer currentTime].value);
         
-        
+        //NSLog(@"New frame in %i",callback);
+
         [callback->lock lock];
         callback->delegateBusy = YES;
         CVPixelBufferRef buffer = [self createCVImageBufferFromCallback:callback];
@@ -657,15 +659,20 @@ static dispatch_once_t onceToken;
         
         if(!self.recording){
   
-            if(num == 0 && [[NSUserDefaults standardUserDefaults] floatForKey:@"chromaScale"] != 1 && self.decklink1input == 8){
-                [self updateChromaTransform];
-                [self.chromaCrop setValue:image forKey:@"inputImage"];
-                image = [self.chromaCrop valueForKey:@"outputImage"];
-            }
+
              
             if(num == 0  && [[NSUserDefaults standardUserDefaults] boolForKey:@"chromaKey"] && self.decklink1input == 8){
                 image = [self chromaKey:image backgroundImage:cameras[1]];
             }
+            if(num == 0 && [[NSUserDefaults standardUserDefaults] floatForKey:@"chromaScale"] != 1 && self.decklink1input == 8){
+                [self updateChromaTransform];
+                //                [self.chromaTransform setValue:image forKey:@"inputImage"];
+                //                image = [self.chromaTransform valueForKey:@"outputImage"];
+                
+                [self.chromaCrop setValue:image forKey:@"inputImage"];
+                image = [self.chromaCrop valueForKey:@"outputImage"];
+            }
+            
             image = [self filterCIImage:image];
             
    
@@ -757,6 +764,8 @@ static dispatch_once_t onceToken;
         
         callback->delegateBusy = NO;
         [callback->lock unlock];
+//        NSLog(@"New frame out %i",callback);
+
     });
 }
 /*
@@ -803,7 +812,7 @@ static dispatch_once_t onceToken;
         if(selector == 3)
             inputSelector = self.decklink3input;
         
-        if(inputSelector == 5){ //6 Jonas
+        if(inputSelector == 15){ //6 Jonas
             [self.widescreenFilter setValue:img forKey:@"inputImage"];
             img = [self.widescreenFilter valueForKey:@"outputImage"];
         }
@@ -953,7 +962,7 @@ static dispatch_once_t onceToken;
         [self.chromaFilter setMinHueAngle:chromaMinSet maxHueAngle:chromaMaxSet minValue:chromaVal minSaturation:chromaSat];
     }
     
-    self.chromaFilter.backgroundImage = background;
+    self.chromaFilter.inputBackgroundImage = background;
     self.chromaFilter.inputImage = image;
     retImage = [self.chromaFilter outputImage];
     
@@ -1000,6 +1009,9 @@ static dispatch_once_t onceToken;
     int w = callback->w;
     int h = callback->h;
     unsigned char * bytes = callback->bytes;
+//    unsigned char * bytes = (unsigned char * ) malloc(callback->w*callback->h*4 * sizeof(unsigned char)) ;
+  //  memcpy(bytes, callback->bytes, callback->w*callback->h*4);
+    
     NSDictionary *d = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], kCVPixelBufferCGImageCompatibilityKey, [NSNumber numberWithBool:YES], kCVPixelBufferCGBitmapContextCompatibilityKey, nil];
     
     CVPixelBufferRef buffer = NULL;

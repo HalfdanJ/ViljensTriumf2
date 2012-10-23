@@ -16,7 +16,7 @@
 }
 
 @property (strong) CIImage   *inputImage;
-@property (strong) CIImage   *backgroundImage;
+@property (strong) CIImage   *inputBackgroundImage;
 
 -(void) setMinHueAngle:(float)minHueAngle maxHueAngle:(float)maxHueAngle minValue:(float)minValue minSaturation:(float)minSaturation;
 -(CIImage*)outputImage;

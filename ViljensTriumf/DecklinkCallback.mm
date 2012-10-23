@@ -152,7 +152,7 @@ unsigned char * DecklinkCallback::YuvToRgb(IDeckLinkVideoInputFrame* pArrivedFra
     int num_workers = 8;
     
     int a;
-    unsigned t0=clock(),t1;
+    //unsigned t0=clock(),t1;
     
     // split up the image into memory-aligned chunks so they take advantage of
     // the CPU cache
@@ -169,7 +169,7 @@ unsigned char * DecklinkCallback::YuvToRgb(IDeckLinkVideoInputFrame* pArrivedFra
     }
     dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
     
-    t1=clock()-t0;
+   // t1=clock()-t0;
     //printf("%i\n",t1);
     
     return rgb;
@@ -192,7 +192,7 @@ DecklinkCallback::DecklinkCallback(){
     bytes = 0;
     CreateLookupTables();
     
-    lock = [[NSRecursiveLock alloc] init];
+    lock = [[NSLock alloc] init];
 };
 
 
@@ -247,6 +247,7 @@ HRESULT 	DecklinkCallback::VideoInputFrameArrived (/* in */ IDeckLinkVideoInputF
 {
     @autoreleasepool {
         if(!delegateBusy){
+          //  NSLog(@"Frame in %i",this);
             [lock lock];
             //        BMDPixelFormat pixelFormat = videoFrame->GetPixelFormat();
             BMDTimeValue		frameTime, frameDuration;
@@ -254,7 +255,7 @@ HRESULT 	DecklinkCallback::VideoInputFrameArrived (/* in */ IDeckLinkVideoInputF
             HRESULT				theResult;
             
             videoFrame->GetStreamTime(&frameTime, &frameDuration, 600);
-            theResult = decklinkOutput->ScheduleVideoFrame(videoFrame, frameTime, frameDuration, 600);
+            decklinkOutput->ScheduleVideoFrame(videoFrame, frameTime, frameDuration, 600);
             //if (theResult != S_OK)
             //	printf("Scheduling failed with error = %08x\n", (unsigned int)theResult);
             
@@ -281,12 +282,12 @@ HRESULT 	DecklinkCallback::VideoInputFrameArrived (/* in */ IDeckLinkVideoInputF
             newFrame = true;
             
             dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
-            dispatch_async(queue, ^{
+            dispatch_sync(queue, ^{
                 [delegate newFrame:this];
             });
             
             [lock unlock];
-            
+         //   NSLog(@"Frame out %i",this);
         } else {
        //     NSLog(@"busy delegate");
         }

@@ -47,7 +47,7 @@ public:
     void YuvToRgbChunk(unsigned char *yuv, unsigned char * rgb, unsigned int offset, unsigned int chunk_size);
     unsigned char * YuvToRgb(IDeckLinkVideoInputFrame* pArrivedFrame);
     
-    NSRecursiveLock * lock;
+    NSLock * lock;
     
     id delegate;
     bool delegateBusy;

@@ -59,7 +59,7 @@ void rgb2hsv(float * rgb, float * hsv)
 
 @implementation ChromaFilter
 @synthesize inputImage = _inputImage;
-@synthesize backgroundImage = _backgroundImage;
+@synthesize inputBackgroundImage = _inputBackgroundImage;
 
 
 - (id)init
@@ -128,6 +128,10 @@ void rgb2hsv(float * rgb, float * hsv)
     [colorCube setValue:data forKey:@"inputCubeData"];
 }
 
+-(NSArray *)inputKeys{
+    return @[@"inputImage", @"inputBackgroundImage"];
+}
+
 
 - (CIImage *)outputImage
 {
@@ -136,7 +140,7 @@ void rgb2hsv(float * rgb, float * hsv)
     [colorCube setValue:self.inputImage forKey:@"inputImage"];
     
     [sourceOverFilter setValue:[colorCube valueForKey:@"outputImage"] forKey:@"inputImage"];
-    [sourceOverFilter setValue:self.backgroundImage forKey:@"inputBackgroundImage"];
+    [sourceOverFilter setValue:self.inputBackgroundImage forKey:@"inputBackgroundImage"];
     
     
     return [sourceOverFilter valueForKey:@"outputImage"];
