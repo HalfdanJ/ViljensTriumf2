@@ -1,0 +1,68 @@
+
+/*
+
+   v002 brute force, stupid stupid line averaging deinterlacer
+
+   we have to average like so:   
+   scanline 0 and 1 are (0 + 1) / 2. 
+   scanline 2 and 3 are (2 + 3) / 2. 
+   
+   we need to not do 
+   scanline 0 and 1 are (0 + 1) / 2. 
+   scanline 1 and 2 are (1 + 2) / 2. 
+
+   p.s. short cow goes moo.
+*/
+
+kernel vec4 alphaOver(sampler foreground, sampler alphaImage, sampler background)
+{
+    vec4 f = unpremultiply(sample(foreground, samplerCoord(foreground)));
+    vec4 b = unpremultiply(sample(background, samplerCoord(background)));
+    vec4 a = unpremultiply(sample(alphaImage, samplerCoord(alphaImage)));
+
+/*    vec4 f = sample(foreground, samplerCoord(foreground));
+    vec4 b = sample(background, samplerCoord(background));
+  */  
+
+//    float mult = step(a.a, 0.5);
+
+
+    float alpha = a.a;
+    return vec4(f.r*alpha + b.r*(1.0-alpha), 
+        f.g*alpha + b.g*(1.0-alpha),
+        f.b*alpha + b.b*(1.0-alpha), 1);
+
+    vec4 ret = a.a > 0.5 ? f : b;
+
+    return ret;
+
+
+
+
+
+  //return f+b;
+   
+   
+/*
+   float isodd = mod(samplerCoord(image).y, 2.0); // returns 0 or 1. 
+
+   // unfortunately this niave approach requires us to sample a bit more often than we would like
+   // our odd sampling
+   vec4 oddevenfield = sample(image, vec2(texcoord0.x, texcoord0.y + 1.0)); 
+   vec4 oddoddfield = sample(image, texcoord0); 
+   vec4 oddresult = mix(oddevenfield, oddoddfield, 0.5);
+*/
+   // our even sampling
+ /*  vec4 evenevenfield = sample(image, texcoord0);
+   vec4 evenoddfield = sample(image, vec2(texcoord0.x, texcoord0.y - 1.0)); 
+   vec4 evenresult = mix(evenevenfield, evenoddfield, 0.5); 
+*/
+   // final output
+  // return oddresult;
+  // return mix(oddresult, evenresult, isodd);
+}
+
+kernel vec4 alphaThreshold(sampler image){
+    vec4 b = sample(image, samplerCoord(image));
+    return (b.a > 0.5)? vec4(1,1,1,1) : vec4(1,1,1,0);
+}
