@@ -91,6 +91,9 @@ static void *SelectionContext = &SelectionContext;
     self.chromaCrop = [CIFilter filterWithName:@"CICrop"];
     [self.chromaCrop setDefaults];
     
+    self.chromaGaussian = [CIFilter filterWithName:@"CIGaussianBlur"];
+    [self.chromaGaussian setDefaults];
+    
     [self updateChromaTransform];
 
     
@@ -202,6 +205,11 @@ static void *SelectionContext = &SelectionContext;
             MIDIPortConnectSource(inPort, source, NULL);
         }
     }
+    
+    
+    
+    avPlayerLayerPreview = [[AVPlayerLayer alloc] init];
+
 }
 
 -(void)setOutSelector:(int)outSelector{
@@ -267,8 +275,6 @@ static void *SelectionContext = &SelectionContext;
     
     if([keyPath isEqualToString:@"input"]){
         NSNumber * output = (__bridge NSNumber*) context;
-        //        NSLog(@"Change %@-> %@",[object valueForKey:@"input"], output);
-        
         dispatch_async(dispatch_get_main_queue(), ^{
             
             if([output intValue] == 0){
@@ -291,9 +297,13 @@ static void *SelectionContext = &SelectionContext;
             }
         });
     }
+
+    
     if(context == &ItemStatusContext){
         if(avPlayer.error){
             NSLog(@"Error loading %@",avPlayer.error);
+        } else {
+            NSLog(@"Loaded player item");
         }
         
         //   [avPlayer play];
@@ -314,6 +324,8 @@ static void *SelectionContext = &SelectionContext;
         [avPlayer play];
         NSLog(@"Play %lli",        [avPlayer.currentItem duration].value);
     }
+    
+    
     if(context == &SelectionContext){
         NSLog(@"Selection");
         avPlayerBoundaryPreview = nil;
@@ -346,7 +358,7 @@ static void *SelectionContext = &SelectionContext;
             
             avPlayerPreview = [AVPlayer playerWithPlayerItem:item];
             [avPlayerPreview play];
-            avPlayerLayerPreview = [AVPlayerLayer playerLayerWithPlayer:avPlayerPreview];
+            [avPlayerLayerPreview setPlayer:avPlayerPreview];
             
             [self.videoView setWantsLayer:YES];
             avPlayerLayerPreview.backgroundColor = [[NSColor colorWithCalibratedWhite:0.0 alpha:1.0] CGColor];
@@ -373,16 +385,24 @@ static void *SelectionContext = &SelectionContext;
     }
 }
 
+- (IBAction)clearVideos:(id)sender {
+    [self willChangeValueForKey:@"recordings"];
+
+    self.recordingIndex = 0;
+    [self.recordings removeAllObjects];
+    [self didChangeValueForKey:@"recordings"];
+
+}
 
 - (IBAction)loadLastVideos:(id)sender {
     [self willChangeValueForKey:@"recordings"];
     
     self.recordingIndex = [[NSUserDefaults standardUserDefaults] integerForKey:@"recordingIndex"] ;
-    for(int i=0;i<self.recordingIndex-1;i++){
-        NSString * path = [NSString stringWithFormat:@"/Users/jonas/Desktop/triumf%i.mov",i+1];
+    for(int i=1;i<self.recordingIndex;i++){
+        NSString * path = [NSString stringWithFormat:@"/Users/jonas/Desktop/triumf%i.mov",i];
         
         //AVPlayerItem * item = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"file://%@",path]]];
-        NSMutableDictionary * dict = [@{@"path":path, @"name":[NSString stringWithFormat:@"Old Rec %i", i], @"inTime":@(0), @"outTime":@(0)} mutableCopy];
+        NSMutableDictionary * dict = [@{@"path":path, @"active": @(YES), @"name":[NSString stringWithFormat:@"Old Rec %i", i], @"inTime":@(0), @"outTime":@(0)} mutableCopy];
         [self.recordings addObject:dict];
         
         
@@ -390,6 +410,8 @@ static void *SelectionContext = &SelectionContext;
     NSLog(@"Recordings loaded: %@",self.recordings);
     [self didChangeValueForKey:@"recordings"];
 }
+
+
 
 - (IBAction)updateInOutTime:(id)sender {
     NSDictionary * selection = self.recordingsArrayController.selectedObjects[0];
@@ -450,36 +472,38 @@ static void *SelectionContext = &SelectionContext;
             NSMutableArray * outTimes = [NSMutableArray array];
             
             for(NSDictionary * recording in self.recordings){
-                AVPlayerItem * item = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"file://%@",[recording valueForKey:@"path"]]]];
-                
-                double inTime = [[recording valueForKey:@"inTime"] doubleValue];
-                double outTime = item.duration.value - [[recording valueForKey:@"outTime"] doubleValue];
-                
-                if(inTime == 0){
-                    inTime = 100;
+                if([[recording valueForKey:@"active"] boolValue] == YES){
+                    AVPlayerItem * item = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"file://%@",[recording valueForKey:@"path"]]]];
+                    
+                    double inTime = [[recording valueForKey:@"inTime"] doubleValue];
+                    double outTime = item.duration.value - [[recording valueForKey:@"outTime"] doubleValue];
+                    
+                    if(inTime == 0){
+                        inTime = 100;
+                    }
+                    if(inTime >= avPlayerPreview.currentItem.duration.value){
+                        inTime = avPlayerPreview.currentItem.duration.value;
+                    }
+                    
+                    
+                  /*  if(outTime >= avPlayerPreview.currentItem.duration.value){
+                        outTime = avPlayerPreview.currentItem.duration.value;
+                    }
+                    if(outTime == 0){
+                        outTime = 200;
+                    }*/
+                    [item seekToTime:CMTimeMake(inTime, 600)  toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero];
+                    [outTimes addObject:[NSValue valueWithCMTime:CMTimeMake(outTime, 600) ]];
+                    
+                    if(item.error){
+                        NSLog(@"Error loading %@",item.error);
+                    }
+                    if(i==0){
+                        [item addObserver:self forKeyPath:@"status" options:0 context:&ItemStatusContext];
+                    }
+                    [items addObject:item];
+                    i++;
                 }
-                if(inTime >= avPlayerPreview.currentItem.duration.value){
-                    inTime = avPlayerPreview.currentItem.duration.value;
-                }
-                
-                
-                if(outTime >= avPlayerPreview.currentItem.duration.value){
-                    outTime = avPlayerPreview.currentItem.duration.value;
-                }
-                if(outTime == 0){
-                    outTime = 200;
-                }
-                [item seekToTime:CMTimeMake(inTime, 600)  toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero];
-                [outTimes addObject:[NSValue valueWithCMTime:CMTimeMake(outTime, 600) ]];
-                
-                if(item.error){
-                    NSLog(@"Error loading %@",item.error);
-                }
-                if(i==0){
-                    [item addObserver:self forKeyPath:@"status" options:0 context:&ItemStatusContext];
-                }
-                [items addObject:item];
-                i++;
             }
             
             avPlayer = [[AVQueuePlayer alloc] initWithItems:items];
@@ -545,7 +569,7 @@ static void *SelectionContext = &SelectionContext;
             [videoWriter finishWriting];
             
             //            [self.recordings addObject:@{@"path":path, @"name":[NSString stringWithFormat:@"Rec %i", self.recordingIndex-1]}];
-            NSMutableDictionary * dict = [@{@"path":path, @"name":[NSString stringWithFormat:@"Old Rec %i", self.recordingIndex-1], @"inTime":@(0), @"outTime":@(0)} mutableCopy];
+            NSMutableDictionary * dict = [@{@"path":path, @"active": @(YES), @"name":[NSString stringWithFormat:@"Old Rec %i", self.recordingIndex-1], @"inTime":@(0), @"outTime":@(0)} mutableCopy];
             [self.recordings addObject:dict];
             
             
@@ -621,8 +645,9 @@ static dispatch_once_t onceToken;
 
         [callback->lock lock];
         callback->delegateBusy = YES;
-        CVPixelBufferRef buffer = [self createCVImageBufferFromCallback:callback];
-        
+//        CVPixelBufferRef buffer = [self createCVImageBufferFromCallback:callback];
+        CVPixelBufferRef buffer = callback->buffer;
+        NSLog(@"%i",buffer);
         
         int num = -1;
         if(callback == [self.blackMagicController callbacks:0]){
@@ -660,9 +685,16 @@ static dispatch_once_t onceToken;
         if(!self.recording){
   
 
-             
+       
             if(num == 0  && [[NSUserDefaults standardUserDefaults] boolForKey:@"chromaKey"] && self.decklink1input == 8){
-                image = [self chromaKey:image backgroundImage:cameras[1]];
+                
+                [self.noiseReductionFilter setValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"noiseReduction"] forKey:@"inputNoiseLevel"];
+                [self.noiseReductionFilter setValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"sharpness"] forKey:@"inputSharpness"];
+                [self.noiseReductionFilter setValue:image forKey:@"inputImage"];
+//                image = [self.noiseReductionFilter valueForKey:@"outputImage"];
+
+                
+                image = [self chromaKey:image backgroundImage:cameras[1] alphaImage:[self.noiseReductionFilter valueForKey:@"outputImage"]];
             }
             if(num == 0 && [[NSUserDefaults standardUserDefaults] floatForKey:@"chromaScale"] != 1 && self.decklink1input == 8){
                 [self updateChromaTransform];
@@ -674,21 +706,24 @@ static dispatch_once_t onceToken;
             }
             
             image = [self filterCIImage:image];
-            
+        
    
             cameras[num] = image;
             
             
             //  dispatch_async(dispatch_get_main_queue(), ^{
-            if(!preview.needsDisplay){ //Spar på energien
-                preview.ciImage = [self imageForSelector:num+1];
-                [preview setNeedsDisplay:YES];
-            }
+
             if(num == self.outSelector-1 || self.outSelector == 0 || self.outSelector > 3){
                 self.mainOutput.ciImage = [self outputImage];
-                if(![self.mainOutput needsDisplay])
-                    [self.mainOutput setNeedsDisplay:YES];
+                //if(![self.mainOutput needsDisplay])
+                [self.mainOutput setNeedsDisplay:YES];
             }
+//            if(!self.mainOutput.needsDisplay){ //Spar på energien
+                preview.ciImage = [self imageForSelector:num+1];
+           //     [preview performSelector:@selector(setNeedsDisplay:) withObject:YES afterDelay:1];
+                [preview setNeedsDisplay:YES];
+  //          }
+            //[NSThread sleepForTimeInterval:0.01];
         }
         
         if(self.recording && num == self.outSelector - 1){
@@ -708,8 +743,8 @@ static dispatch_once_t onceToken;
                 append_ok = [adaptor appendPixelBuffer:buffer withPresentationTime:frameTime];
                 
                 
-                if(buffer)
-                    CVBufferRelease(buffer);
+                //if(buffer)
+                  //  CVBufferRelease(buffer);
                 [NSThread sleepForTimeInterval:0.035];
             }
             else
@@ -724,42 +759,6 @@ static dispatch_once_t onceToken;
             }
             
             // });
-            /*dispatch_once(&onceToken, ^{
-             recordImage = [[NSImage alloc] initWithSize:NSMakeSize(720, 576)];
-             });
-             
-             NSTimeInterval diff = [NSDate timeIntervalSinceReferenceDate] - self.lastRecordTime;
-             if(self.lastRecordTime == -1){
-             diff = 0;
-             }
-             diff *= 600;
-             
-             self.lastRecordTime = [NSDate timeIntervalSinceReferenceDate];
-             
-             NSBitmapImageRep * bitmap;
-             
-             unsigned char * bytes = callback->bytes;
-             bitmap = [[NSBitmapImageRep alloc] initWithBitmapDataPlanes:&bytes
-             pixelsWide:callback->w pixelsHigh:callback->h
-             bitsPerSample:8 samplesPerPixel:4
-             hasAlpha:YES isPlanar:NO
-             colorSpaceName:NSDeviceRGBColorSpace
-             bitmapFormat:1
-             bytesPerRow:4*callback->w bitsPerPixel:8*4];
-             
-             
-             
-             [recordImage addRepresentation:bitmap];
-             
-             //dispatch_sync(dispatch_get_main_queue(), ^{
-             // [self.mMovie addImage:recordImage forDuration:QTMakeTime(diff, 600) withAttributes:[NSDictionary dictionaryWithObjectsAndKeys: @"jpeg", QTAddImageCodecType, nil]];
-             //                [mMovie addImage:recordImage forDuration:QTMakeTime(timeDiff, 1000) withAttributes:nil];
-             // [self.mMovie setCurrentTime:[self.mMovie duration]];
-             [recordImage removeRepresentation:bitmap];
-             //});
-             */
-            
-            
         }
         
         callback->delegateBusy = NO;
@@ -944,7 +943,7 @@ static dispatch_once_t onceToken;
 }
 
 
--(CIImage*) chromaKey:(CIImage*)image backgroundImage:(CIImage*)background{
+-(CIImage*) chromaKey:(CIImage*)image backgroundImage:(CIImage*)background alphaImage:(CIImage*)alpha{
     CIImage * retImage = image;
     
     NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
@@ -953,7 +952,9 @@ static dispatch_once_t onceToken;
     float chromaMax = [defaults floatForKey:@"chromaMax"];
     float chromaVal = [defaults floatForKey:@"chromaVal"];
     float chromaSat = [defaults floatForKey:@"chromaSat"];
-    
+
+    float chromaBlur = [defaults floatForKey:@"chromaBlur"];
+
     if(chromaMin != chromaMinSet || chromaMax != chromaMaxSet || chromaSat != chromaSatSet || chromaVal != chromaValSet){
         chromaMinSet = chromaMin;
         chromaMaxSet = chromaMax;
@@ -962,8 +963,13 @@ static dispatch_once_t onceToken;
         [self.chromaFilter setMinHueAngle:chromaMinSet maxHueAngle:chromaMaxSet minValue:chromaVal minSaturation:chromaSat];
     }
     
+    [self.chromaGaussian setValue:@(chromaBlur) forKey:@"inputRadius"];
+    [self.chromaGaussian setValue:alpha forKey:@"inputImage"];
+    image = [self.chromaGaussian valueForKey:@"outputImage"];
+    
     self.chromaFilter.inputBackgroundImage = background;
-    self.chromaFilter.inputImage = image;
+    self.chromaFilter.inputImage = alpha;
+    self.chromaFilter.inputForegroundImage = image;
     retImage = [self.chromaFilter outputImage];
     
     return retImage;
@@ -978,10 +984,10 @@ static dispatch_once_t onceToken;
     
     NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
     
-    [self.noiseReductionFilter setValue:[defaults valueForKey:@"noiseReduction"] forKey:@"inputNoiseLevel"];
-    [self.noiseReductionFilter setValue:[defaults valueForKey:@"sharpness"] forKey:@"inputSharpness"];
-    [self.noiseReductionFilter setValue:_outputImage forKey:@"inputImage"];
-    _outputImage = [self.noiseReductionFilter valueForKey:@"outputImage"];
+//    [self.noiseReductionFilter setValue:[defaults valueForKey:@"noiseReduction"] forKey:@"inputNoiseLevel"];
+//    [self.noiseReductionFilter setValue:[defaults valueForKey:@"sharpness"] forKey:@"inputSharpness"];
+//    [self.noiseReductionFilter setValue:_outputImage forKey:@"inputImage"];
+//    _outputImage = [self.noiseReductionFilter valueForKey:@"outputImage"];
     
     
     [self.colorControlsFilter setValue:[defaults valueForKey:@"saturation"] forKey:@"inputSaturation"];
@@ -1005,17 +1011,24 @@ static dispatch_once_t onceToken;
     return _outputImage;
 }
 
+void MyPixelBufferReleaseCallback(void *releaseRefCon, const void *baseAddress){
+ //   NSLog(@" release %i",baseAddress);
+    delete baseAddress;
+}
+
 -(CVPixelBufferRef) createCVImageBufferFromCallback:(DecklinkCallback*)callback{
     int w = callback->w;
     int h = callback->h;
-    unsigned char * bytes = callback->bytes;
-//    unsigned char * bytes = (unsigned char * ) malloc(callback->w*callback->h*4 * sizeof(unsigned char)) ;
-  //  memcpy(bytes, callback->bytes, callback->w*callback->h*4);
+  //  unsigned char * bytes = callback->bytes;
+    unsigned char * bytes = (unsigned char * ) malloc(callback->w*callback->h*4 * sizeof(unsigned char)) ;
+    memcpy(bytes, callback->bytes, callback->w*callback->h*4);
+//    NSLog(@" create %i",bytes);
+
     
     NSDictionary *d = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], kCVPixelBufferCGImageCompatibilityKey, [NSNumber numberWithBool:YES], kCVPixelBufferCGBitmapContextCompatibilityKey, nil];
     
     CVPixelBufferRef buffer = NULL;
-    CVPixelBufferCreateWithBytes(kCFAllocatorDefault, w, h, k32ARGBPixelFormat, bytes, 4*w, (CVPixelBufferReleaseBytesCallback )nil, (void*)nil, (__bridge CFDictionaryRef)d, &buffer);
+    CVPixelBufferCreateWithBytes(kCFAllocatorDefault, w, h, k32ARGBPixelFormat, bytes, 4*w, (CVPixelBufferReleaseBytesCallback )MyPixelBufferReleaseCallback, (void*)bytes, (__bridge CFDictionaryRef)d, &buffer);
     
     return buffer;
 }

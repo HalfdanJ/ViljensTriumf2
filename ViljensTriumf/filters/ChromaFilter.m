@@ -57,10 +57,12 @@ void rgb2hsv(float * rgb, float * hsv)
 }
 
 
+static CIKernel *alphaOverKernel = nil;
+
 @implementation ChromaFilter
 @synthesize inputImage = _inputImage;
 @synthesize inputBackgroundImage = _inputBackgroundImage;
-
+@synthesize inputForegroundImage = _inputForegroundImage;
 
 - (id)init
 {
@@ -68,6 +70,17 @@ void rgb2hsv(float * rgb, float * hsv)
     colorCube = [CIFilter filterWithName:@"CIColorCube"];
     sourceOverFilter = [CIFilter filterWithName:@"CISourceOverCompositing"];
     
+    
+    if(alphaOverKernel == nil)// 1
+    {
+        NSBundle    *bundle = [NSBundle bundleForClass: [self class]];// 2
+        NSString    *code = [NSString stringWithContentsOfFile: [bundle// 3
+                                                                 pathForResource: @"alphaOver"
+                                                                 ofType: @"cikernel"]];
+        NSArray     *kernels = [CIKernel kernelsWithString: code];// 4
+        alphaOverKernel = [kernels objectAtIndex:0];// 5
+    }
+
     return self;
 }
 
@@ -129,7 +142,7 @@ void rgb2hsv(float * rgb, float * hsv)
 }
 
 -(NSArray *)inputKeys{
-    return @[@"inputImage", @"inputBackgroundImage"];
+    return @[@"inputImage", @"inputBackgroundImage", @"inputForegroundImage"];
 }
 
 
@@ -138,12 +151,21 @@ void rgb2hsv(float * rgb, float * hsv)
     if(self.inputImage == nil)
         return nil;
     [colorCube setValue:self.inputImage forKey:@"inputImage"];
-    
+  /*
     [sourceOverFilter setValue:[colorCube valueForKey:@"outputImage"] forKey:@"inputImage"];
     [sourceOverFilter setValue:self.inputBackgroundImage forKey:@"inputBackgroundImage"];
     
     
     return [sourceOverFilter valueForKey:@"outputImage"];
+
+*/
+    
+    CISampler *foreground = [CISampler samplerWithImage: self.inputForegroundImage];
+    CISampler *background = [CISampler samplerWithImage: self.inputBackgroundImage];
+    CISampler *alpha = [CISampler samplerWithImage: [colorCube valueForKey:@"outputImage"]];
+    // NSAssert(src, @" Nor Src");
+    return [self apply: alphaOverKernel, foreground, alpha, background, kCIApplyOptionDefinition, [foreground definition], nil];
+
 }
 
 @end

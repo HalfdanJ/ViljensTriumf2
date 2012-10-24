@@ -270,6 +270,12 @@ HRESULT 	DecklinkCallback::VideoInputFrameArrived (/* in */ IDeckLinkVideoInputF
              delete bytes;
              }*/
             bytes = YuvToRgb(videoFrame);
+            
+            if(buffer){
+                CVPixelBufferRelease(buffer);
+            }
+            buffer = [delegate createCVImageBufferFromCallback:this];
+
             /*imageRep = [[NSBitmapImageRep alloc] initWithBitmapDataPlanes:&bytes
              pixelsWide:w pixelsHigh:h
              bitsPerSample:8 samplesPerPixel:3

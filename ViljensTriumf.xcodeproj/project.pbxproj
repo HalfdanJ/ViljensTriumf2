@@ -23,6 +23,7 @@
 		DD303C54162605FF00A4764C /* ChromaFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = DD303C50162605FE00A4764C /* ChromaFilter.m */; };
 		DD303C55162605FF00A4764C /* deinterlaceFilter.cikernel in Resources */ = {isa = PBXBuildFile; fileRef = DD303C51162605FF00A4764C /* deinterlaceFilter.cikernel */; };
 		DD303C56162605FF00A4764C /* DeinterlaceFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = DD303C53162605FF00A4764C /* DeinterlaceFilter.m */; };
+		DD6F95061636AC4C0032288A /* alphaOver.cikernel in Resources */ = {isa = PBXBuildFile; fileRef = DD6F95051636AC4C0032288A /* alphaOver.cikernel */; };
 		DD9C845D1628053600089567 /* MavController.mm in Sources */ = {isa = PBXBuildFile; fileRef = DD9C845C1628053600089567 /* MavController.mm */; };
 		DDDC241F1626B10400FBC44F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD303C0B1625FA4400A4764C /* Foundation.framework */; };
 		DDDC24201626B11800FBC44F /* BeamSync.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDC241D1626B0C000FBC44F /* BeamSync.m */; };
@@ -61,6 +62,7 @@
 		DD303C51162605FF00A4764C /* deinterlaceFilter.cikernel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = deinterlaceFilter.cikernel; sourceTree = "<group>"; };
 		DD303C52162605FF00A4764C /* DeinterlaceFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeinterlaceFilter.h; sourceTree = "<group>"; };
 		DD303C53162605FF00A4764C /* DeinterlaceFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeinterlaceFilter.m; sourceTree = "<group>"; };
+		DD6F95051636AC4C0032288A /* alphaOver.cikernel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = alphaOver.cikernel; sourceTree = "<group>"; };
 		DD9C845B1628053600089567 /* MavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MavController.h; sourceTree = "<group>"; };
 		DD9C845C1628053600089567 /* MavController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MavController.mm; sourceTree = "<group>"; };
 		DDDC241C1626B0C000FBC44F /* BeamSync.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeamSync.h; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 		DD303C4E162605FE00A4764C /* filters */ = {
 			isa = PBXGroup;
 			children = (
+				DD6F95051636AC4C0032288A /* alphaOver.cikernel */,
 				DD303C4F162605FE00A4764C /* ChromaFilter.h */,
 				DD303C50162605FE00A4764C /* ChromaFilter.m */,
 				DD303C51162605FF00A4764C /* deinterlaceFilter.cikernel */,
@@ -238,6 +241,7 @@
 				DD303C171625FA4400A4764C /* Credits.rtf in Resources */,
 				DD303C1D1625FA4400A4764C /* MainMenu.xib in Resources */,
 				DD303C55162605FF00A4764C /* deinterlaceFilter.cikernel in Resources */,
+				DD6F95061636AC4C0032288A /* alphaOver.cikernel in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

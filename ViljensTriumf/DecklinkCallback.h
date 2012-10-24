@@ -51,5 +51,8 @@ public:
     
     id delegate;
     bool delegateBusy;
+    
+        CVPixelBufferRef buffer;
+
 };
 

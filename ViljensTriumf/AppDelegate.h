@@ -73,6 +73,8 @@
 @property (strong) CIFilter * dslrFilter;
 @property (strong) CIFilter * perspectiveFilter;
 @property (strong) CIFilter * perspectiveFilterMovie;
+
+@property (strong) CIFilter * chromaGaussian;
 @property (strong) CIFilter * chromaTransform;
 @property (strong) CIFilter * chromaCrop;
 
@@ -107,5 +109,6 @@
 
 -(void) newFrame:(DecklinkCallback*)callback;
 - (IBAction)updateKeystone:(id)sender;
+-(CVPixelBufferRef) createCVImageBufferFromCallback:(DecklinkCallback*)callback;
 
 @end

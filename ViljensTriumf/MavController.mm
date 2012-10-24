@@ -199,6 +199,7 @@
                     }
                 }
             }
+            [NSThread sleepForTimeInterval:0.1];
         }
         // make sure the serial port is closed
         if (serialFileDescriptor != -1) {
