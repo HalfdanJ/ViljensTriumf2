@@ -29,6 +29,7 @@
 		DDDC24201626B11800FBC44F /* BeamSync.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDC241D1626B0C000FBC44F /* BeamSync.m */; };
 		DDDC242A16271BE200FBC44F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDC242916271BE200FBC44F /* AVFoundation.framework */; };
 		DDDC242C16271CAA00FBC44F /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDC242B16271CAA00FBC44F /* CoreMedia.framework */; };
+		DDE868B31638AB2C00FB0477 /* MyAVPlayerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE868B21638AB2C00FB0477 /* MyAVPlayerItem.m */; };
 		DDF6E3C216286BFB0049D444 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDF6E3C116286BFB0049D444 /* CoreMIDI.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,8 @@
 		DDDC24231626D54500FBC44F /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = System/Library/Frameworks/QuickTime.framework; sourceTree = SDKROOT; };
 		DDDC242916271BE200FBC44F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		DDDC242B16271CAA00FBC44F /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		DDE868B11638AB2C00FB0477 /* MyAVPlayerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAVPlayerItem.h; sourceTree = "<group>"; };
+		DDE868B21638AB2C00FB0477 /* MyAVPlayerItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAVPlayerItem.m; sourceTree = "<group>"; };
 		DDF6E3C116286BFB0049D444 /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -155,6 +158,8 @@
 				DDDC241C1626B0C000FBC44F /* BeamSync.h */,
 				DDDC241D1626B0C000FBC44F /* BeamSync.m */,
 				DD9C845B1628053600089567 /* MavController.h */,
+				DDE868B11638AB2C00FB0477 /* MyAVPlayerItem.h */,
+				DDE868B21638AB2C00FB0477 /* MyAVPlayerItem.m */,
 				DD9C845C1628053600089567 /* MavController.mm */,
 				DD303C0D1625FA4400A4764C /* Supporting Files */,
 			);
@@ -262,6 +267,7 @@
 				DD303C56162605FF00A4764C /* DeinterlaceFilter.m in Sources */,
 				DDDC24201626B11800FBC44F /* BeamSync.m in Sources */,
 				DD9C845D1628053600089567 /* MavController.mm in Sources */,
+				DDE868B31638AB2C00FB0477 /* MyAVPlayerItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

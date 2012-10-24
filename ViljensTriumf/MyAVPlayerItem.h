@@ -9,5 +9,5 @@
 #import <AVFoundation/AVFoundation.h>
 
 @interface MyAVPlayerItem : AVPlayerItem
-
+@property NSNumber * chromaKey;
 @end

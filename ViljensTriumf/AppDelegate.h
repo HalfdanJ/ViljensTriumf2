@@ -74,7 +74,6 @@
 @property (strong) CIFilter * perspectiveFilter;
 @property (strong) CIFilter * perspectiveFilterMovie;
 
-@property (strong) CIFilter * chromaGaussian;
 @property (strong) CIFilter * chromaTransform;
 @property (strong) CIFilter * chromaCrop;
 

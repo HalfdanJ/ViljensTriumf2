@@ -10,10 +10,12 @@
 #import <ApplicationServices/ApplicationServices.h>
 #import <CoreMIDI/CoreMIDI.h>
 #import "BeamSync.h"
+#import "MyAVPlayerItem.h"
 
 @implementation AppDelegate
 
 static void *ItemStatusContext = &ItemStatusContext;
+static void *ItemStatusContextPreview = &ItemStatusContextPreview;
 static void *SelectionContext = &SelectionContext;
 
 
@@ -91,8 +93,6 @@ static void *SelectionContext = &SelectionContext;
     self.chromaCrop = [CIFilter filterWithName:@"CICrop"];
     [self.chromaCrop setDefaults];
     
-    self.chromaGaussian = [CIFilter filterWithName:@"CIGaussianBlur"];
-    [self.chromaGaussian setDefaults];
     
     [self updateChromaTransform];
 
@@ -106,6 +106,7 @@ static void *SelectionContext = &SelectionContext;
     [self.dslrFilter setValue:transform forKey:@"inputTransform"];
     
     self.chromaFilter = [[ChromaFilter alloc] init];
+    self.chromaFilter.name = @"chroma";
     
     self.master = 1.0;
     self.outSelector = 1;
@@ -307,22 +308,11 @@ static void *SelectionContext = &SelectionContext;
         }
         
         //   [avPlayer play];
-        [self.mainOutput setWantsLayer:YES];
-        avPlayerLayer.backgroundColor = [[NSColor colorWithCalibratedWhite:0.0 alpha:1.0] CGColor];
-        avPlayerLayer.videoGravity =  AVLayerVideoGravityResize;
-   //     [avPlayerLayer setFrame:[[self.mainOutput layer] bounds]];
-        NSRect frame = [[self.mainOutput layer] bounds];
-        NSRect bounds = [[self.mainOutput layer] bounds];
-//        bounds.size.width *= 0.5;
-  //      bounds.size.height *= 0.5;
-             [avPlayerLayer setFrame:frame];
-        [avPlayerLayer setBounds:bounds];
-        //xavPlayerLayer.transform
-   //     avPlayerLayer.contentsScale = 2.0;
-        [avPlayerLayer setAutoresizingMask:kCALayerWidthSizable | kCALayerHeightSizable];
-        [[self.mainOutput layer] addSublayer:avPlayerLayer];
-        [avPlayer play];
-        NSLog(@"Play %lli",        [avPlayer.currentItem duration].value);
+                NSLog(@"Play %lli",        [avPlayer.currentItem duration].value);
+    }
+    
+    if(context == &ItemStatusContextPreview){
+        NSLog(@"Preview status");
     }
     
     
@@ -339,37 +329,49 @@ static void *SelectionContext = &SelectionContext;
             //NSLog(@"%@",selection);
             AVPlayerItem * item = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"file://%@",[selection valueForKey:@"path"]]]];
             
-         //   NSNumber * inTime = [selection valueForKey:@"inTime"];
-            /*  if(inTime){
-             [item seekToTime:CMTimeMake([inTime floatValue], 25)];
-             }
-             */
+            [item addObserver:self forKeyPath:@"status" options:0 context:&ItemStatusContextPreview];
             
-            
-            if(item.error){
-                NSLog(@"Error loading %@",item.error);
+            if(item.duration.value > 0){
+                
+                NSLog(@"Duration: %lli",item.duration.value);
+                //   NSNumber * inTime = [selection valueForKey:@"inTime"];
+                /*  if(inTime){
+                 [item seekToTime:CMTimeMake([inTime floatValue], 25)];
+                 }
+                 */
+                
+                
+                if(item.error){
+                    NSLog(@"Error loading %@",item.error);
+                }
+                //      [item addObserver:self forKeyPath:@"status" options:0 context:&ItemStatusContext];
+                
+                while([[[self.videoView layer]sublayers] count] > 0){
+                    [[[self.videoView layer]sublayers][0] removeFromSuperlayer];
+                }
+                [avPlayerPreview pause];
+                
+                avPlayerPreview = [AVPlayer playerWithPlayerItem:item];
+                [avPlayerPreview play];
+                [avPlayerLayerPreview setPlayer:avPlayerPreview];
+                
+                [self.videoView setWantsLayer:YES];
+                avPlayerLayerPreview.backgroundColor = [[NSColor colorWithCalibratedWhite:0.0 alpha:1.0] CGColor];
+                avPlayerLayerPreview.videoGravity =  AVLayerVideoGravityResize;
+                [avPlayerLayerPreview setFrame:[[self.videoView layer] bounds]];
+                [avPlayerLayerPreview setAutoresizingMask:kCALayerWidthSizable | kCALayerHeightSizable];
+                [[self.videoView layer] addSublayer:avPlayerLayerPreview];
+                
+                
+                
+                [self performSelector:@selector(updateInOutTime:) withObject:self afterDelay:0];
+            } else {
+                NSLog(@"No duration on selected movie!!");
+                
+                while([[[self.videoView layer]sublayers] count] > 0){
+                    [[[self.videoView layer]sublayers][0] removeFromSuperlayer];
+                }
             }
-            //      [item addObserver:self forKeyPath:@"status" options:0 context:&ItemStatusContext];
-            
-            while([[[self.videoView layer]sublayers] count] > 0){
-                [[[self.videoView layer]sublayers][0] removeFromSuperlayer];
-            }
-            [avPlayerPreview pause];
-            
-            avPlayerPreview = [AVPlayer playerWithPlayerItem:item];
-            [avPlayerPreview play];
-            [avPlayerLayerPreview setPlayer:avPlayerPreview];
-            
-            [self.videoView setWantsLayer:YES];
-            avPlayerLayerPreview.backgroundColor = [[NSColor colorWithCalibratedWhite:0.0 alpha:1.0] CGColor];
-            avPlayerLayerPreview.videoGravity =  AVLayerVideoGravityResize;
-            [avPlayerLayerPreview setFrame:[[self.videoView layer] bounds]];
-            [avPlayerLayerPreview setAutoresizingMask:kCALayerWidthSizable | kCALayerHeightSizable];
-            [[self.videoView layer] addSublayer:avPlayerLayerPreview];
-            
-            
-            
-            [self performSelector:@selector(updateInOutTime:) withObject:self afterDelay:0];
             // [self updateInOutTime:self];
             
             /*
@@ -387,22 +389,23 @@ static void *SelectionContext = &SelectionContext;
 
 - (IBAction)clearVideos:(id)sender {
     [self willChangeValueForKey:@"recordings"];
-
+    
     self.recordingIndex = 0;
     [self.recordings removeAllObjects];
     [self didChangeValueForKey:@"recordings"];
-
+    
 }
 
 - (IBAction)loadLastVideos:(id)sender {
     [self willChangeValueForKey:@"recordings"];
     
     self.recordingIndex = [[NSUserDefaults standardUserDefaults] integerForKey:@"recordingIndex"] ;
-    for(int i=1;i<self.recordingIndex;i++){
+    NSLog(@"Load %i",self.recordingIndex);
+    for(int i=1;i<=self.recordingIndex;i++){
         NSString * path = [NSString stringWithFormat:@"/Users/jonas/Desktop/triumf%i.mov",i];
         
         //AVPlayerItem * item = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"file://%@",path]]];
-        NSMutableDictionary * dict = [@{@"path":path, @"active": @(YES), @"name":[NSString stringWithFormat:@"Old Rec %i", i], @"inTime":@(0), @"outTime":@(0)} mutableCopy];
+        NSMutableDictionary * dict = [@{@"path":path, @"chroma":@(NO), @"active": @(YES), @"name":[NSString stringWithFormat:@"Old Rec %i", i], @"inTime":@(0), @"outTime":@(0)} mutableCopy];
         [self.recordings addObject:dict];
         
         
@@ -418,7 +421,7 @@ static void *SelectionContext = &SelectionContext;
     NSNumber * inTime = [selection valueForKey:@"inTime"];
     NSNumber * outTime = [selection valueForKey:@"outTime"];
     if(inTime && outTime){
-        NSLog(@"Update inout %@ %@",inTime, outTime);
+//        NSLog(@"Update inout %@ %@",inTime, outTime);
         if([inTime floatValue] == 0){
             inTime = @(1);
         }
@@ -461,6 +464,26 @@ static void *SelectionContext = &SelectionContext;
     
 }
 
+-(void)playerItemDidReachEnd:(id)object{
+    MyAVPlayerItem * item = [object valueForKey:@"object"];
+    NSLog(@"reach end %@ chroma %@",item,item.chromaKey);
+    NSLog(@"Items %@",avPlayer.items);
+    
+    if(avPlayer.items.count > 1){
+        MyAVPlayerItem * nextItem = avPlayer.items[1];
+        if(nextItem){
+            NSLog(@"Next item chroma: %@",nextItem.chromaKey);
+            if([nextItem.chromaKey boolValue]){
+                avPlayerLayer.filters = @[ self.deinterlaceFilter, self.chromaFilter, self.colorControlsFilter, self.gammaAdjustFilter];//, self.colorControlsFilter, self.gammaAdjustFilter];//, self.perspectiveFilterMovie, self.sourceOverFilter];
+                //   avPlayerLayer.filters = @[ self.deinterlaceFilter, self.colorControlsFilter, self.gammaAdjustFilter];//, self.perspectiveFilterMovie, self.sourceOverFilter];
+            } else {
+                avPlayerLayer.filters = @[ self.deinterlaceFilter, self.colorControlsFilter, self.gammaAdjustFilter];//, self.perspectiveFilterMovie, self.sourceOverFilter];
+            }
+        }
+    }
+    
+    
+}
 
 -(void)setPlayVideo:(bool)playVideo{
     if(_playVideo != playVideo){
@@ -469,78 +492,89 @@ static void *SelectionContext = &SelectionContext;
         if(playVideo){
             int i=0;
             NSMutableArray * items = [NSMutableArray array];
-            NSMutableArray * outTimes = [NSMutableArray array];
+         //   NSMutableArray * outTimes = [NSMutableArray array];
             
             for(NSDictionary * recording in self.recordings){
                 if([[recording valueForKey:@"active"] boolValue] == YES){
-                    AVPlayerItem * item = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"file://%@",[recording valueForKey:@"path"]]]];
-                    
-                    double inTime = [[recording valueForKey:@"inTime"] doubleValue];
-                    double outTime = item.duration.value - [[recording valueForKey:@"outTime"] doubleValue];
-                    
-                    if(inTime == 0){
-                        inTime = 100;
+                    MyAVPlayerItem * item = [[MyAVPlayerItem alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"file://%@",[recording valueForKey:@"path"]]]];
+
+                    item.chromaKey = [recording valueForKey:@"chroma"] ;
+                    if(item.duration.value > 0){
+                        double inTime = [[recording valueForKey:@"inTime"] doubleValue];
+                //        double outTime = item.duration.value - [[recording valueForKey:@"outTime"] doubleValue];
+                        
+                        if(inTime == 0){
+                            inTime = 100;
+                        }
+                        if(inTime >= item.duration.value){
+                            inTime = item.duration.value;
+                        }
+                        
+                        
+                        /*  if(outTime >= avPlayerPreview.currentItem.duration.value){
+                         outTime = avPlayerPreview.currentItem.duration.value;
+                         }
+                         if(outTime == 0){
+                         outTime = 200;
+                         }*/
+                        [item seekToTime:CMTimeMake(inTime, 600)  toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero];
+                       // [outTimes addObject:[NSValue valueWithCMTime:CMTimeMake(outTime, 600) ]];
+                        
+                        if(item.error){
+                            NSLog(@"Error loading %@",item.error);
+                        }
+                        if(i==0){
+                            [item addObserver:self forKeyPath:@"status" options:0 context:&ItemStatusContext];
+                        }
+                        
+                        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                                 selector:@selector(playerItemDidReachEnd:)
+                                                                     name:AVPlayerItemDidPlayToEndTimeNotification
+                                                                   object:item];
+
+                        [items addObject:item];
                     }
-                    if(inTime >= avPlayerPreview.currentItem.duration.value){
-                        inTime = avPlayerPreview.currentItem.duration.value;
-                    }
-                    
-                    
-                  /*  if(outTime >= avPlayerPreview.currentItem.duration.value){
-                        outTime = avPlayerPreview.currentItem.duration.value;
-                    }
-                    if(outTime == 0){
-                        outTime = 200;
-                    }*/
-                    [item seekToTime:CMTimeMake(inTime, 600)  toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero];
-                    [outTimes addObject:[NSValue valueWithCMTime:CMTimeMake(outTime, 600) ]];
-                    
-                    if(item.error){
-                        NSLog(@"Error loading %@",item.error);
-                    }
-                    if(i==0){
-                        [item addObserver:self forKeyPath:@"status" options:0 context:&ItemStatusContext];
-                    }
-                    [items addObject:item];
                     i++;
                 }
             }
             
             avPlayer = [[AVQueuePlayer alloc] initWithItems:items];
-            // [avPlayer play];
             avPlayerLayer = [AVPlayerLayer playerLayerWithPlayer:avPlayer];
-            
-            /* __block AppDelegate *dp = self;
-             
-             void (^blockPointer)(void);
-             
-             void (^block)(void)  = ^(void){
-             [dp->avPlayer removeTimeObserver:dp->avPlayerBoundaryPreview];
-             [dp->avPlayer advanceToNextItem];
-             
-             [outTimes removeObjectAtIndex:0];
-             if([outTimes count] > 0){
-             NSLog(@"New time boundary");
-             avPlayerBoundaryPreview = [avPlayer addBoundaryTimeObserverForTimes:@[outTimes[0]] queue:NULL usingBlock:blockPointer];
-             }
-             NSLog(@"Ping");
-             };
-             
-             blockPointer = block;
-             
-             
-             avPlayerBoundaryPreview = [avPlayer addBoundaryTimeObserverForTimes:@[outTimes[0]] queue:NULL usingBlock:blockPointer];
-             
-             */
-            
-            
-            //            avPlayerLayer.filters = @[self.deinterlaceFilter, self.colorControlsFilter, self.gammaAdjustFilter, self.perspectiveFilter];
-            
-            [self.constantColorFilter setValue:[CIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:1.0] forKey:@"inputColor"];
+            NSRect bounds = NSMakeRect(0, 0, 720, 576);
+            NSRect frame = NSMakeRect(0, 0, 1024, 768);
+            [avPlayerLayer setFrame:frame];
+            [avPlayerLayer setBounds:bounds];
+
+/*            [self.constantColorFilter setValue:[CIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:1.0] forKey:@"inputColor"];
             [self.sourceOverFilter setValue:[self.constantColorFilter valueForKey:@"outputImage"] forKey:@"inputBackgroundImage"];
+  */
+         //   [self.chromaFilter setInputBackgroundImage:[self imageForSelector:2]];
             
-            [self.chromaFilter setInputBackgroundImage:[self imageForSelector:2]];
-            avPlayerLayer.filters = @[ self.deinterlaceFilter, self.colorControlsFilter, self.gammaAdjustFilter];//, self.perspectiveFilterMovie, self.sourceOverFilter];
+//           avPlayerLayer.filters = @[ self.deinterlaceFilter, self.chromaFilter];//, self.colorControlsFilter, self.gammaAdjustFilter];//, self.perspectiveFilterMovie, self.sourceOverFilter];
+         //   avPlayerLayer.filters = @[ self.deinterlaceFilter, self.colorControlsFilter, self.gammaAdjustFilter];//, self.perspectiveFilterMovie, self.sourceOverFilter];
+            
+            
+            [self.mainOutput setWantsLayer:YES];
+            avPlayerLayer.backgroundColor = [[NSColor colorWithCalibratedWhite:0.0 alpha:1.0] CGColor];
+            //avPlayerLayer.videoGravity =  AVLayerVideoGravityResize;
+            //     [avPlayerLayer setFrame:[[self.mainOutput layer] bounds]];
+            //xavPlayerLayer.transform
+            
+            [avPlayerLayer setAutoresizingMask:kCALayerWidthSizable | kCALayerHeightSizable];
+            [self.mainOutput layer].backgroundColor = [[NSColor blackColor] CGColor];
+            [[self.mainOutput layer] addSublayer:avPlayerLayer];
+            [avPlayer play];
+            
+            
+            if(items.count > 0){
+                if([[items[0] valueForKey:@"chromaKey"] boolValue]){
+                    avPlayerLayer.filters = @[ self.deinterlaceFilter, self.chromaFilter, self.colorControlsFilter, self.gammaAdjustFilter];//, self.colorControlsFilter, self.gammaAdjustFilter];//, self.perspectiveFilterMovie, self.sourceOverFilter];
+                    //   avPlayerLayer.filters = @[ self.deinterlaceFilter, self.colorControlsFilter, self.gammaAdjustFilter];//, self.perspectiveFilterMovie, self.sourceOverFilter];
+                } else {
+                    avPlayerLayer.filters = @[ self.deinterlaceFilter, self.colorControlsFilter, self.gammaAdjustFilter];//, self.perspectiveFilterMovie, self.sourceOverFilter];
+                }
+            }
+            
         } else {
             [avPlayerLayer removeFromSuperlayer];
             [self.mainOutput setWantsLayer:NO];
@@ -569,7 +603,7 @@ static void *SelectionContext = &SelectionContext;
             [videoWriter finishWriting];
             
             //            [self.recordings addObject:@{@"path":path, @"name":[NSString stringWithFormat:@"Rec %i", self.recordingIndex-1]}];
-            NSMutableDictionary * dict = [@{@"path":path, @"active": @(YES), @"name":[NSString stringWithFormat:@"Old Rec %i", self.recordingIndex-1], @"inTime":@(0), @"outTime":@(0)} mutableCopy];
+            NSMutableDictionary * dict = [@{@"path":path, @"active": @(YES), @"chroma":@(NO), @"name":[NSString stringWithFormat:@"Old Rec %i", self.recordingIndex-1], @"inTime":@(0), @"outTime":@(0)} mutableCopy];
             [self.recordings addObject:dict];
             
             
@@ -647,7 +681,6 @@ static dispatch_once_t onceToken;
         callback->delegateBusy = YES;
 //        CVPixelBufferRef buffer = [self createCVImageBufferFromCallback:callback];
         CVPixelBufferRef buffer = callback->buffer;
-        NSLog(@"%i",buffer);
         
         int num = -1;
         if(callback == [self.blackMagicController callbacks:0]){
@@ -682,88 +715,93 @@ static dispatch_once_t onceToken;
         }
         
         
-        if(!self.recording){
-  
-
-       
-            if(num == 0  && [[NSUserDefaults standardUserDefaults] boolForKey:@"chromaKey"] && self.decklink1input == 8){
+        if(self.playVideo){
+            if(num == 1){
+//            avPlayerLayer.filters
+                ChromaFilter * filter = [avPlayerLayer valueForKeyPath:@"filters.chroma"];
+                if(filter){
+   //             NSLog(@" Filter %@",avPlayerLayer.filters);
+                image = [self filterCIImage:image];
                 
-                [self.noiseReductionFilter setValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"noiseReduction"] forKey:@"inputNoiseLevel"];
-                [self.noiseReductionFilter setValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"sharpness"] forKey:@"inputSharpness"];
-                [self.noiseReductionFilter setValue:image forKey:@"inputImage"];
-//                image = [self.noiseReductionFilter valueForKey:@"outputImage"];
-
                 
-                image = [self chromaKey:image backgroundImage:cameras[1] alphaImage:[self.noiseReductionFilter valueForKey:@"outputImage"]];
-            }
-            if(num == 0 && [[NSUserDefaults standardUserDefaults] floatForKey:@"chromaScale"] != 1 && self.decklink1input == 8){
-                [self updateChromaTransform];
-                //                [self.chromaTransform setValue:image forKey:@"inputImage"];
-                //                image = [self.chromaTransform valueForKey:@"outputImage"];
-                
-                [self.chromaCrop setValue:image forKey:@"inputImage"];
-                image = [self.chromaCrop valueForKey:@"outputImage"];
-            }
-            
-            image = [self filterCIImage:image];
-        
-   
-            cameras[num] = image;
-            
-            
-            //  dispatch_async(dispatch_get_main_queue(), ^{
+                [avPlayerLayer  setValue:image forKeyPath:@"filters.chroma.inputBackgroundImage"];
+                }
 
-            if(num == self.outSelector-1 || self.outSelector == 0 || self.outSelector > 3){
-                self.mainOutput.ciImage = [self outputImage];
-                //if(![self.mainOutput needsDisplay])
-                [self.mainOutput setNeedsDisplay:YES];
             }
-//            if(!self.mainOutput.needsDisplay){ //Spar på energien
+        } else {
+            if(!self.recording){
+                if(num == 0  && [[NSUserDefaults standardUserDefaults] boolForKey:@"chromaKey"] && self.decklink1input == 8){
+                    image = [self chromaKey:image backgroundImage:cameras[1]];
+                }
+                if(num == 0 && [[NSUserDefaults standardUserDefaults] floatForKey:@"chromaScale"] != 1 && self.decklink1input == 8){
+                    [self updateChromaTransform];
+                    //                [self.chromaTransform setValue:image forKey:@"inputImage"];
+                    //                image = [self.chromaTransform valueForKey:@"outputImage"];
+                    
+                    [self.chromaCrop setValue:image forKey:@"inputImage"];
+                    image = [self.chromaCrop valueForKey:@"outputImage"];
+                }
+                
+                image = [self filterCIImage:image];
+                
+                
+                cameras[num] = image;
+                
+                
+                //  dispatch_async(dispatch_get_main_queue(), ^{
+                
+                if(num == self.outSelector-1 || self.outSelector == 0 || self.outSelector > 3){
+                    self.mainOutput.ciImage = [self outputImage];
+                    //if(![self.mainOutput needsDisplay])
+                    [self.mainOutput setNeedsDisplay:YES];
+                }
+                //            if(!self.mainOutput.needsDisplay){ //Spar på energien
                 preview.ciImage = [self imageForSelector:num+1];
-           //     [preview performSelector:@selector(setNeedsDisplay:) withObject:YES afterDelay:1];
+                //     [preview performSelector:@selector(setNeedsDisplay:) withObject:YES afterDelay:1];
                 [preview setNeedsDisplay:YES];
-  //          }
-            //[NSThread sleepForTimeInterval:0.01];
-        }
-        
-        if(self.recording && num == self.outSelector - 1){
-            //  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul), ^{
-            NSTimeInterval diffTime = time - self.startRecordTime;
-            int frameCount = diffTime*25.0;
-            
-            BOOL append_ok = NO;
-            int j = 0;
-            /* while (!append_ok && j < 30)
-             {*/
-            if (adaptor.assetWriterInput.readyForMoreMediaData)
-            {
-                //                    printf("appending %d attemp %d\n", frameCount, j);
-                
-                CMTime frameTime = CMTimeMake(frameCount,(int32_t) 25.0);
-                append_ok = [adaptor appendPixelBuffer:buffer withPresentationTime:frameTime];
-                
-                
-                //if(buffer)
-                  //  CVBufferRelease(buffer);
-                [NSThread sleepForTimeInterval:0.035];
-            }
-            else
-            {
-                printf("adaptor not ready %d, %d\n", frameCount, j);
-                // [NSThread sleepForTimeInterval:0.1];
-            }
-            j++;
-            //}
-            if (!append_ok) {
-                printf("error appending image %d times %d\n", frameCount, j);
+                //          }
+                //[NSThread sleepForTimeInterval:0.01];
             }
             
-            // });
+            if(self.recording && num == self.outSelector - 1){
+                //  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul), ^{
+                NSTimeInterval diffTime = time - self.startRecordTime;
+                int frameCount = diffTime*25.0;
+                
+                BOOL append_ok = NO;
+                int j = 0;
+                /* while (!append_ok && j < 30)
+                 {*/
+                if (adaptor.assetWriterInput.readyForMoreMediaData)
+                {
+                    //                    printf("appending %d attemp %d\n", frameCount, j);
+                    
+                    CMTime frameTime = CMTimeMake(frameCount,(int32_t) 25.0);
+                    append_ok = [adaptor appendPixelBuffer:buffer withPresentationTime:frameTime];
+                    
+                    
+                    //if(buffer)
+                    //  CVBufferRelease(buffer);
+                    [NSThread sleepForTimeInterval:0.035];
+                }
+                else
+                {
+                    printf("adaptor not ready %d, %d\n", frameCount, j);
+                    // [NSThread sleepForTimeInterval:0.1];
+                }
+                j++;
+                //}
+                if (!append_ok) {
+                    printf("error appending image %d times %d\n", frameCount, j);
+                }
+                
+                // });
+            }
         }
         
         callback->delegateBusy = NO;
         [callback->lock unlock];
-//        NSLog(@"New frame out %i",callback);
+        //        NSLog(@"New frame out %i",callback);
 
     });
 }
@@ -873,6 +911,8 @@ static dispatch_once_t onceToken;
         [self didChangeValueForKey:@"out3selected"];
         
     }
+    
+    
     if(self.fadeTime > 0 && transitionTime != -1){
         if(transitionTime == 0){
             [self updateTransitionTime];
@@ -891,7 +931,9 @@ static dispatch_once_t onceToken;
          }*/
         
         _outputImage = [self imageForSelector:self.outSelector];
-        
+        if(!_outputImage){
+            return nil;
+        }
         [self willChangeValueForKey:@"out1selected"];
 		[self willChangeValueForKey:@"out2selected"];
         [self willChangeValueForKey:@"out3selected"];
@@ -943,18 +985,17 @@ static dispatch_once_t onceToken;
 }
 
 
--(CIImage*) chromaKey:(CIImage*)image backgroundImage:(CIImage*)background alphaImage:(CIImage*)alpha{
-    CIImage * retImage = image;
-    
+-(void) updateChromeFilter{
     NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
     
     float chromaMin = [defaults floatForKey:@"chromaMin"];
     float chromaMax = [defaults floatForKey:@"chromaMax"];
     float chromaVal = [defaults floatForKey:@"chromaVal"];
     float chromaSat = [defaults floatForKey:@"chromaSat"];
-
+    
     float chromaBlur = [defaults floatForKey:@"chromaBlur"];
-
+    float chromaBlur2 = [defaults floatForKey:@"chromaBlur2"];
+    
     if(chromaMin != chromaMinSet || chromaMax != chromaMaxSet || chromaSat != chromaSatSet || chromaVal != chromaValSet){
         chromaMinSet = chromaMin;
         chromaMaxSet = chromaMax;
@@ -963,19 +1004,20 @@ static dispatch_once_t onceToken;
         [self.chromaFilter setMinHueAngle:chromaMinSet maxHueAngle:chromaMaxSet minValue:chromaVal minSaturation:chromaSat];
     }
     
-    [self.chromaGaussian setValue:@(chromaBlur) forKey:@"inputRadius"];
-    [self.chromaGaussian setValue:alpha forKey:@"inputImage"];
-    image = [self.chromaGaussian valueForKey:@"outputImage"];
+    [self.chromaFilter setGaussianRadius:chromaBlur  setGaussianRadius2:chromaBlur2 noiseReduction:[[defaults valueForKey:@"noiseReduction"] floatValue]];
     
+
+}
+
+-(CIImage*) chromaKey:(CIImage*)image backgroundImage:(CIImage*)background{
+    [self updateChromeFilter];
     self.chromaFilter.inputBackgroundImage = background;
-    self.chromaFilter.inputImage = alpha;
-    self.chromaFilter.inputForegroundImage = image;
-    retImage = [self.chromaFilter outputImage];
-    
-    return retImage;
+    self.chromaFilter.inputImage = image;
+    return [self.chromaFilter outputImage];
 }
 
 -(CIImage*) filterCIImage:(CIImage*)inputImage{
+    if(inputImage != nil){
     __block CIImage * _outputImage = inputImage;
     
     [self.deinterlaceFilter setInputImage:_outputImage];
@@ -1009,11 +1051,14 @@ static dispatch_once_t onceToken;
      _outputImage = [toneCurveFilter valueForKey:@"outputImage"];*/
     
     return _outputImage;
+    } else {
+        return nil;
+    }
 }
 
 void MyPixelBufferReleaseCallback(void *releaseRefCon, const void *baseAddress){
  //   NSLog(@" release %i",baseAddress);
-    delete baseAddress;
+    delete (unsigned char*)baseAddress;
 }
 
 -(CVPixelBufferRef) createCVImageBufferFromCallback:(DecklinkCallback*)callback{

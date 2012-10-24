@@ -58,28 +58,58 @@ void rgb2hsv(float * rgb, float * hsv)
 
 
 static CIKernel *alphaOverKernel = nil;
+static CIKernel *alphaThresholdKernel = nil;
 
 @implementation ChromaFilter
 @synthesize inputImage = _inputImage;
 @synthesize inputBackgroundImage = _inputBackgroundImage;
-@synthesize inputForegroundImage = _inputForegroundImage;
+//@synthesize inputForegroundImage = _inputForegroundImage;
+
+static dispatch_once_t onceToken;
+static CIFilter *colorCube;
+static CIFilter * gaussianFilter;
+static CIFilter * gaussianFilter2;
+static CIFilter * noiseReductionFilter;
+static CIFilter * scaleFilter;
 
 - (id)init
 {
    self = [super init];
-    colorCube = [CIFilter filterWithName:@"CIColorCube"];
-    sourceOverFilter = [CIFilter filterWithName:@"CISourceOverCompositing"];
-    
-    
-    if(alphaOverKernel == nil)// 1
-    {
-        NSBundle    *bundle = [NSBundle bundleForClass: [self class]];// 2
-        NSString    *code = [NSString stringWithContentsOfFile: [bundle// 3
-                                                                 pathForResource: @"alphaOver"
-                                                                 ofType: @"cikernel"]];
-        NSArray     *kernels = [CIKernel kernelsWithString: code];// 4
-        alphaOverKernel = [kernels objectAtIndex:0];// 5
-    }
+    //sourceOverFilter = [CIFilter filterWithName:@"CISourceOverCompositing"];
+
+    dispatch_once(&onceToken, ^{
+        
+        colorCube = [CIFilter filterWithName:@"CIColorCube"];
+        
+        
+        if(alphaOverKernel == nil)// 1
+        {
+            NSBundle    *bundle = [NSBundle bundleForClass: [self class]];// 2
+            NSString    *code = [NSString stringWithContentsOfFile: [bundle// 3
+                                                                     pathForResource: @"alphaOver"
+                                                                     ofType: @"cikernel"]];
+            NSArray     *kernels = [CIKernel kernelsWithString: code];// 4
+            alphaOverKernel = [kernels objectAtIndex:0];// 5
+            
+            alphaThresholdKernel = [kernels objectAtIndex:1];// 5
+            
+        }
+        
+        
+        gaussianFilter = [CIFilter filterWithName:@"CIGaussianBlur"];
+        [gaussianFilter setDefaults];
+
+        gaussianFilter2 = [CIFilter filterWithName:@"CIGaussianBlur"];
+        [gaussianFilter2 setDefaults];
+        
+        noiseReductionFilter = [CIFilter filterWithName:@"CINoiseReduction"] ;
+        [noiseReductionFilter setDefaults];
+        
+        scaleFilter = [CIFilter filterWithName:@"CIAffineTransform"];
+        [scaleFilter setDefaults];
+
+    });
+
 
     return self;
 }
@@ -142,15 +172,38 @@ static CIKernel *alphaOverKernel = nil;
 }
 
 -(NSArray *)inputKeys{
-    return @[@"inputImage", @"inputBackgroundImage", @"inputForegroundImage"];
+    return @[@"inputImage", @"inputBackgroundImage"];
 }
 
+-(void) setGaussianRadius:(float)radius setGaussianRadius2:(float)radius2 noiseReduction:(float)noiseReduction{
+    [gaussianFilter setValue:@(radius) forKey:@"inputRadius"];
+    [gaussianFilter2 setValue:@(radius2) forKey:@"inputRadius"];
+    [noiseReductionFilter setValue:@(noiseReduction) forKey:@"inputNoiseLevel"];
+}
 
 - (CIImage *)outputImage
 {
-    if(self.inputImage == nil)
+    if(self.inputImage == nil  || self.inputBackgroundImage == nil){
+        NSLog(@"No image");
         return nil;
-    [colorCube setValue:self.inputImage forKey:@"inputImage"];
+    }
+  //  return self.inputBackgroundImage;
+    
+    CIImage * image = self.inputImage ;
+
+    [noiseReductionFilter setValue:image forKey:@"inputImage"];
+    image =[noiseReductionFilter valueForKey:@"outputImage"];
+   
+    [gaussianFilter setValue:image forKey:@"inputImage"];
+    image = [gaussianFilter valueForKey:@"outputImage"];
+
+    
+    [colorCube setValue:image forKey:@"inputImage"];
+    image = [colorCube valueForKey:@"outputImage"];
+    
+//    NSLog(@"%i",[[colorCube valueForKey:@"inputCubeDimension"] intValue]);
+
+ //   return image;
   /*
     [sourceOverFilter setValue:[colorCube valueForKey:@"outputImage"] forKey:@"inputImage"];
     [sourceOverFilter setValue:self.inputBackgroundImage forKey:@"inputBackgroundImage"];
@@ -160,10 +213,31 @@ static CIKernel *alphaOverKernel = nil;
 
 */
     
-    CISampler *foreground = [CISampler samplerWithImage: self.inputForegroundImage];
+/*    NSAffineTransform * transform = [NSAffineTransform transform];
+    [transform scaleBy:self.inputImage.extent.size.width / self.inputBackgroundImage.extent.size.width];
+    [scaleFilter setValue:transform forKey:@"inputTransform"];
+
+
+    
+    [scaleFilter setValue:image forKeyPath:@"inputImage"];
+    image = [scaleFilter valueForKey:@"outputImage"];
+  */  
+//    NSLog(@" %f   %f", self.inputImage.extent.size.width,self.inputBackgroundImage.extent.size.width);
+    if(image == nil){
+        NSLog(@"No alpha image");
+    }
+    CISampler *alpha = [CISampler samplerWithImage: image];
+    image = [self apply: alphaThresholdKernel, alpha, kCIApplyOptionDefinition, [alpha definition], nil];
+
+    [gaussianFilter2 setValue:image forKey:@"inputImage"];
+    image = [gaussianFilter2 valueForKey:@"outputImage"];
+
+    
+    CISampler *foreground = [CISampler samplerWithImage: self.inputImage];
     CISampler *background = [CISampler samplerWithImage: self.inputBackgroundImage];
-    CISampler *alpha = [CISampler samplerWithImage: [colorCube valueForKey:@"outputImage"]];
+    alpha = [CISampler samplerWithImage: image];
     // NSAssert(src, @" Nor Src");
+    
     return [self apply: alphaOverKernel, foreground, alpha, background, kCIApplyOptionDefinition, [foreground definition], nil];
 
 }
